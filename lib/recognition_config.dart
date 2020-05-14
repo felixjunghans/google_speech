@@ -1,6 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:google_speech/generated/google/cloud/speech/v1/cloud_speech.pb.dart'
     as _cs;
+import 'package:meta/meta.dart';
 
 /// The encoding of the audio data sent in the request.
 ///

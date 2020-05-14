@@ -120,7 +120,7 @@ After you have successfully connected the ServiceAccount, you can already start 
 
 ### TODO
 
-- [x] Seeking example in `Examples` project
+- [x] Seeking example in `Example` project
 - [x] Add streamingRecognize support
 - [ ] Add longRunningRecognize support
 - [ ] Add infinity stream support
