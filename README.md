@@ -41,8 +41,56 @@ After you have successfully connected the ServiceAccount, you can already start 
 
 #### Initialize SpeechToText
 
-    import 'package:google_speech/flutter_google_speech.dart';
+    import 'package:google_speech/google_speech.dart';
     
     final speechToText = SpeechToText.viaServiceAccount(serviceAccount);
 
 #### Transcribing a file using recognize
+
+##### Define a RecognitionConfig
+
+    final config = RecognitionConfig(
+                         encoding: AudioEncoding.LINEAR16,
+                         model: RecognitionModel.basic,
+                         enableAutomaticPunctuation: true,
+                         sampleRateHertz: 16000,
+                         languageCode: 'en-US');
+    
+##### Get the contents of the audio file
+    
+     Future<List<int>> _getAudioContent(String name) async {
+       final directory = await getApplicationDocumentsDirectory();
+       final path = directory.path + '/$name';
+       return File(path).readAsBytesSync().toList();
+     }
+    
+    final audio = await _getAudioContent('test.wav');
+    
+##### And finally send the request    
+    
+    final response = await speechToText.recognize(config, audio);
+
+#### Transcribing a file using streamRecognize
+
+##### Define a StreamingRecognitionConfig
+
+    final streamingConfig = StreamingRecognitionConfig(config: config, interimResults: true);
+    
+##### Get the contents of the audio file as stream || or get an audio stream directly from a microphone input
+    
+     Future<Stream<List<int>>> _getAudioStream(String name) async {
+       final directory = await getApplicationDocumentsDirectory();
+       final path = directory.path + '/$name';
+       return File(path).openRead();
+     }
+    
+    final audio = await _getAudioStream('test.wav');
+    
+##### And finally send the request    
+    
+    final responseStream = speechToText.streamingRecognize(streamingConfig, audio);
+    responseStream.listen((data) {
+        // listen for response 
+    });
+    
+[More information can be found in the official Google Cloud Speech documentation.](https://cloud.google.com/speech-to-text/docs)   
