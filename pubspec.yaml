@@ -15,6 +15,9 @@ dependencies:
   fixnum: ^0.10.11
   meta: ^1.1.8
 
+dev_dependency_overrides:
+  pedantic: ^1.9.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
