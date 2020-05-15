@@ -16,6 +16,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: Flutter CLI
+      uses: steebchen/flutter@v1.0.0  
     - name: Install dependencies
       run: flutter pub get
     - name: Run tests
