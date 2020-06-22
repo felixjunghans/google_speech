@@ -1,23 +1,7 @@
-# Google Speech Examples
-
-## [Audio File Example](https://github.com/felixjunghans/google_speech/tree/master/example/audio_file_example)
-
-To run this example project it is necessary to create a service account Json in the Assets folder of the project. 
-This should have the name: 'test_service_account.json'.
-
-## [Mic Stream Example](https://github.com/felixjunghans/google_speech/tree/master/example/mic_stream_example)
-
-To run this example project it is necessary to create a service account Json in the Assets folder of the project. 
-This should have the name: 'test_service_account.json'.
-
-``
-```dart
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_speech/google_speech.dart';
-import 'package:path_provider/path_provider.dart';
+import 'package:sound_stream/sound_stream.dart';
 
 void main() {
   runApp(MyApp());
@@ -28,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Audio File Example',
+      title: 'Mic Stream Example',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -44,33 +28,22 @@ class AudioRecognize extends StatefulWidget {
 }
 
 class _AudioRecognizeState extends State<AudioRecognize> {
+  final RecorderStream _recorder = RecorderStream();
+
   bool recognizing = false;
   bool recognizeFinished = false;
   String text = '';
 
-  void recognize() async {
-    setState(() {
-      recognizing = true;
-    });
-    final serviceAccount = ServiceAccount.fromString(
-        '${(await rootBundle.loadString('assets/test_service_account.json'))}');
-    final speechToText = SpeechToText.viaServiceAccount(serviceAccount);
-    final config = _getConfig();
-    final audio = await _getAudioContent('test.wav');
+  @override
+  void initState() {
+    super.initState();
 
-    await speechToText.recognize(config, audio).then((value) {
-      setState(() {
-        text = value.results
-            .map((e) => e.alternatives.first.transcript)
-            .join('\n');
-      });
-    }).whenComplete(() => setState(() {
-          recognizeFinished = true;
-          recognizing = false;
-        }));
+    _recorder.initialize();
   }
 
   void streamingRecognize() async {
+    await _recorder.start();
+
     setState(() {
       recognizing = true;
     });
@@ -81,7 +54,7 @@ class _AudioRecognizeState extends State<AudioRecognize> {
 
     final responseStream = speechToText.streamingRecognize(
         StreamingRecognitionConfig(config: config, interimResults: true),
-        await _getAudioStream('test.wav'));
+        _recorder.audioStream);
 
     responseStream.listen((data) {
       setState(() {
@@ -96,38 +69,19 @@ class _AudioRecognizeState extends State<AudioRecognize> {
     });
   }
 
+  void stopRecording() async {
+    await _recorder.stop();
+    setState(() {
+      recognizing = false;
+    });
+  }
+
   RecognitionConfig _getConfig() => RecognitionConfig(
       encoding: AudioEncoding.LINEAR16,
       model: RecognitionModel.basic,
       enableAutomaticPunctuation: true,
       sampleRateHertz: 16000,
       languageCode: 'en-US');
-
-  Future<void> _copyFileFromAssets(String name) async {
-    var data = await rootBundle.load('assets/$name');
-    final directory = await getApplicationDocumentsDirectory();
-    final path = directory.path + '/$name';
-    await File(path).writeAsBytes(
-        data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes));
-  }
-
-  Future<List<int>> _getAudioContent(String name) async {
-    final directory = await getApplicationDocumentsDirectory();
-    final path = directory.path + '/$name';
-    if (!File(path).existsSync()) {
-      await _copyFileFromAssets(name);
-    }
-    return File(path).readAsBytesSync().toList();
-  }
-
-  Future<Stream<List<int>>> _getAudioStream(String name) async {
-    final directory = await getApplicationDocumentsDirectory();
-    final path = directory.path + '/$name';
-    if (!File(path).existsSync()) {
-      await _copyFileFromAssets(name);
-    }
-    return File(path).openRead();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -144,19 +98,10 @@ class _AudioRecognizeState extends State<AudioRecognize> {
                 text: text,
               ),
             RaisedButton(
-              onPressed: recognizing ? () {} : recognize,
+              onPressed: recognizing ? stopRecording : streamingRecognize,
               child: recognizing
-                  ? CircularProgressIndicator()
-                  : Text('Test with recognize'),
-            ),
-            SizedBox(
-              height: 10.0,
-            ),
-            RaisedButton(
-              onPressed: recognizing ? () {} : streamingRecognize,
-              child: recognizing
-                  ? CircularProgressIndicator()
-                  : Text('Test with streaming recognize'),
+                  ? Text('Stop recording')
+                  : Text('Start Streaming from mic'),
             ),
           ],
         ),
@@ -191,4 +136,3 @@ class _RecognizeContent extends StatelessWidget {
     );
   }
 }
-``
