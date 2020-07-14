@@ -1,4 +1,4 @@
-library flutter_google_speech;
+library flutter_google_speech_beta;
 
 import 'dart:async';
 

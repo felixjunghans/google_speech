@@ -5,3 +5,4 @@ export 'config/streaming_recognition_config.dart';
 export 'exception.dart';
 export 'speech_client_authenticator.dart';
 export 'speech_to_text.dart';
+export 'speech_to_text_beta.dart';

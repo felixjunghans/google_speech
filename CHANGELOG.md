@@ -1,3 +1,6 @@
+## [1.1.1] - Fix import and naming errors.
+* Fix import and naming errors.
+
 ## [1.1.0] - Add Google Speech Beta support.
 * Add all the features required to use Google Speech Beta.
 
