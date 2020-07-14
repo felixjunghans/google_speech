@@ -1,3 +1,6 @@
+## [1.1.0] - Add Google Speech Beta support.
+* Add all the features required to use Google Speech Beta.
+
 ## [1.0.2] - An example with a microphone input added.
 * Added an example project which shows the use of google_speech with a microphone input.
 

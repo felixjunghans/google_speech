@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_speech/google_speech.dart';
+import 'package:google_speech/speech_to_text_beta.dart';
 import 'package:path_provider/path_provider.dart';
 
 void main() {
@@ -40,7 +41,7 @@ class _AudioRecognizeState extends State<AudioRecognize> {
     });
     final serviceAccount = ServiceAccount.fromString(
         '${(await rootBundle.loadString('assets/test_service_account.json'))}');
-    final speechToText = SpeechToText.viaServiceAccount(serviceAccount);
+    final speechToText = SpeechToTextBeta.viaServiceAccount(serviceAccount);
     final config = _getConfig();
     final audio = await _getAudioContent('test.wav');
 
@@ -62,11 +63,11 @@ class _AudioRecognizeState extends State<AudioRecognize> {
     });
     final serviceAccount = ServiceAccount.fromString(
         '${(await rootBundle.loadString('assets/test_service_account.json'))}');
-    final speechToText = SpeechToText.viaServiceAccount(serviceAccount);
+    final speechToText = SpeechToTextBeta.viaServiceAccount(serviceAccount);
     final config = _getConfig();
 
     final responseStream = speechToText.streamingRecognize(
-        StreamingRecognitionConfig(config: config, interimResults: true),
+        StreamingRecognitionConfigBeta(config: config, interimResults: true),
         await _getAudioStream('test.wav'));
 
     responseStream.listen((data) {
@@ -82,12 +83,13 @@ class _AudioRecognizeState extends State<AudioRecognize> {
     });
   }
 
-  RecognitionConfig _getConfig() => RecognitionConfig(
+  RecognitionConfigBeta _getConfig() => RecognitionConfigBeta(
       encoding: AudioEncoding.LINEAR16,
       model: RecognitionModel.basic,
       enableAutomaticPunctuation: true,
       sampleRateHertz: 16000,
-      languageCode: 'en-US');
+      languageCode: 'de-DE',
+      alternativeLanguageCodes: ['fr-FR', 'en-US']);
 
   Future<void> _copyFileFromAssets(String name) async {
     var data = await rootBundle.load('assets/$name');

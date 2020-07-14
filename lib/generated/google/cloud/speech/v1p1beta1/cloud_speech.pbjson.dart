@@ -1,6 +1,6 @@
 ///
 //  Generated code. Do not modify.
-//  source: google/cloud/speech_new/v1/cloud_speech.proto
+//  source: google/cloud/speech_new/v1p1beta1/cloud_speech.proto
 //
 // @dart = 2.3
 // ignore_for_file: camel_case_types,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type
@@ -13,7 +13,7 @@ const RecognizeRequest$json = const {
       '3': 1,
       '4': 1,
       '5': 11,
-      '6': '.google.cloud.speech.v1.RecognitionConfig',
+      '6': '.google.cloud.speech.v1p1beta1.RecognitionConfig',
       '8': const {},
       '10': 'config'
     },
@@ -22,7 +22,7 @@ const RecognizeRequest$json = const {
       '3': 2,
       '4': 1,
       '5': 11,
-      '6': '.google.cloud.speech.v1.RecognitionAudio',
+      '6': '.google.cloud.speech.v1p1beta1.RecognitionAudio',
       '8': const {},
       '10': 'audio'
     },
@@ -37,7 +37,7 @@ const LongRunningRecognizeRequest$json = const {
       '3': 1,
       '4': 1,
       '5': 11,
-      '6': '.google.cloud.speech.v1.RecognitionConfig',
+      '6': '.google.cloud.speech.v1p1beta1.RecognitionConfig',
       '8': const {},
       '10': 'config'
     },
@@ -46,7 +46,7 @@ const LongRunningRecognizeRequest$json = const {
       '3': 2,
       '4': 1,
       '5': 11,
-      '6': '.google.cloud.speech.v1.RecognitionAudio',
+      '6': '.google.cloud.speech.v1p1beta1.RecognitionAudio',
       '8': const {},
       '10': 'audio'
     },
@@ -61,7 +61,7 @@ const StreamingRecognizeRequest$json = const {
       '3': 1,
       '4': 1,
       '5': 11,
-      '6': '.google.cloud.speech.v1.StreamingRecognitionConfig',
+      '6': '.google.cloud.speech.v1p1beta1.StreamingRecognitionConfig',
       '9': 0,
       '10': 'streamingConfig'
     },
@@ -87,7 +87,7 @@ const StreamingRecognitionConfig$json = const {
       '3': 1,
       '4': 1,
       '5': 11,
-      '6': '.google.cloud.speech.v1.RecognitionConfig',
+      '6': '.google.cloud.speech.v1p1beta1.RecognitionConfig',
       '8': const {},
       '10': 'config'
     },
@@ -116,7 +116,7 @@ const RecognitionConfig$json = const {
       '3': 1,
       '4': 1,
       '5': 14,
-      '6': '.google.cloud.speech.v1.RecognitionConfig.AudioEncoding',
+      '6': '.google.cloud.speech.v1p1beta1.RecognitionConfig.AudioEncoding',
       '10': 'encoding'
     },
     const {
@@ -149,6 +149,13 @@ const RecognitionConfig$json = const {
       '10': 'languageCode'
     },
     const {
+      '1': 'alternative_language_codes',
+      '3': 18,
+      '4': 3,
+      '5': 9,
+      '10': 'alternativeLanguageCodes'
+    },
+    const {
       '1': 'max_alternatives',
       '3': 4,
       '4': 1,
@@ -163,11 +170,19 @@ const RecognitionConfig$json = const {
       '10': 'profanityFilter'
     },
     const {
+      '1': 'adaptation',
+      '3': 20,
+      '4': 1,
+      '5': 11,
+      '6': '.google.cloud.speech.v1p1beta1.SpeechAdaptation',
+      '10': 'adaptation'
+    },
+    const {
       '1': 'speech_contexts',
       '3': 6,
       '4': 3,
       '5': 11,
-      '6': '.google.cloud.speech.v1.SpeechContext',
+      '6': '.google.cloud.speech.v1p1beta1.SpeechContext',
       '10': 'speechContexts'
     },
     const {
@@ -178,6 +193,13 @@ const RecognitionConfig$json = const {
       '10': 'enableWordTimeOffsets'
     },
     const {
+      '1': 'enable_word_confidence',
+      '3': 15,
+      '4': 1,
+      '5': 8,
+      '10': 'enableWordConfidence'
+    },
+    const {
       '1': 'enable_automatic_punctuation',
       '3': 11,
       '4': 1,
@@ -185,11 +207,27 @@ const RecognitionConfig$json = const {
       '10': 'enableAutomaticPunctuation'
     },
     const {
+      '1': 'enable_speaker_diarization',
+      '3': 16,
+      '4': 1,
+      '5': 8,
+      '8': const {'3': true},
+      '10': 'enableSpeakerDiarization',
+    },
+    const {
+      '1': 'diarization_speaker_count',
+      '3': 17,
+      '4': 1,
+      '5': 5,
+      '8': const {'3': true},
+      '10': 'diarizationSpeakerCount',
+    },
+    const {
       '1': 'diarization_config',
       '3': 19,
       '4': 1,
       '5': 11,
-      '6': '.google.cloud.speech.v1.SpeakerDiarizationConfig',
+      '6': '.google.cloud.speech.v1p1beta1.SpeakerDiarizationConfig',
       '10': 'diarizationConfig'
     },
     const {
@@ -197,7 +235,7 @@ const RecognitionConfig$json = const {
       '3': 9,
       '4': 1,
       '5': 11,
-      '6': '.google.cloud.speech.v1.RecognitionMetadata',
+      '6': '.google.cloud.speech.v1p1beta1.RecognitionMetadata',
       '10': 'metadata'
     },
     const {'1': 'model', '3': 13, '4': 1, '5': 9, '10': 'model'},
@@ -217,6 +255,7 @@ const RecognitionConfig_AudioEncoding$json = const {
     const {'1': 'AMR_WB', '2': 5},
     const {'1': 'OGG_OPUS', '2': 6},
     const {'1': 'SPEEX_WITH_HEADER_BYTE', '2': 7},
+    const {'1': 'MP3', '2': 8},
   ],
 };
 
@@ -263,7 +302,7 @@ const RecognitionMetadata$json = const {
       '3': 1,
       '4': 1,
       '5': 14,
-      '6': '.google.cloud.speech.v1.RecognitionMetadata.InteractionType',
+      '6': '.google.cloud.speech.v1p1beta1.RecognitionMetadata.InteractionType',
       '10': 'interactionType'
     },
     const {
@@ -278,7 +317,8 @@ const RecognitionMetadata$json = const {
       '3': 4,
       '4': 1,
       '5': 14,
-      '6': '.google.cloud.speech.v1.RecognitionMetadata.MicrophoneDistance',
+      '6':
+          '.google.cloud.speech.v1p1beta1.RecognitionMetadata.MicrophoneDistance',
       '10': 'microphoneDistance'
     },
     const {
@@ -286,7 +326,8 @@ const RecognitionMetadata$json = const {
       '3': 5,
       '4': 1,
       '5': 14,
-      '6': '.google.cloud.speech.v1.RecognitionMetadata.OriginalMediaType',
+      '6':
+          '.google.cloud.speech.v1p1beta1.RecognitionMetadata.OriginalMediaType',
       '10': 'originalMediaType'
     },
     const {
@@ -294,7 +335,8 @@ const RecognitionMetadata$json = const {
       '3': 6,
       '4': 1,
       '5': 14,
-      '6': '.google.cloud.speech.v1.RecognitionMetadata.RecordingDeviceType',
+      '6':
+          '.google.cloud.speech.v1p1beta1.RecognitionMetadata.RecordingDeviceType',
       '10': 'recordingDeviceType'
     },
     const {
@@ -310,6 +352,14 @@ const RecognitionMetadata$json = const {
       '4': 1,
       '5': 9,
       '10': 'originalMimeType'
+    },
+    const {
+      '1': 'obfuscated_id',
+      '3': 9,
+      '4': 1,
+      '5': 3,
+      '8': const {'3': true},
+      '10': 'obfuscatedId',
     },
     const {'1': 'audio_topic', '3': 10, '4': 1, '5': 9, '10': 'audioTopic'},
   ],
@@ -372,6 +422,7 @@ const SpeechContext$json = const {
   '1': 'SpeechContext',
   '2': const [
     const {'1': 'phrases', '3': 1, '4': 3, '5': 9, '10': 'phrases'},
+    const {'1': 'boost', '3': 4, '4': 1, '5': 2, '10': 'boost'},
   ],
 };
 
@@ -394,7 +445,7 @@ const RecognizeResponse$json = const {
       '3': 2,
       '4': 3,
       '5': 11,
-      '6': '.google.cloud.speech.v1.SpeechRecognitionResult',
+      '6': '.google.cloud.speech.v1p1beta1.SpeechRecognitionResult',
       '10': 'results'
     },
   ],
@@ -408,7 +459,7 @@ const LongRunningRecognizeResponse$json = const {
       '3': 2,
       '4': 3,
       '5': 11,
-      '6': '.google.cloud.speech.v1.SpeechRecognitionResult',
+      '6': '.google.cloud.speech.v1p1beta1.SpeechRecognitionResult',
       '10': 'results'
     },
   ],
@@ -440,6 +491,7 @@ const LongRunningRecognizeMetadata$json = const {
       '6': '.google.protobuf.Timestamp',
       '10': 'lastUpdateTime'
     },
+    const {'1': 'uri', '3': 4, '4': 1, '5': 9, '8': const {}, '10': 'uri'},
   ],
 };
 
@@ -459,7 +511,7 @@ const StreamingRecognizeResponse$json = const {
       '3': 2,
       '4': 3,
       '5': 11,
-      '6': '.google.cloud.speech.v1.StreamingRecognitionResult',
+      '6': '.google.cloud.speech.v1p1beta1.StreamingRecognitionResult',
       '10': 'results'
     },
     const {
@@ -467,7 +519,8 @@ const StreamingRecognizeResponse$json = const {
       '3': 4,
       '4': 1,
       '5': 14,
-      '6': '.google.cloud.speech.v1.StreamingRecognizeResponse.SpeechEventType',
+      '6':
+          '.google.cloud.speech.v1p1beta1.StreamingRecognizeResponse.SpeechEventType',
       '10': 'speechEventType'
     },
   ],
@@ -490,7 +543,7 @@ const StreamingRecognitionResult$json = const {
       '3': 1,
       '4': 3,
       '5': 11,
-      '6': '.google.cloud.speech.v1.SpeechRecognitionAlternative',
+      '6': '.google.cloud.speech.v1p1beta1.SpeechRecognitionAlternative',
       '10': 'alternatives'
     },
     const {'1': 'is_final', '3': 2, '4': 1, '5': 8, '10': 'isFinal'},
@@ -523,10 +576,18 @@ const SpeechRecognitionResult$json = const {
       '3': 1,
       '4': 3,
       '5': 11,
-      '6': '.google.cloud.speech.v1.SpeechRecognitionAlternative',
+      '6': '.google.cloud.speech.v1p1beta1.SpeechRecognitionAlternative',
       '10': 'alternatives'
     },
     const {'1': 'channel_tag', '3': 2, '4': 1, '5': 5, '10': 'channelTag'},
+    const {
+      '1': 'language_code',
+      '3': 5,
+      '4': 1,
+      '5': 9,
+      '8': const {},
+      '10': 'languageCode'
+    },
   ],
 };
 
@@ -540,7 +601,7 @@ const SpeechRecognitionAlternative$json = const {
       '3': 3,
       '4': 3,
       '5': 11,
-      '6': '.google.cloud.speech.v1.WordInfo',
+      '6': '.google.cloud.speech.v1p1beta1.WordInfo',
       '10': 'words'
     },
   ],
@@ -566,6 +627,7 @@ const WordInfo$json = const {
       '10': 'endTime'
     },
     const {'1': 'word', '3': 3, '4': 1, '5': 9, '10': 'word'},
+    const {'1': 'confidence', '3': 4, '4': 1, '5': 2, '10': 'confidence'},
     const {
       '1': 'speaker_tag',
       '3': 5,

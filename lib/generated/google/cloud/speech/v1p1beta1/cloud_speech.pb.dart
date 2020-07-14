@@ -1,17 +1,19 @@
 ///
 //  Generated code. Do not modify.
-//  source: google/cloud/speech_new/v1/cloud_speech.proto
+//  source: google/cloud/speech_new/v1p1beta1/cloud_speech.proto
 //
 // @dart = 2.3
 // ignore_for_file: camel_case_types,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type
 
 import 'dart:core' as $core;
 
+import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../../../protobuf/timestamp.pb.dart' as $3;
-import '../../../rpc/status.pb.dart' as $4;
-import '../../../protobuf/duration.pb.dart' as $5;
+import '../../speech/v1p1beta1/resource.pb.dart' as $3;
+import '../../../protobuf/timestamp.pb.dart' as $4;
+import '../../../rpc/status.pb.dart' as $5;
+import '../../../protobuf/duration.pb.dart' as $6;
 
 import 'cloud_speech.pbenum.dart';
 
@@ -19,7 +21,7 @@ export 'cloud_speech.pbenum.dart';
 
 class RecognizeRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo('RecognizeRequest',
-      package: const $pb.PackageName('google.cloud.speech.v1'),
+      package: const $pb.PackageName('google.cloud.speech.v1p1beta1'),
       createEmptyInstance: create)
     ..aOM<RecognitionConfig>(1, 'config', subBuilder: RecognitionConfig.create)
     ..aOM<RecognitionAudio>(2, 'audio', subBuilder: RecognitionAudio.create)
@@ -79,7 +81,7 @@ class RecognizeRequest extends $pb.GeneratedMessage {
 class LongRunningRecognizeRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       'LongRunningRecognizeRequest',
-      package: const $pb.PackageName('google.cloud.speech.v1'),
+      package: const $pb.PackageName('google.cloud.speech.v1p1beta1'),
       createEmptyInstance: create)
     ..aOM<RecognitionConfig>(1, 'config', subBuilder: RecognitionConfig.create)
     ..aOM<RecognitionAudio>(2, 'audio', subBuilder: RecognitionAudio.create)
@@ -154,7 +156,7 @@ class StreamingRecognizeRequest extends $pb.GeneratedMessage {
     0: StreamingRecognizeRequest_StreamingRequest.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo('StreamingRecognizeRequest',
-      package: const $pb.PackageName('google.cloud.speech.v1'),
+      package: const $pb.PackageName('google.cloud.speech.v1p1beta1'),
       createEmptyInstance: create)
     ..oo(0, [1, 2])
     ..aOM<StreamingRecognitionConfig>(1, 'streamingConfig',
@@ -221,7 +223,7 @@ class StreamingRecognizeRequest extends $pb.GeneratedMessage {
 class StreamingRecognitionConfig extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       'StreamingRecognitionConfig',
-      package: const $pb.PackageName('google.cloud.speech.v1'),
+      package: const $pb.PackageName('google.cloud.speech.v1p1beta1'),
       createEmptyInstance: create)
     ..aOM<RecognitionConfig>(1, 'config', subBuilder: RecognitionConfig.create)
     ..aOB(2, 'singleUtterance')
@@ -294,7 +296,7 @@ class StreamingRecognitionConfig extends $pb.GeneratedMessage {
 
 class RecognitionConfig extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo('RecognitionConfig',
-      package: const $pb.PackageName('google.cloud.speech.v1'),
+      package: const $pb.PackageName('google.cloud.speech.v1p1beta1'),
       createEmptyInstance: create)
     ..e<RecognitionConfig_AudioEncoding>(1, 'encoding', $pb.PbFieldType.OE,
         defaultOrMaker: RecognitionConfig_AudioEncoding.ENCODING_UNSPECIFIED,
@@ -314,8 +316,14 @@ class RecognitionConfig extends $pb.GeneratedMessage {
     ..aOB(12, 'enableSeparateRecognitionPerChannel')
     ..aOS(13, 'model')
     ..aOB(14, 'useEnhanced')
+    ..aOB(15, 'enableWordConfidence')
+    ..aOB(16, 'enableSpeakerDiarization')
+    ..a<$core.int>(17, 'diarizationSpeakerCount', $pb.PbFieldType.O3)
+    ..pPS(18, 'alternativeLanguageCodes')
     ..aOM<SpeakerDiarizationConfig>(19, 'diarizationConfig',
         subBuilder: SpeakerDiarizationConfig.create)
+    ..aOM<$3.SpeechAdaptation>(20, 'adaptation',
+        subBuilder: $3.SpeechAdaptation.create)
     ..hasRequiredFields = false;
 
   RecognitionConfig._() : super();
@@ -489,24 +497,85 @@ class RecognitionConfig extends $pb.GeneratedMessage {
   @$pb.TagNumber(14)
   void clearUseEnhanced() => clearField(14);
 
+  @$pb.TagNumber(15)
+  $core.bool get enableWordConfidence => $_getBF(13);
+  @$pb.TagNumber(15)
+  set enableWordConfidence($core.bool v) {
+    $_setBool(13, v);
+  }
+
+  @$pb.TagNumber(15)
+  $core.bool hasEnableWordConfidence() => $_has(13);
+  @$pb.TagNumber(15)
+  void clearEnableWordConfidence() => clearField(15);
+
+  @$core.Deprecated('This field is deprecated.')
+  @$pb.TagNumber(16)
+  $core.bool get enableSpeakerDiarization => $_getBF(14);
+  @$core.Deprecated('This field is deprecated.')
+  @$pb.TagNumber(16)
+  set enableSpeakerDiarization($core.bool v) {
+    $_setBool(14, v);
+  }
+
+  @$core.Deprecated('This field is deprecated.')
+  @$pb.TagNumber(16)
+  $core.bool hasEnableSpeakerDiarization() => $_has(14);
+  @$core.Deprecated('This field is deprecated.')
+  @$pb.TagNumber(16)
+  void clearEnableSpeakerDiarization() => clearField(16);
+
+  @$core.Deprecated('This field is deprecated.')
+  @$pb.TagNumber(17)
+  $core.int get diarizationSpeakerCount => $_getIZ(15);
+  @$core.Deprecated('This field is deprecated.')
+  @$pb.TagNumber(17)
+  set diarizationSpeakerCount($core.int v) {
+    $_setSignedInt32(15, v);
+  }
+
+  @$core.Deprecated('This field is deprecated.')
+  @$pb.TagNumber(17)
+  $core.bool hasDiarizationSpeakerCount() => $_has(15);
+  @$core.Deprecated('This field is deprecated.')
+  @$pb.TagNumber(17)
+  void clearDiarizationSpeakerCount() => clearField(17);
+
+  @$pb.TagNumber(18)
+  $core.List<$core.String> get alternativeLanguageCodes => $_getList(16);
+
   @$pb.TagNumber(19)
-  SpeakerDiarizationConfig get diarizationConfig => $_getN(13);
+  SpeakerDiarizationConfig get diarizationConfig => $_getN(17);
   @$pb.TagNumber(19)
   set diarizationConfig(SpeakerDiarizationConfig v) {
     setField(19, v);
   }
 
   @$pb.TagNumber(19)
-  $core.bool hasDiarizationConfig() => $_has(13);
+  $core.bool hasDiarizationConfig() => $_has(17);
   @$pb.TagNumber(19)
   void clearDiarizationConfig() => clearField(19);
   @$pb.TagNumber(19)
-  SpeakerDiarizationConfig ensureDiarizationConfig() => $_ensure(13);
+  SpeakerDiarizationConfig ensureDiarizationConfig() => $_ensure(17);
+
+  @$pb.TagNumber(20)
+  $3.SpeechAdaptation get adaptation => $_getN(18);
+  @$pb.TagNumber(20)
+  set adaptation($3.SpeechAdaptation v) {
+    setField(20, v);
+  }
+
+  @$pb.TagNumber(20)
+  $core.bool hasAdaptation() => $_has(18);
+  @$pb.TagNumber(20)
+  void clearAdaptation() => clearField(20);
+  @$pb.TagNumber(20)
+  $3.SpeechAdaptation ensureAdaptation() => $_ensure(18);
 }
 
 class SpeakerDiarizationConfig extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo('SpeakerDiarizationConfig',
-      package: const $pb.PackageName('google.cloud.speech.v1'),
+      package: const $pb.PackageName('google.cloud.speech.v1p1beta1'),
       createEmptyInstance: create)
     ..aOB(1, 'enableSpeakerDiarization')
     ..a<$core.int>(2, 'minSpeakerCount', $pb.PbFieldType.O3)
@@ -593,7 +662,7 @@ class SpeakerDiarizationConfig extends $pb.GeneratedMessage {
 
 class RecognitionMetadata extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo('RecognitionMetadata',
-      package: const $pb.PackageName('google.cloud.speech.v1'),
+      package: const $pb.PackageName('google.cloud.speech.v1p1beta1'),
       createEmptyInstance: create)
     ..e<RecognitionMetadata_InteractionType>(
         1, 'interactionType', $pb.PbFieldType.OE,
@@ -622,6 +691,7 @@ class RecognitionMetadata extends $pb.GeneratedMessage {
         enumValues: RecognitionMetadata_RecordingDeviceType.values)
     ..aOS(7, 'recordingDeviceName')
     ..aOS(8, 'originalMimeType')
+    ..aInt64(9, 'obfuscatedId')
     ..aOS(10, 'audioTopic')
     ..hasRequiredFields = false;
 
@@ -731,24 +801,41 @@ class RecognitionMetadata extends $pb.GeneratedMessage {
   @$pb.TagNumber(8)
   void clearOriginalMimeType() => clearField(8);
 
+  @$core.Deprecated('This field is deprecated.')
+  @$pb.TagNumber(9)
+  $fixnum.Int64 get obfuscatedId => $_getI64(7);
+  @$core.Deprecated('This field is deprecated.')
+  @$pb.TagNumber(9)
+  set obfuscatedId($fixnum.Int64 v) {
+    $_setInt64(7, v);
+  }
+
+  @$core.Deprecated('This field is deprecated.')
+  @$pb.TagNumber(9)
+  $core.bool hasObfuscatedId() => $_has(7);
+  @$core.Deprecated('This field is deprecated.')
+  @$pb.TagNumber(9)
+  void clearObfuscatedId() => clearField(9);
+
   @$pb.TagNumber(10)
-  $core.String get audioTopic => $_getSZ(7);
+  $core.String get audioTopic => $_getSZ(8);
   @$pb.TagNumber(10)
   set audioTopic($core.String v) {
-    $_setString(7, v);
+    $_setString(8, v);
   }
 
   @$pb.TagNumber(10)
-  $core.bool hasAudioTopic() => $_has(7);
+  $core.bool hasAudioTopic() => $_has(8);
   @$pb.TagNumber(10)
   void clearAudioTopic() => clearField(10);
 }
 
 class SpeechContext extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo('SpeechContext',
-      package: const $pb.PackageName('google.cloud.speech.v1'),
+      package: const $pb.PackageName('google.cloud.speech.v1p1beta1'),
       createEmptyInstance: create)
     ..pPS(1, 'phrases')
+    ..a<$core.double>(4, 'boost', $pb.PbFieldType.OF)
     ..hasRequiredFields = false;
 
   SpeechContext._() : super();
@@ -775,6 +862,18 @@ class SpeechContext extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(1)
   $core.List<$core.String> get phrases => $_getList(0);
+
+  @$pb.TagNumber(4)
+  $core.double get boost => $_getN(1);
+  @$pb.TagNumber(4)
+  set boost($core.double v) {
+    $_setFloat(1, v);
+  }
+
+  @$pb.TagNumber(4)
+  $core.bool hasBoost() => $_has(1);
+  @$pb.TagNumber(4)
+  void clearBoost() => clearField(4);
 }
 
 enum RecognitionAudio_AudioSource { content, uri, notSet }
@@ -787,7 +886,7 @@ class RecognitionAudio extends $pb.GeneratedMessage {
     0: RecognitionAudio_AudioSource.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo('RecognitionAudio',
-      package: const $pb.PackageName('google.cloud.speech.v1'),
+      package: const $pb.PackageName('google.cloud.speech.v1p1beta1'),
       createEmptyInstance: create)
     ..oo(0, [1, 2])
     ..a<$core.List<$core.int>>(1, 'content', $pb.PbFieldType.OY)
@@ -847,7 +946,7 @@ class RecognitionAudio extends $pb.GeneratedMessage {
 
 class RecognizeResponse extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo('RecognizeResponse',
-      package: const $pb.PackageName('google.cloud.speech.v1'),
+      package: const $pb.PackageName('google.cloud.speech.v1p1beta1'),
       createEmptyInstance: create)
     ..pc<SpeechRecognitionResult>(2, 'results', $pb.PbFieldType.PM,
         subBuilder: SpeechRecognitionResult.create)
@@ -882,7 +981,7 @@ class RecognizeResponse extends $pb.GeneratedMessage {
 class LongRunningRecognizeResponse extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       'LongRunningRecognizeResponse',
-      package: const $pb.PackageName('google.cloud.speech.v1'),
+      package: const $pb.PackageName('google.cloud.speech.v1p1beta1'),
       createEmptyInstance: create)
     ..pc<SpeechRecognitionResult>(2, 'results', $pb.PbFieldType.PM,
         subBuilder: SpeechRecognitionResult.create)
@@ -921,11 +1020,12 @@ class LongRunningRecognizeResponse extends $pb.GeneratedMessage {
 class LongRunningRecognizeMetadata extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       'LongRunningRecognizeMetadata',
-      package: const $pb.PackageName('google.cloud.speech.v1'),
+      package: const $pb.PackageName('google.cloud.speech.v1p1beta1'),
       createEmptyInstance: create)
     ..a<$core.int>(1, 'progressPercent', $pb.PbFieldType.O3)
-    ..aOM<$3.Timestamp>(2, 'startTime', subBuilder: $3.Timestamp.create)
-    ..aOM<$3.Timestamp>(3, 'lastUpdateTime', subBuilder: $3.Timestamp.create)
+    ..aOM<$4.Timestamp>(2, 'startTime', subBuilder: $4.Timestamp.create)
+    ..aOM<$4.Timestamp>(3, 'lastUpdateTime', subBuilder: $4.Timestamp.create)
+    ..aOS(4, 'uri')
     ..hasRequiredFields = false;
 
   LongRunningRecognizeMetadata._() : super();
@@ -967,9 +1067,9 @@ class LongRunningRecognizeMetadata extends $pb.GeneratedMessage {
   void clearProgressPercent() => clearField(1);
 
   @$pb.TagNumber(2)
-  $3.Timestamp get startTime => $_getN(1);
+  $4.Timestamp get startTime => $_getN(1);
   @$pb.TagNumber(2)
-  set startTime($3.Timestamp v) {
+  set startTime($4.Timestamp v) {
     setField(2, v);
   }
 
@@ -978,12 +1078,12 @@ class LongRunningRecognizeMetadata extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearStartTime() => clearField(2);
   @$pb.TagNumber(2)
-  $3.Timestamp ensureStartTime() => $_ensure(1);
+  $4.Timestamp ensureStartTime() => $_ensure(1);
 
   @$pb.TagNumber(3)
-  $3.Timestamp get lastUpdateTime => $_getN(2);
+  $4.Timestamp get lastUpdateTime => $_getN(2);
   @$pb.TagNumber(3)
-  set lastUpdateTime($3.Timestamp v) {
+  set lastUpdateTime($4.Timestamp v) {
     setField(3, v);
   }
 
@@ -992,15 +1092,27 @@ class LongRunningRecognizeMetadata extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearLastUpdateTime() => clearField(3);
   @$pb.TagNumber(3)
-  $3.Timestamp ensureLastUpdateTime() => $_ensure(2);
+  $4.Timestamp ensureLastUpdateTime() => $_ensure(2);
+
+  @$pb.TagNumber(4)
+  $core.String get uri => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set uri($core.String v) {
+    $_setString(3, v);
+  }
+
+  @$pb.TagNumber(4)
+  $core.bool hasUri() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearUri() => clearField(4);
 }
 
 class StreamingRecognizeResponse extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       'StreamingRecognizeResponse',
-      package: const $pb.PackageName('google.cloud.speech.v1'),
+      package: const $pb.PackageName('google.cloud.speech.v1p1beta1'),
       createEmptyInstance: create)
-    ..aOM<$4.Status>(1, 'error', subBuilder: $4.Status.create)
+    ..aOM<$5.Status>(1, 'error', subBuilder: $5.Status.create)
     ..pc<StreamingRecognitionResult>(2, 'results', $pb.PbFieldType.PM,
         subBuilder: StreamingRecognitionResult.create)
     ..e<StreamingRecognizeResponse_SpeechEventType>(
@@ -1037,9 +1149,9 @@ class StreamingRecognizeResponse extends $pb.GeneratedMessage {
   static StreamingRecognizeResponse _defaultInstance;
 
   @$pb.TagNumber(1)
-  $4.Status get error => $_getN(0);
+  $5.Status get error => $_getN(0);
   @$pb.TagNumber(1)
-  set error($4.Status v) {
+  set error($5.Status v) {
     setField(1, v);
   }
 
@@ -1048,7 +1160,7 @@ class StreamingRecognizeResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearError() => clearField(1);
   @$pb.TagNumber(1)
-  $4.Status ensureError() => $_ensure(0);
+  $5.Status ensureError() => $_ensure(0);
 
   @$pb.TagNumber(2)
   $core.List<StreamingRecognitionResult> get results => $_getList(1);
@@ -1069,13 +1181,13 @@ class StreamingRecognizeResponse extends $pb.GeneratedMessage {
 class StreamingRecognitionResult extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       'StreamingRecognitionResult',
-      package: const $pb.PackageName('google.cloud.speech.v1'),
+      package: const $pb.PackageName('google.cloud.speech.v1p1beta1'),
       createEmptyInstance: create)
     ..pc<SpeechRecognitionAlternative>(1, 'alternatives', $pb.PbFieldType.PM,
         subBuilder: SpeechRecognitionAlternative.create)
     ..aOB(2, 'isFinal')
     ..a<$core.double>(3, 'stability', $pb.PbFieldType.OF)
-    ..aOM<$5.Duration>(4, 'resultEndTime', subBuilder: $5.Duration.create)
+    ..aOM<$6.Duration>(4, 'resultEndTime', subBuilder: $6.Duration.create)
     ..a<$core.int>(5, 'channelTag', $pb.PbFieldType.O3)
     ..aOS(6, 'languageCode')
     ..hasRequiredFields = false;
@@ -1133,9 +1245,9 @@ class StreamingRecognitionResult extends $pb.GeneratedMessage {
   void clearStability() => clearField(3);
 
   @$pb.TagNumber(4)
-  $5.Duration get resultEndTime => $_getN(3);
+  $6.Duration get resultEndTime => $_getN(3);
   @$pb.TagNumber(4)
-  set resultEndTime($5.Duration v) {
+  set resultEndTime($6.Duration v) {
     setField(4, v);
   }
 
@@ -1144,7 +1256,7 @@ class StreamingRecognitionResult extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   void clearResultEndTime() => clearField(4);
   @$pb.TagNumber(4)
-  $5.Duration ensureResultEndTime() => $_ensure(3);
+  $6.Duration ensureResultEndTime() => $_ensure(3);
 
   @$pb.TagNumber(5)
   $core.int get channelTag => $_getIZ(4);
@@ -1173,11 +1285,12 @@ class StreamingRecognitionResult extends $pb.GeneratedMessage {
 
 class SpeechRecognitionResult extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo('SpeechRecognitionResult',
-      package: const $pb.PackageName('google.cloud.speech.v1'),
+      package: const $pb.PackageName('google.cloud.speech.v1p1beta1'),
       createEmptyInstance: create)
     ..pc<SpeechRecognitionAlternative>(1, 'alternatives', $pb.PbFieldType.PM,
         subBuilder: SpeechRecognitionAlternative.create)
     ..a<$core.int>(2, 'channelTag', $pb.PbFieldType.O3)
+    ..aOS(5, 'languageCode')
     ..hasRequiredFields = false;
 
   SpeechRecognitionResult._() : super();
@@ -1218,12 +1331,24 @@ class SpeechRecognitionResult extends $pb.GeneratedMessage {
   $core.bool hasChannelTag() => $_has(1);
   @$pb.TagNumber(2)
   void clearChannelTag() => clearField(2);
+
+  @$pb.TagNumber(5)
+  $core.String get languageCode => $_getSZ(2);
+  @$pb.TagNumber(5)
+  set languageCode($core.String v) {
+    $_setString(2, v);
+  }
+
+  @$pb.TagNumber(5)
+  $core.bool hasLanguageCode() => $_has(2);
+  @$pb.TagNumber(5)
+  void clearLanguageCode() => clearField(5);
 }
 
 class SpeechRecognitionAlternative extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       'SpeechRecognitionAlternative',
-      package: const $pb.PackageName('google.cloud.speech.v1'),
+      package: const $pb.PackageName('google.cloud.speech.v1p1beta1'),
       createEmptyInstance: create)
     ..aOS(1, 'transcript')
     ..a<$core.double>(2, 'confidence', $pb.PbFieldType.OF)
@@ -1286,11 +1411,12 @@ class SpeechRecognitionAlternative extends $pb.GeneratedMessage {
 
 class WordInfo extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo('WordInfo',
-      package: const $pb.PackageName('google.cloud.speech.v1'),
+      package: const $pb.PackageName('google.cloud.speech.v1p1beta1'),
       createEmptyInstance: create)
-    ..aOM<$5.Duration>(1, 'startTime', subBuilder: $5.Duration.create)
-    ..aOM<$5.Duration>(2, 'endTime', subBuilder: $5.Duration.create)
+    ..aOM<$6.Duration>(1, 'startTime', subBuilder: $6.Duration.create)
+    ..aOM<$6.Duration>(2, 'endTime', subBuilder: $6.Duration.create)
     ..aOS(3, 'word')
+    ..a<$core.double>(4, 'confidence', $pb.PbFieldType.OF)
     ..a<$core.int>(5, 'speakerTag', $pb.PbFieldType.O3)
     ..hasRequiredFields = false;
 
@@ -1316,9 +1442,9 @@ class WordInfo extends $pb.GeneratedMessage {
   static WordInfo _defaultInstance;
 
   @$pb.TagNumber(1)
-  $5.Duration get startTime => $_getN(0);
+  $6.Duration get startTime => $_getN(0);
   @$pb.TagNumber(1)
-  set startTime($5.Duration v) {
+  set startTime($6.Duration v) {
     setField(1, v);
   }
 
@@ -1327,12 +1453,12 @@ class WordInfo extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearStartTime() => clearField(1);
   @$pb.TagNumber(1)
-  $5.Duration ensureStartTime() => $_ensure(0);
+  $6.Duration ensureStartTime() => $_ensure(0);
 
   @$pb.TagNumber(2)
-  $5.Duration get endTime => $_getN(1);
+  $6.Duration get endTime => $_getN(1);
   @$pb.TagNumber(2)
-  set endTime($5.Duration v) {
+  set endTime($6.Duration v) {
     setField(2, v);
   }
 
@@ -1341,7 +1467,7 @@ class WordInfo extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearEndTime() => clearField(2);
   @$pb.TagNumber(2)
-  $5.Duration ensureEndTime() => $_ensure(1);
+  $6.Duration ensureEndTime() => $_ensure(1);
 
   @$pb.TagNumber(3)
   $core.String get word => $_getSZ(2);
@@ -1355,15 +1481,27 @@ class WordInfo extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearWord() => clearField(3);
 
+  @$pb.TagNumber(4)
+  $core.double get confidence => $_getN(3);
+  @$pb.TagNumber(4)
+  set confidence($core.double v) {
+    $_setFloat(3, v);
+  }
+
+  @$pb.TagNumber(4)
+  $core.bool hasConfidence() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearConfidence() => clearField(4);
+
   @$pb.TagNumber(5)
-  $core.int get speakerTag => $_getIZ(3);
+  $core.int get speakerTag => $_getIZ(4);
   @$pb.TagNumber(5)
   set speakerTag($core.int v) {
-    $_setSignedInt32(3, v);
+    $_setSignedInt32(4, v);
   }
 
   @$pb.TagNumber(5)
-  $core.bool hasSpeakerTag() => $_has(3);
+  $core.bool hasSpeakerTag() => $_has(4);
   @$pb.TagNumber(5)
   void clearSpeakerTag() => clearField(5);
 }

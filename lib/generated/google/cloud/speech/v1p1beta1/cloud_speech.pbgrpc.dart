@@ -1,6 +1,6 @@
 ///
 //  Generated code. Do not modify.
-//  source: google/cloud/speech_new/v1/cloud_speech.proto
+//  source: google/cloud/speech_new/v1p1beta1/cloud_speech.proto
 //
 // @dart = 2.3
 // ignore_for_file: camel_case_types,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type
@@ -17,18 +17,18 @@ export 'cloud_speech.pb.dart';
 class SpeechClient extends $grpc.Client {
   static final _$recognize =
       $grpc.ClientMethod<$2.RecognizeRequest, $2.RecognizeResponse>(
-          '/google.cloud.speech.v1.Speech/Recognize',
+          '/google.cloud.speech.v1p1beta1.Speech/Recognize',
           ($2.RecognizeRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) =>
               $2.RecognizeResponse.fromBuffer(value));
   static final _$longRunningRecognize =
       $grpc.ClientMethod<$2.LongRunningRecognizeRequest, $0.Operation>(
-          '/google.cloud.speech.v1.Speech/LongRunningRecognize',
+          '/google.cloud.speech.v1p1beta1.Speech/LongRunningRecognize',
           ($2.LongRunningRecognizeRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.Operation.fromBuffer(value));
   static final _$streamingRecognize = $grpc.ClientMethod<
           $2.StreamingRecognizeRequest, $2.StreamingRecognizeResponse>(
-      '/google.cloud.speech.v1.Speech/StreamingRecognize',
+      '/google.cloud.speech.v1p1beta1.Speech/StreamingRecognize',
       ($2.StreamingRecognizeRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) =>
           $2.StreamingRecognizeResponse.fromBuffer(value));
@@ -62,7 +62,7 @@ class SpeechClient extends $grpc.Client {
 }
 
 abstract class SpeechServiceBase extends $grpc.Service {
-  $core.String get $name => 'google.cloud.speech.v1.Speech';
+  $core.String get $name => 'google.cloud.speech.v1p1beta1.Speech';
 
   SpeechServiceBase() {
     $addMethod($grpc.ServiceMethod<$2.RecognizeRequest, $2.RecognizeResponse>(

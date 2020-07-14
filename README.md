@@ -18,7 +18,7 @@ The best way to do this is to follow the first point of this [documentation](htt
 After you have created a service account and downloaded the Json file with the necessary access data, you can start 
 using this package. 
 
-At this time this package only supports authentication via service account. It is therefore absolutely necessary to create a service account and have the necessary Json data ready.
+At this time this package only supports authentication via service account. It is therefore necessary to create a service account and have the necessary Json data ready.
 
 ## Getting Started
 
@@ -118,10 +118,15 @@ After you have successfully connected the ServiceAccount, you can already start 
     
 [More information can be found in the official Google Cloud Speech documentation.](https://cloud.google.com/speech-to-text/docs)   
 
+## Use Google Speech Beta
+
+Since version 1.1.0 google_speech also supports the use of features available in the Google Speech Beta Api. For this you just have to use SpeechToTextBeta instead of SpeechToText.
+
 ### TODO
 
 - [x] Seeking example in `Example` project
 - [x] Add streamingRecognize support
+- [x] Add Google Speech Beta support
 - [ ] Add longRunningRecognize support
 - [ ] Add infinity stream support
 - [ ] Add more tests

@@ -2,9 +2,10 @@ library flutter_google_speech;
 
 import 'dart:async';
 
-import 'package:google_speech/generated/google/cloud/speech/v1/cloud_speech.pb.dart'
+import 'package:google_speech/config/recognition_config_v1p1beta1.dart';
+import 'package:google_speech/generated/google/cloud/speech/v1p1beta1/cloud_speech.pb.dart'
     hide RecognitionConfig, StreamingRecognitionConfig;
-import 'package:google_speech/generated/google/cloud/speech/v1/cloud_speech.pbgrpc.dart'
+import 'package:google_speech/generated/google/cloud/speech/v1p1beta1/cloud_speech.pbgrpc.dart'
     hide RecognitionConfig, StreamingRecognitionConfig;
 import 'package:google_speech/speech_client_authenticator.dart';
 import 'package:grpc/grpc.dart';
@@ -15,7 +16,7 @@ import 'config/streaming_recognition_config.dart';
 /// An interface to Google's Speech-to-Text Api via grpc.
 ///
 /// Important! You need an own Google project to use this class.
-class SpeechToText {
+class SpeechToTextBeta {
   /// [CallOptions] that are transferred when creating a [SpeechClient].
   final CallOptions _options;
 
@@ -23,11 +24,11 @@ class SpeechToText {
   final ClientChannel _channel = ClientChannel('speech.googleapis.com');
 
   // Private constructor to prevent direct initialization of the class.
-  SpeechToText._(this._options);
+  SpeechToTextBeta._(this._options);
 
   /// Creates a SpeechToText interface using a service account.
-  factory SpeechToText.viaServiceAccount(ServiceAccount account) =>
-      SpeechToText._(account.callOptions);
+  factory SpeechToTextBeta.viaServiceAccount(ServiceAccount account) =>
+      SpeechToTextBeta._(account.callOptions);
 
   /// Sends a [RecognizeRequest] request to the Google Speech Api.
   /// Requires a [RecognitionConfig] and an [RecognitionAudio].
@@ -35,7 +36,7 @@ class SpeechToText {
   /// Audio files transcribed with recognize must not be longer than 60 seconds.
   /// For longer audio files [longRunningRecognize] must be used.
   Future<RecognizeResponse> recognize(
-      RecognitionConfig config, List<int> audio) {
+      RecognitionConfigBeta config, List<int> audio) {
     final client = SpeechClient(_channel, options: _options);
 
     // transform audio to RecognitionAudio
@@ -52,7 +53,7 @@ class SpeechToText {
   /// Sends a [StreamingRecognizeRequest] to the Google Speech Api.
   /// Requires a [StreamingRecognitionConfig] and an audioStream.
   Stream<StreamingRecognizeResponse> streamingRecognize(
-      StreamingRecognitionConfig config, Stream<List<int>> audioStream) {
+      StreamingRecognitionConfigBeta config, Stream<List<int>> audioStream) {
     final client = SpeechClient(_channel, options: _options);
 
     // Create the stream, which later transmits the necessary
