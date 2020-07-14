@@ -13,6 +13,8 @@ dependencies:
   protobuf: ^1.0.1
   path_provider: ^1.6.11
   fixnum: ^0.10.11
+  meta: ^1.1.8
+
 
 dependency_overrides:
   pedantic: ^1.9.0
