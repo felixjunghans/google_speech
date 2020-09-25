@@ -15,7 +15,7 @@ class RecognitionConfigBeta {
     this.maxAlternatives = 1,
     this.profanityFilter = false,
     this.alternativeLanguageCodes = const [],
-    //this.speechContexts = const [],
+    this.speechContexts = const [],
     this.enableWordTimeOffsets = false,
     this.enableWordConfidence = false,
     this.enableAutomaticPunctuation = false,
@@ -46,8 +46,6 @@ class RecognitionConfigBeta {
     ..enableSeparateRecognitionPerChannel = enableSeparateRecognitionPerChannel
     ..maxAlternatives = maxAlternatives
     ..profanityFilter = profanityFilter
-    // NOT Supported
-    //..speechContexts = speechContexts
     ..enableWordTimeOffsets = enableWordTimeOffsets
     ..enableWordConfidence = enableWordConfidence
     ..enableAutomaticPunctuation = enableAutomaticPunctuation
@@ -55,7 +53,8 @@ class RecognitionConfigBeta {
     ..metadata = recognitionMetadata ?? _cs.RecognitionMetadata()
     ..model = _model(model)
     ..useEnhanced = useEnhanced
-    ..speechContexts);
+    ..speechContexts
+        .addAll(speechContexts.map((sc) => sc.toGoogleSpeechContext())));
 
   String _model(RecognitionModel model) => model
       .toString()
@@ -180,7 +179,7 @@ class RecognitionConfigBeta {
   /// speech recognition. For more information,
   /// see [speech adaptation](https://cloud.google.com/speech-to-text/docs/context-strength).
   /// Currently not supported.
-  // final List<_cs.SpeechContext> speechContexts;
+  final List<SpeechContextBeta> speechContexts;
 
   /// If true, the top result includes a list of words and the start and end
   /// time offsets (timestamps) for those words. If false, no word-level
@@ -208,4 +207,13 @@ class RecognitionConfigBeta {
   /// specified model does not exist, then the speech is recognized using
   /// the standard version of the specified model.
   bool useEnhanced;
+}
+
+class SpeechContextBeta {
+  SpeechContextBeta(this.phrases);
+
+  final List<String> phrases;
+
+  _cs.SpeechContext toGoogleSpeechContext() =>
+      _cs.SpeechContext()..phrases.addAll(phrases);
 }

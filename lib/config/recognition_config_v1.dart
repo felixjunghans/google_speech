@@ -14,7 +14,7 @@ class RecognitionConfig {
     this.enableSeparateRecognitionPerChannel = false,
     this.maxAlternatives = 1,
     this.profanityFilter = false,
-    //this.speechContexts = const [],
+    this.speechContexts = const [],
     this.enableWordTimeOffsets = false,
     this.enableAutomaticPunctuation = false,
     this.diarizationConfig,
@@ -43,15 +43,14 @@ class RecognitionConfig {
     ..enableSeparateRecognitionPerChannel = enableSeparateRecognitionPerChannel
     ..maxAlternatives = maxAlternatives
     ..profanityFilter = profanityFilter
-    // NOT Supported
-    //..speechContexts = speechContexts
     ..enableWordTimeOffsets = enableWordTimeOffsets
     ..enableAutomaticPunctuation = enableAutomaticPunctuation
     ..diarizationConfig = diarizationConfig ?? _cs.SpeakerDiarizationConfig()
     ..metadata = recognitionMetadata ?? _cs.RecognitionMetadata()
     ..model = _model(model)
-    ..useEnhanced = useEnhanced
-    ..speechContexts);
+    ..speechContexts
+        .addAll(speechContexts.map((sc) => sc.toGoogleSpeechContext()))
+    ..useEnhanced = useEnhanced);
 
   String _model(RecognitionModel model) => model
       .toString()
@@ -147,7 +146,7 @@ class RecognitionConfig {
   /// speech recognition. For more information,
   /// see [speech adaptation](https://cloud.google.com/speech-to-text/docs/context-strength).
   /// Currently not supported.
-  // final List<_cs.SpeechContext> speechContexts;
+  final List<SpeechContext> speechContexts;
 
   /// If true, the top result includes a list of words and the start and end
   /// time offsets (timestamps) for those words. If false, no word-level
@@ -188,4 +187,13 @@ class RecognitionConfig {
 
   /// Metadata regarding this request.
   final _cs.RecognitionMetadata recognitionMetadata;
+}
+
+class SpeechContext {
+  SpeechContext(this.phrases);
+
+  final List<String> phrases;
+
+  _cs.SpeechContext toGoogleSpeechContext() =>
+      _cs.SpeechContext()..phrases.addAll(phrases);
 }
