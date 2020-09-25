@@ -1,3 +1,6 @@
+## [1.2.0] - Add SpeechContext support.
+* Add SpeechContext support.
+
 ## [1.1.1] - Fix import and naming errors.
 * Fix import and naming errors.
 
