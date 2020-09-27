@@ -29,6 +29,10 @@ class SpeechToText {
   factory SpeechToText.viaServiceAccount(ServiceAccount account) =>
       SpeechToText._(account.callOptions);
 
+  /// Listen to audio stream.
+  /// Cancelled as soon as dispose is called.
+  StreamSubscription<List<int>> _audioStreamSubscription;
+
   /// Sends a [RecognizeRequest] request to the Google Speech Api.
   /// Requires a [RecognitionConfig] and an [RecognitionAudio].
   ///
@@ -63,13 +67,19 @@ class SpeechToText {
     request
         .add(StreamingRecognizeRequest()..streamingConfig = config.toConfig());
 
-    audioStream.listen((audio) {
+    _audioStreamSubscription = audioStream.listen((audio) {
       // Add audio content when stream changes.
       request.add(StreamingRecognizeRequest()..audioContent = audio);
-    }).onDone(() {
+    });
+
+    _audioStreamSubscription.onDone(() {
       // Close the request stream, if the audio stream is finished.
       request.close();
     });
     return client.streamingRecognize(request.stream);
+  }
+
+  void dispose() {
+    _audioStreamSubscription?.cancel();
   }
 }

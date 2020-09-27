@@ -1,3 +1,6 @@
+## [1.2.1] - Add possibility to cancel audio stream subscription.
+* Add possibility to cancel audio stream subscription.
+
 ## [1.2.0] - Add SpeechContext support.
 * Add SpeechContext support.
 
