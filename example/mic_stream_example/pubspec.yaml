@@ -26,6 +26,7 @@ dependencies:
   google_speech:
     path: ../../
   sound_stream: ^0.2.0
+  rxdart: ^0.24.1
 
 
   # The following adds the Cupertino Icons font to your application.

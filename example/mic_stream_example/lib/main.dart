@@ -1,6 +1,9 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_speech/google_speech.dart';
+import 'package:rxdart/rxdart.dart';
 import 'package:sound_stream/sound_stream.dart';
 
 void main() {
@@ -33,6 +36,8 @@ class _AudioRecognizeState extends State<AudioRecognize> {
   bool recognizing = false;
   bool recognizeFinished = false;
   String text = '';
+  StreamSubscription<List<int>> _audioStreamSubscription;
+  BehaviorSubject<List<int>> _audioStream;
 
   @override
   void initState() {
@@ -42,6 +47,11 @@ class _AudioRecognizeState extends State<AudioRecognize> {
   }
 
   void streamingRecognize() async {
+    _audioStream = BehaviorSubject<List<int>>();
+    _audioStreamSubscription = _recorder.audioStream.listen((event) {
+      _audioStream.add(event);
+    });
+
     await _recorder.start();
 
     setState(() {
@@ -54,7 +64,7 @@ class _AudioRecognizeState extends State<AudioRecognize> {
 
     final responseStream = speechToText.streamingRecognize(
         StreamingRecognitionConfig(config: config, interimResults: true),
-        _recorder.audioStream);
+        _audioStream);
 
     responseStream.listen((data) {
       setState(() {
@@ -71,6 +81,8 @@ class _AudioRecognizeState extends State<AudioRecognize> {
 
   void stopRecording() async {
     await _recorder.stop();
+    await _audioStreamSubscription?.cancel();
+    await _audioStream?.close();
     setState(() {
       recognizing = false;
     });
