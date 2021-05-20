@@ -1,3 +1,6 @@
+## [2.0.0] - Add support for Flutter 2 and null safety.
+* Now supporting null safety.
+
 ## [1.2.1] - Add possibility to cancel audio stream subscription.
 * Add possibility to cancel audio stream subscription.
 

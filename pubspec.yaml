@@ -1,29 +1,27 @@
 name: google_speech
 description: Flutter Plugin for the Google Cloud GRPC Speech-to-Text Api.
-version: 1.2.1
+version: 2.0.0
 homepage: https://github.com/felixjunghans/google_speech
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
-  grpc: ^2.1.3
-  protobuf: ^1.0.1
-  path_provider: ^1.6.11
-  fixnum: ^0.10.11
-  meta: ^1.1.8
-
+  grpc: ^3.0.0
+  protobuf: ^2.0.0
+  path_provider: ^2.0.1
+  fixnum: ^1.0.0
 
 dependency_overrides:
-  pedantic: ^1.9.0
+  pedantic: ^1.11.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  pedantic: ^1.9.0
-  mockito: ^4.1.1
+  pedantic: ^1.11.0
+  mockito: ^5.0.8
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

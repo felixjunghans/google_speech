@@ -2,7 +2,7 @@
 //  Generated code. Do not modify.
 //  source: google/cloud/speech_new/v1/cloud_speech.proto
 //
-// @dart = 2.3
+
 // ignore_for_file: camel_case_types,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type
 
 // ignore_for_file: UNDEFINED_SHOWN_NAME,UNUSED_SHOWN_NAME
@@ -41,7 +41,7 @@ class RecognitionConfig_AudioEncoding extends $pb.ProtobufEnum {
 
   static final $core.Map<$core.int, RecognitionConfig_AudioEncoding> _byValue =
       $pb.ProtobufEnum.initByValue(values);
-  static RecognitionConfig_AudioEncoding valueOf($core.int value) =>
+  static RecognitionConfig_AudioEncoding? valueOf($core.int value) =>
       _byValue[value];
 
   const RecognitionConfig_AudioEncoding._($core.int v, $core.String n)
@@ -84,7 +84,7 @@ class RecognitionMetadata_InteractionType extends $pb.ProtobufEnum {
 
   static final $core.Map<$core.int, RecognitionMetadata_InteractionType>
       _byValue = $pb.ProtobufEnum.initByValue(values);
-  static RecognitionMetadata_InteractionType valueOf($core.int value) =>
+  static RecognitionMetadata_InteractionType? valueOf($core.int value) =>
       _byValue[value];
 
   const RecognitionMetadata_InteractionType._($core.int v, $core.String n)
@@ -113,7 +113,7 @@ class RecognitionMetadata_MicrophoneDistance extends $pb.ProtobufEnum {
 
   static final $core.Map<$core.int, RecognitionMetadata_MicrophoneDistance>
       _byValue = $pb.ProtobufEnum.initByValue(values);
-  static RecognitionMetadata_MicrophoneDistance valueOf($core.int value) =>
+  static RecognitionMetadata_MicrophoneDistance? valueOf($core.int value) =>
       _byValue[value];
 
   const RecognitionMetadata_MicrophoneDistance._($core.int v, $core.String n)
@@ -138,7 +138,7 @@ class RecognitionMetadata_OriginalMediaType extends $pb.ProtobufEnum {
 
   static final $core.Map<$core.int, RecognitionMetadata_OriginalMediaType>
       _byValue = $pb.ProtobufEnum.initByValue(values);
-  static RecognitionMetadata_OriginalMediaType valueOf($core.int value) =>
+  static RecognitionMetadata_OriginalMediaType? valueOf($core.int value) =>
       _byValue[value];
 
   const RecognitionMetadata_OriginalMediaType._($core.int v, $core.String n)
@@ -176,7 +176,7 @@ class RecognitionMetadata_RecordingDeviceType extends $pb.ProtobufEnum {
 
   static final $core.Map<$core.int, RecognitionMetadata_RecordingDeviceType>
       _byValue = $pb.ProtobufEnum.initByValue(values);
-  static RecognitionMetadata_RecordingDeviceType valueOf($core.int value) =>
+  static RecognitionMetadata_RecordingDeviceType? valueOf($core.int value) =>
       _byValue[value];
 
   const RecognitionMetadata_RecordingDeviceType._($core.int v, $core.String n)
@@ -199,7 +199,7 @@ class StreamingRecognizeResponse_SpeechEventType extends $pb.ProtobufEnum {
 
   static final $core.Map<$core.int, StreamingRecognizeResponse_SpeechEventType>
       _byValue = $pb.ProtobufEnum.initByValue(values);
-  static StreamingRecognizeResponse_SpeechEventType valueOf($core.int value) =>
+  static StreamingRecognizeResponse_SpeechEventType? valueOf($core.int value) =>
       _byValue[value];
 
   const StreamingRecognizeResponse_SpeechEventType._(

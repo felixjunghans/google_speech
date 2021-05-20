@@ -2,7 +2,7 @@
 //  Generated code. Do not modify.
 //  source: google/protobuf/struct.proto
 //
-// @dart = 2.3
+
 // ignore_for_file: camel_case_types,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type
 
 import 'dart:core' as $core;
@@ -39,7 +39,7 @@ class Struct extends $pb.GeneratedMessage with $mixin.StructMixin {
       create()..mergeFromJson(i, r);
   Struct clone() => Struct()..mergeFromMessage(this);
   Struct copyWith(void Function(Struct) updates) =>
-      super.copyWith((message) => updates(message as Struct));
+      super.copyWith((message) => updates(message as Struct)) as Struct;
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static Struct create() => Struct._();
@@ -48,7 +48,7 @@ class Struct extends $pb.GeneratedMessage with $mixin.StructMixin {
   @$core.pragma('dart2js:noInline')
   static Struct getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Struct>(create);
-  static Struct _defaultInstance;
+  static Struct? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.Map<$core.String, Value> get fields => $_getMap(0);
@@ -101,7 +101,7 @@ class Value extends $pb.GeneratedMessage with $mixin.ValueMixin {
       create()..mergeFromJson(i, r);
   Value clone() => Value()..mergeFromMessage(this);
   Value copyWith(void Function(Value) updates) =>
-      super.copyWith((message) => updates(message as Value));
+      super.copyWith((message) => updates(message as Value)) as Value;
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static Value create() => Value._();
@@ -110,9 +110,9 @@ class Value extends $pb.GeneratedMessage with $mixin.ValueMixin {
   @$core.pragma('dart2js:noInline')
   static Value getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Value>(create);
-  static Value _defaultInstance;
+  static Value? _defaultInstance;
 
-  Value_Kind whichKind() => _Value_KindByTag[$_whichOneof(0)];
+  Value_Kind? whichKind() => _Value_KindByTag[$_whichOneof(0)];
   void clearKind() => clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
@@ -211,7 +211,7 @@ class ListValue extends $pb.GeneratedMessage with $mixin.ListValueMixin {
       create()..mergeFromJson(i, r);
   ListValue clone() => ListValue()..mergeFromMessage(this);
   ListValue copyWith(void Function(ListValue) updates) =>
-      super.copyWith((message) => updates(message as ListValue));
+      super.copyWith((message) => updates(message as ListValue)) as ListValue;
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static ListValue create() => ListValue._();
@@ -220,7 +220,7 @@ class ListValue extends $pb.GeneratedMessage with $mixin.ListValueMixin {
   @$core.pragma('dart2js:noInline')
   static ListValue getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ListValue>(create);
-  static ListValue _defaultInstance;
+  static ListValue? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.List<Value> get values => $_getList(0);

@@ -2,7 +2,7 @@
 //  Generated code. Do not modify.
 //  source: google/cloud/speech_new/v1p1beta1/resource.proto
 //
-// @dart = 2.3
+
 // ignore_for_file: camel_case_types,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type
 
 import 'dart:core' as $core;
@@ -28,7 +28,7 @@ class CustomClass_ClassItem extends $pb.GeneratedMessage {
       CustomClass_ClassItem()..mergeFromMessage(this);
   CustomClass_ClassItem copyWith(
           void Function(CustomClass_ClassItem) updates) =>
-      super.copyWith((message) => updates(message as CustomClass_ClassItem));
+      super.copyWith((message) => updates(message as CustomClass_ClassItem)) as CustomClass_ClassItem;
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static CustomClass_ClassItem create() => CustomClass_ClassItem._();
@@ -38,7 +38,7 @@ class CustomClass_ClassItem extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static CustomClass_ClassItem getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<CustomClass_ClassItem>(create);
-  static CustomClass_ClassItem _defaultInstance;
+  static CustomClass_ClassItem? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.String get value => $_getSZ(0);
@@ -73,7 +73,7 @@ class CustomClass extends $pb.GeneratedMessage {
       create()..mergeFromJson(i, r);
   CustomClass clone() => CustomClass()..mergeFromMessage(this);
   CustomClass copyWith(void Function(CustomClass) updates) =>
-      super.copyWith((message) => updates(message as CustomClass));
+      super.copyWith((message) => updates(message as CustomClass)) as CustomClass;
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static CustomClass create() => CustomClass._();
@@ -82,7 +82,7 @@ class CustomClass extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static CustomClass getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<CustomClass>(create);
-  static CustomClass _defaultInstance;
+  static CustomClass? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.String get name => $_getSZ(0);
@@ -130,7 +130,7 @@ class PhraseSet_Phrase extends $pb.GeneratedMessage {
       create()..mergeFromJson(i, r);
   PhraseSet_Phrase clone() => PhraseSet_Phrase()..mergeFromMessage(this);
   PhraseSet_Phrase copyWith(void Function(PhraseSet_Phrase) updates) =>
-      super.copyWith((message) => updates(message as PhraseSet_Phrase));
+      super.copyWith((message) => updates(message as PhraseSet_Phrase)) as PhraseSet_Phrase;
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static PhraseSet_Phrase create() => PhraseSet_Phrase._();
@@ -140,7 +140,7 @@ class PhraseSet_Phrase extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static PhraseSet_Phrase getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<PhraseSet_Phrase>(create);
-  static PhraseSet_Phrase _defaultInstance;
+  static PhraseSet_Phrase? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.String get value => $_getSZ(0);
@@ -187,7 +187,7 @@ class PhraseSet extends $pb.GeneratedMessage {
       create()..mergeFromJson(i, r);
   PhraseSet clone() => PhraseSet()..mergeFromMessage(this);
   PhraseSet copyWith(void Function(PhraseSet) updates) =>
-      super.copyWith((message) => updates(message as PhraseSet));
+      super.copyWith((message) => updates(message as PhraseSet)) as PhraseSet;
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static PhraseSet create() => PhraseSet._();
@@ -196,7 +196,7 @@ class PhraseSet extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static PhraseSet getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<PhraseSet>(create);
-  static PhraseSet _defaultInstance;
+  static PhraseSet? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.String get name => $_getSZ(0);
@@ -246,7 +246,7 @@ class SpeechAdaptation extends $pb.GeneratedMessage {
       create()..mergeFromJson(i, r);
   SpeechAdaptation clone() => SpeechAdaptation()..mergeFromMessage(this);
   SpeechAdaptation copyWith(void Function(SpeechAdaptation) updates) =>
-      super.copyWith((message) => updates(message as SpeechAdaptation));
+      super.copyWith((message) => updates(message as SpeechAdaptation)) as SpeechAdaptation;
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static SpeechAdaptation create() => SpeechAdaptation._();
@@ -256,7 +256,7 @@ class SpeechAdaptation extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static SpeechAdaptation getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<SpeechAdaptation>(create);
-  static SpeechAdaptation _defaultInstance;
+  static SpeechAdaptation? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.List<PhraseSet> get phraseSets => $_getList(0);

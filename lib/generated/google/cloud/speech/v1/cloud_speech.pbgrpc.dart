@@ -2,7 +2,7 @@
 //  Generated code. Do not modify.
 //  source: google/cloud/speech_new/v1/cloud_speech.proto
 //
-// @dart = 2.3
+
 // ignore_for_file: camel_case_types,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type
 
 import 'dart:async' as $async;
@@ -33,12 +33,12 @@ class SpeechClient extends $grpc.Client {
       ($core.List<$core.int> value) =>
           $2.StreamingRecognizeResponse.fromBuffer(value));
 
-  SpeechClient($grpc.ClientChannel channel, {$grpc.CallOptions options})
+  SpeechClient($grpc.ClientChannel channel, {$grpc.CallOptions? options})
       : super(channel, options: options);
 
   $grpc.ResponseFuture<$2.RecognizeResponse> recognize(
       $2.RecognizeRequest request,
-      {$grpc.CallOptions options}) {
+      {$grpc.CallOptions? options}) {
     final call = $createCall(_$recognize, $async.Stream.fromIterable([request]),
         options: options);
     return $grpc.ResponseFuture(call);
@@ -46,7 +46,7 @@ class SpeechClient extends $grpc.Client {
 
   $grpc.ResponseFuture<$0.Operation> longRunningRecognize(
       $2.LongRunningRecognizeRequest request,
-      {$grpc.CallOptions options}) {
+      {$grpc.CallOptions? options}) {
     final call = $createCall(
         _$longRunningRecognize, $async.Stream.fromIterable([request]),
         options: options);
@@ -55,7 +55,7 @@ class SpeechClient extends $grpc.Client {
 
   $grpc.ResponseStream<$2.StreamingRecognizeResponse> streamingRecognize(
       $async.Stream<$2.StreamingRecognizeRequest> request,
-      {$grpc.CallOptions options}) {
+      {$grpc.CallOptions? options}) {
     final call = $createCall(_$streamingRecognize, request, options: options);
     return $grpc.ResponseStream(call);
   }

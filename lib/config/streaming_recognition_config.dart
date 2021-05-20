@@ -33,7 +33,7 @@ class StreamingRecognitionConfig {
   /// A streaming speech recognition result corresponding to a portion of
   /// the audio that is currently being processed.
   StreamingRecognitionConfig({
-    @required this.config,
+    required this.config,
     this.singleUtterance = false,
     this.interimResults = false,
   })  : assert(singleUtterance != null),
@@ -72,7 +72,7 @@ class StreamingRecognitionConfigBeta {
   /// A streaming speech recognition result corresponding to a portion of
   /// the audio that is currently being processed.
   StreamingRecognitionConfigBeta({
-    @required this.config,
+    required this.config,
     this.singleUtterance = false,
     this.interimResults = false,
   })  : assert(singleUtterance != null),

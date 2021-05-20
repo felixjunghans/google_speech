@@ -2,7 +2,7 @@
 //  Generated code. Do not modify.
 //  source: google/api/monitored_resource.proto
 //
-// @dart = 2.3
+
 // ignore_for_file: camel_case_types,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type
 
 import 'dart:core' as $core;
@@ -44,7 +44,7 @@ class MonitoredResourceDescriptor extends $pb.GeneratedMessage {
   MonitoredResourceDescriptor copyWith(
           void Function(MonitoredResourceDescriptor) updates) =>
       super.copyWith(
-          (message) => updates(message as MonitoredResourceDescriptor));
+          (message) => updates(message as MonitoredResourceDescriptor)) as MonitoredResourceDescriptor;
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static MonitoredResourceDescriptor create() =>
@@ -55,7 +55,7 @@ class MonitoredResourceDescriptor extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static MonitoredResourceDescriptor getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<MonitoredResourceDescriptor>(create);
-  static MonitoredResourceDescriptor _defaultInstance;
+  static MonitoredResourceDescriptor? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.String get type => $_getSZ(0);
@@ -142,7 +142,7 @@ class MonitoredResource extends $pb.GeneratedMessage {
       create()..mergeFromJson(i, r);
   MonitoredResource clone() => MonitoredResource()..mergeFromMessage(this);
   MonitoredResource copyWith(void Function(MonitoredResource) updates) =>
-      super.copyWith((message) => updates(message as MonitoredResource));
+      super.copyWith((message) => updates(message as MonitoredResource)) as MonitoredResource;
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static MonitoredResource create() => MonitoredResource._();
@@ -152,7 +152,7 @@ class MonitoredResource extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static MonitoredResource getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<MonitoredResource>(create);
-  static MonitoredResource _defaultInstance;
+  static MonitoredResource? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.String get type => $_getSZ(0);
@@ -194,7 +194,7 @@ class MonitoredResourceMetadata extends $pb.GeneratedMessage {
   MonitoredResourceMetadata copyWith(
           void Function(MonitoredResourceMetadata) updates) =>
       super
-          .copyWith((message) => updates(message as MonitoredResourceMetadata));
+          .copyWith((message) => updates(message as MonitoredResourceMetadata)) as MonitoredResourceMetadata;
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static MonitoredResourceMetadata create() => MonitoredResourceMetadata._();
@@ -204,7 +204,7 @@ class MonitoredResourceMetadata extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static MonitoredResourceMetadata getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<MonitoredResourceMetadata>(create);
-  static MonitoredResourceMetadata _defaultInstance;
+  static MonitoredResourceMetadata? _defaultInstance;
 
   @$pb.TagNumber(1)
   $1.Struct get systemLabels => $_getN(0);

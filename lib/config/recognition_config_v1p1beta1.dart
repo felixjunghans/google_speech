@@ -7,8 +7,8 @@ class RecognitionConfigBeta {
   /// Provides information to the recognizer
   /// that specifies how to process the request.
   RecognitionConfigBeta({
-    @required this.encoding,
-    @required this.languageCode,
+    required this.encoding,
+    required this.languageCode,
     this.sampleRateHertz,
     this.audioChannelCount = 1,
     this.enableSeparateRecognitionPerChannel = false,
@@ -41,7 +41,7 @@ class RecognitionConfigBeta {
     ..encoding = _encoding(encoding)
     ..languageCode = languageCode
     ..alternativeLanguageCodes.addAll(alternativeLanguageCodes)
-    ..sampleRateHertz = sampleRateHertz
+    ..sampleRateHertz = sampleRateHertz!
     ..audioChannelCount = audioChannelCount
     ..enableSeparateRecognitionPerChannel = enableSeparateRecognitionPerChannel
     ..maxAlternatives = maxAlternatives
@@ -116,10 +116,10 @@ class RecognitionConfigBeta {
   /// identify the speakers in the conversation over time.
   /// For non-streaming requests, the diarization results will be provided only
   /// in the top alternative of the FINAL SpeechRecognitionResult.
-  final _cs.SpeakerDiarizationConfig diarizationConfig;
+  final _cs.SpeakerDiarizationConfig? diarizationConfig;
 
   /// Metadata regarding this request.
-  final _cs.RecognitionMetadata recognitionMetadata;
+  final _cs.RecognitionMetadata? recognitionMetadata;
 
   /// Encoding of audio data sent in all RecognitionAudio messages.
   /// This field is optional for FLAC and WAV audio files and required for all
@@ -133,7 +133,7 @@ class RecognitionConfigBeta {
   /// (instead of re-sampling). This field is optional for FLAC and WAV audio
   /// files, but is required for all other audio formats.
   /// For details, see [AudioEncoding].
-  int sampleRateHertz;
+  int? sampleRateHertz;
 
   /// The number of channels in the input audio data. ONLY set this for
   /// MULTI-CHANNEL recognition. Valid values for LINEAR16 and FLAC are 1-8.

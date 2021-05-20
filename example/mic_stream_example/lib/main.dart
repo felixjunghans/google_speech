@@ -66,12 +66,24 @@ class _AudioRecognizeState extends State<AudioRecognize> {
         StreamingRecognitionConfig(config: config, interimResults: true),
         _audioStream);
 
+    var responseText = '';
+
     responseStream.listen((data) {
-      setState(() {
-        text =
-            data.results.map((e) => e.alternatives.first.transcript).join('\n');
-        recognizeFinished = true;
-      });
+      final currentText =
+          data.results.map((e) => e.alternatives.first.transcript).join('\n');
+
+      if (data.results.first.isFinal) {
+        responseText += '\n' + currentText;
+        setState(() {
+          text = responseText;
+          recognizeFinished = true;
+        });
+      } else {
+        setState(() {
+          text = responseText + '\n' + currentText;
+          recognizeFinished = true;
+        });
+      }
     }, onDone: () {
       setState(() {
         recognizing = false;

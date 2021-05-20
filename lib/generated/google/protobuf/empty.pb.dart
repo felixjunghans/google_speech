@@ -2,7 +2,7 @@
 //  Generated code. Do not modify.
 //  source: google/protobuf/empty.proto
 //
-// @dart = 2.3
+
 // ignore_for_file: camel_case_types,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type
 
 import 'dart:core' as $core;
@@ -25,7 +25,7 @@ class Empty extends $pb.GeneratedMessage {
       create()..mergeFromJson(i, r);
   Empty clone() => Empty()..mergeFromMessage(this);
   Empty copyWith(void Function(Empty) updates) =>
-      super.copyWith((message) => updates(message as Empty));
+      super.copyWith((message) => updates(message as Empty)) as Empty;
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static Empty create() => Empty._();
@@ -34,5 +34,5 @@ class Empty extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static Empty getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Empty>(create);
-  static Empty _defaultInstance;
+  static Empty? _defaultInstance;
 }

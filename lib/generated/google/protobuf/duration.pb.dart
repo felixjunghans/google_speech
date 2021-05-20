@@ -2,7 +2,7 @@
 //  Generated code. Do not modify.
 //  source: google/protobuf/duration.proto
 //
-// @dart = 2.3
+
 // ignore_for_file: camel_case_types,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type
 
 import 'dart:core' as $core;
@@ -32,7 +32,7 @@ class Duration extends $pb.GeneratedMessage with $mixin.DurationMixin {
       create()..mergeFromJson(i, r);
   Duration clone() => Duration()..mergeFromMessage(this);
   Duration copyWith(void Function(Duration) updates) =>
-      super.copyWith((message) => updates(message as Duration));
+      super.copyWith((message) => updates(message as Duration)) as Duration;
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static Duration create() => Duration._();
@@ -41,7 +41,7 @@ class Duration extends $pb.GeneratedMessage with $mixin.DurationMixin {
   @$core.pragma('dart2js:noInline')
   static Duration getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Duration>(create);
-  static Duration _defaultInstance;
+  static Duration? _defaultInstance;
 
   @$pb.TagNumber(1)
   $fixnum.Int64 get seconds => $_getI64(0);

@@ -28,7 +28,7 @@ class ServiceAccount extends SpeechClientAuthenticator {
   CallOptions get callOptions => _authenticator.toCallOptions;
 
   /// Returns the current project id of the service account.
-  String get projectId => _authenticator.projectId;
+  String? get projectId => _authenticator.projectId;
 
   // Private constructor to prevent direct initialization of the class.
   ServiceAccount._(String _serviceAccountJson)

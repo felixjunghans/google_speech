@@ -2,7 +2,7 @@
 //  Generated code. Do not modify.
 //  source: google/longrunning/operations.proto
 //
-// @dart = 2.3
+
 // ignore_for_file: camel_case_types,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type
 
 import 'dart:core' as $core;
@@ -42,7 +42,7 @@ class Operation extends $pb.GeneratedMessage {
       create()..mergeFromJson(i, r);
   Operation clone() => Operation()..mergeFromMessage(this);
   Operation copyWith(void Function(Operation) updates) =>
-      super.copyWith((message) => updates(message as Operation));
+      super.copyWith((message) => updates(message as Operation)) as Operation;
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static Operation create() => Operation._();
@@ -51,9 +51,9 @@ class Operation extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static Operation getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Operation>(create);
-  static Operation _defaultInstance;
+  static Operation? _defaultInstance;
 
-  Operation_Result whichResult() => _Operation_ResultByTag[$_whichOneof(0)];
+  Operation_Result? whichResult() => _Operation_ResultByTag[$_whichOneof(0)];
   void clearResult() => clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
@@ -140,7 +140,7 @@ class GetOperationRequest extends $pb.GeneratedMessage {
       create()..mergeFromJson(i, r);
   GetOperationRequest clone() => GetOperationRequest()..mergeFromMessage(this);
   GetOperationRequest copyWith(void Function(GetOperationRequest) updates) =>
-      super.copyWith((message) => updates(message as GetOperationRequest));
+      super.copyWith((message) => updates(message as GetOperationRequest)) as GetOperationRequest;
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static GetOperationRequest create() => GetOperationRequest._();
@@ -150,7 +150,7 @@ class GetOperationRequest extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static GetOperationRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<GetOperationRequest>(create);
-  static GetOperationRequest _defaultInstance;
+  static GetOperationRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.String get name => $_getSZ(0);
@@ -187,7 +187,7 @@ class ListOperationsRequest extends $pb.GeneratedMessage {
       ListOperationsRequest()..mergeFromMessage(this);
   ListOperationsRequest copyWith(
           void Function(ListOperationsRequest) updates) =>
-      super.copyWith((message) => updates(message as ListOperationsRequest));
+      super.copyWith((message) => updates(message as ListOperationsRequest)) as ListOperationsRequest;
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static ListOperationsRequest create() => ListOperationsRequest._();
@@ -197,7 +197,7 @@ class ListOperationsRequest extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static ListOperationsRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<ListOperationsRequest>(create);
-  static ListOperationsRequest _defaultInstance;
+  static ListOperationsRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.String get filter => $_getSZ(0);
@@ -269,7 +269,7 @@ class ListOperationsResponse extends $pb.GeneratedMessage {
       ListOperationsResponse()..mergeFromMessage(this);
   ListOperationsResponse copyWith(
           void Function(ListOperationsResponse) updates) =>
-      super.copyWith((message) => updates(message as ListOperationsResponse));
+      super.copyWith((message) => updates(message as ListOperationsResponse)) as ListOperationsResponse;
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static ListOperationsResponse create() => ListOperationsResponse._();
@@ -279,7 +279,7 @@ class ListOperationsResponse extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static ListOperationsResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<ListOperationsResponse>(create);
-  static ListOperationsResponse _defaultInstance;
+  static ListOperationsResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.List<Operation> get operations => $_getList(0);
@@ -316,7 +316,7 @@ class CancelOperationRequest extends $pb.GeneratedMessage {
       CancelOperationRequest()..mergeFromMessage(this);
   CancelOperationRequest copyWith(
           void Function(CancelOperationRequest) updates) =>
-      super.copyWith((message) => updates(message as CancelOperationRequest));
+      super.copyWith((message) => updates(message as CancelOperationRequest)) as CancelOperationRequest;
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static CancelOperationRequest create() => CancelOperationRequest._();
@@ -326,7 +326,7 @@ class CancelOperationRequest extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static CancelOperationRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<CancelOperationRequest>(create);
-  static CancelOperationRequest _defaultInstance;
+  static CancelOperationRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.String get name => $_getSZ(0);
@@ -360,7 +360,7 @@ class DeleteOperationRequest extends $pb.GeneratedMessage {
       DeleteOperationRequest()..mergeFromMessage(this);
   DeleteOperationRequest copyWith(
           void Function(DeleteOperationRequest) updates) =>
-      super.copyWith((message) => updates(message as DeleteOperationRequest));
+      super.copyWith((message) => updates(message as DeleteOperationRequest)) as DeleteOperationRequest;
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static DeleteOperationRequest create() => DeleteOperationRequest._();
@@ -370,7 +370,7 @@ class DeleteOperationRequest extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static DeleteOperationRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DeleteOperationRequest>(create);
-  static DeleteOperationRequest _defaultInstance;
+  static DeleteOperationRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.String get name => $_getSZ(0);
@@ -404,7 +404,7 @@ class WaitOperationRequest extends $pb.GeneratedMessage {
   WaitOperationRequest clone() =>
       WaitOperationRequest()..mergeFromMessage(this);
   WaitOperationRequest copyWith(void Function(WaitOperationRequest) updates) =>
-      super.copyWith((message) => updates(message as WaitOperationRequest));
+      super.copyWith((message) => updates(message as WaitOperationRequest)) as WaitOperationRequest;
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static WaitOperationRequest create() => WaitOperationRequest._();
@@ -414,7 +414,7 @@ class WaitOperationRequest extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static WaitOperationRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WaitOperationRequest>(create);
-  static WaitOperationRequest _defaultInstance;
+  static WaitOperationRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.String get name => $_getSZ(0);
@@ -461,7 +461,7 @@ class OperationInfo extends $pb.GeneratedMessage {
       create()..mergeFromJson(i, r);
   OperationInfo clone() => OperationInfo()..mergeFromMessage(this);
   OperationInfo copyWith(void Function(OperationInfo) updates) =>
-      super.copyWith((message) => updates(message as OperationInfo));
+      super.copyWith((message) => updates(message as OperationInfo)) as OperationInfo;
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static OperationInfo create() => OperationInfo._();
@@ -471,7 +471,7 @@ class OperationInfo extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static OperationInfo getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<OperationInfo>(create);
-  static OperationInfo _defaultInstance;
+  static OperationInfo? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.String get responseType => $_getSZ(0);

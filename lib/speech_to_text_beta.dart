@@ -32,7 +32,7 @@ class SpeechToTextBeta {
 
   /// Listen to audio stream.
   /// Cancelled as soon as dispose is called.
-  StreamSubscription<List<int>> _audioStreamSubscription;
+  StreamSubscription<List<int>>? _audioStreamSubscription;
 
   /// Sends a [RecognizeRequest] request to the Google Speech Api.
   /// Requires a [RecognitionConfig] and an [RecognitionAudio].
@@ -73,7 +73,7 @@ class SpeechToTextBeta {
       request.add(StreamingRecognizeRequest()..audioContent = audio);
     });
 
-    _audioStreamSubscription.onDone(() {
+    _audioStreamSubscription!.onDone(() {
       // Close the request stream, if the audio stream is finished.
       request.close();
     });

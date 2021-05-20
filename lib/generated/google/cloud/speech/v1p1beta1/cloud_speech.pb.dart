@@ -2,7 +2,7 @@
 //  Generated code. Do not modify.
 //  source: google/cloud/speech_new/v1p1beta1/cloud_speech.proto
 //
-// @dart = 2.3
+
 // ignore_for_file: camel_case_types,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type
 
 import 'dart:core' as $core;
@@ -37,7 +37,7 @@ class RecognizeRequest extends $pb.GeneratedMessage {
       create()..mergeFromJson(i, r);
   RecognizeRequest clone() => RecognizeRequest()..mergeFromMessage(this);
   RecognizeRequest copyWith(void Function(RecognizeRequest) updates) =>
-      super.copyWith((message) => updates(message as RecognizeRequest));
+      super.copyWith((message) => updates(message as RecognizeRequest)) as RecognizeRequest;
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static RecognizeRequest create() => RecognizeRequest._();
@@ -47,7 +47,7 @@ class RecognizeRequest extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static RecognizeRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<RecognizeRequest>(create);
-  static RecognizeRequest _defaultInstance;
+  static RecognizeRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
   RecognitionConfig get config => $_getN(0);
@@ -100,7 +100,7 @@ class LongRunningRecognizeRequest extends $pb.GeneratedMessage {
   LongRunningRecognizeRequest copyWith(
           void Function(LongRunningRecognizeRequest) updates) =>
       super.copyWith(
-          (message) => updates(message as LongRunningRecognizeRequest));
+          (message) => updates(message as LongRunningRecognizeRequest)) as LongRunningRecognizeRequest;
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static LongRunningRecognizeRequest create() =>
@@ -111,7 +111,7 @@ class LongRunningRecognizeRequest extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static LongRunningRecognizeRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<LongRunningRecognizeRequest>(create);
-  static LongRunningRecognizeRequest _defaultInstance;
+  static LongRunningRecognizeRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
   RecognitionConfig get config => $_getN(0);
@@ -177,7 +177,7 @@ class StreamingRecognizeRequest extends $pb.GeneratedMessage {
   StreamingRecognizeRequest copyWith(
           void Function(StreamingRecognizeRequest) updates) =>
       super
-          .copyWith((message) => updates(message as StreamingRecognizeRequest));
+          .copyWith((message) => updates(message as StreamingRecognizeRequest)) as StreamingRecognizeRequest;
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static StreamingRecognizeRequest create() => StreamingRecognizeRequest._();
@@ -187,9 +187,9 @@ class StreamingRecognizeRequest extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static StreamingRecognizeRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<StreamingRecognizeRequest>(create);
-  static StreamingRecognizeRequest _defaultInstance;
+  static StreamingRecognizeRequest? _defaultInstance;
 
-  StreamingRecognizeRequest_StreamingRequest whichStreamingRequest() =>
+  StreamingRecognizeRequest_StreamingRequest? whichStreamingRequest() =>
       _StreamingRecognizeRequest_StreamingRequestByTag[$_whichOneof(0)];
   void clearStreamingRequest() => clearField($_whichOneof(0));
 
@@ -243,7 +243,7 @@ class StreamingRecognitionConfig extends $pb.GeneratedMessage {
   StreamingRecognitionConfig copyWith(
           void Function(StreamingRecognitionConfig) updates) =>
       super.copyWith(
-          (message) => updates(message as StreamingRecognitionConfig));
+          (message) => updates(message as StreamingRecognitionConfig)) as StreamingRecognitionConfig;
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static StreamingRecognitionConfig create() => StreamingRecognitionConfig._();
@@ -253,7 +253,7 @@ class StreamingRecognitionConfig extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static StreamingRecognitionConfig getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<StreamingRecognitionConfig>(create);
-  static StreamingRecognitionConfig _defaultInstance;
+  static StreamingRecognitionConfig? _defaultInstance;
 
   @$pb.TagNumber(1)
   RecognitionConfig get config => $_getN(0);
@@ -336,7 +336,7 @@ class RecognitionConfig extends $pb.GeneratedMessage {
       create()..mergeFromJson(i, r);
   RecognitionConfig clone() => RecognitionConfig()..mergeFromMessage(this);
   RecognitionConfig copyWith(void Function(RecognitionConfig) updates) =>
-      super.copyWith((message) => updates(message as RecognitionConfig));
+      super.copyWith((message) => updates(message as RecognitionConfig)) as RecognitionConfig;
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static RecognitionConfig create() => RecognitionConfig._();
@@ -346,7 +346,7 @@ class RecognitionConfig extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static RecognitionConfig getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<RecognitionConfig>(create);
-  static RecognitionConfig _defaultInstance;
+  static RecognitionConfig? _defaultInstance;
 
   @$pb.TagNumber(1)
   RecognitionConfig_AudioEncoding get encoding => $_getN(0);
@@ -595,7 +595,7 @@ class SpeakerDiarizationConfig extends $pb.GeneratedMessage {
       SpeakerDiarizationConfig()..mergeFromMessage(this);
   SpeakerDiarizationConfig copyWith(
           void Function(SpeakerDiarizationConfig) updates) =>
-      super.copyWith((message) => updates(message as SpeakerDiarizationConfig));
+      super.copyWith((message) => updates(message as SpeakerDiarizationConfig)) as SpeakerDiarizationConfig;
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static SpeakerDiarizationConfig create() => SpeakerDiarizationConfig._();
@@ -605,7 +605,7 @@ class SpeakerDiarizationConfig extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static SpeakerDiarizationConfig getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<SpeakerDiarizationConfig>(create);
-  static SpeakerDiarizationConfig _defaultInstance;
+  static SpeakerDiarizationConfig? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.bool get enableSpeakerDiarization => $_getBF(0);
@@ -705,7 +705,7 @@ class RecognitionMetadata extends $pb.GeneratedMessage {
       create()..mergeFromJson(i, r);
   RecognitionMetadata clone() => RecognitionMetadata()..mergeFromMessage(this);
   RecognitionMetadata copyWith(void Function(RecognitionMetadata) updates) =>
-      super.copyWith((message) => updates(message as RecognitionMetadata));
+      super.copyWith((message) => updates(message as RecognitionMetadata)) as RecognitionMetadata;
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static RecognitionMetadata create() => RecognitionMetadata._();
@@ -715,7 +715,7 @@ class RecognitionMetadata extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static RecognitionMetadata getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<RecognitionMetadata>(create);
-  static RecognitionMetadata _defaultInstance;
+  static RecognitionMetadata? _defaultInstance;
 
   @$pb.TagNumber(1)
   RecognitionMetadata_InteractionType get interactionType => $_getN(0);
@@ -848,7 +848,7 @@ class SpeechContext extends $pb.GeneratedMessage {
       create()..mergeFromJson(i, r);
   SpeechContext clone() => SpeechContext()..mergeFromMessage(this);
   SpeechContext copyWith(void Function(SpeechContext) updates) =>
-      super.copyWith((message) => updates(message as SpeechContext));
+      super.copyWith((message) => updates(message as SpeechContext)) as SpeechContext;
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static SpeechContext create() => SpeechContext._();
@@ -858,7 +858,7 @@ class SpeechContext extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static SpeechContext getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<SpeechContext>(create);
-  static SpeechContext _defaultInstance;
+  static SpeechContext? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.List<$core.String> get phrases => $_getList(0);
@@ -903,7 +903,7 @@ class RecognitionAudio extends $pb.GeneratedMessage {
       create()..mergeFromJson(i, r);
   RecognitionAudio clone() => RecognitionAudio()..mergeFromMessage(this);
   RecognitionAudio copyWith(void Function(RecognitionAudio) updates) =>
-      super.copyWith((message) => updates(message as RecognitionAudio));
+      super.copyWith((message) => updates(message as RecognitionAudio)) as RecognitionAudio;
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static RecognitionAudio create() => RecognitionAudio._();
@@ -913,9 +913,9 @@ class RecognitionAudio extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static RecognitionAudio getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<RecognitionAudio>(create);
-  static RecognitionAudio _defaultInstance;
+  static RecognitionAudio? _defaultInstance;
 
-  RecognitionAudio_AudioSource whichAudioSource() =>
+  RecognitionAudio_AudioSource? whichAudioSource() =>
       _RecognitionAudio_AudioSourceByTag[$_whichOneof(0)];
   void clearAudioSource() => clearField($_whichOneof(0));
 
@@ -962,7 +962,7 @@ class RecognizeResponse extends $pb.GeneratedMessage {
       create()..mergeFromJson(i, r);
   RecognizeResponse clone() => RecognizeResponse()..mergeFromMessage(this);
   RecognizeResponse copyWith(void Function(RecognizeResponse) updates) =>
-      super.copyWith((message) => updates(message as RecognizeResponse));
+      super.copyWith((message) => updates(message as RecognizeResponse)) as RecognizeResponse;
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static RecognizeResponse create() => RecognizeResponse._();
@@ -972,7 +972,7 @@ class RecognizeResponse extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static RecognizeResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<RecognizeResponse>(create);
-  static RecognizeResponse _defaultInstance;
+  static RecognizeResponse? _defaultInstance;
 
   @$pb.TagNumber(2)
   $core.List<SpeechRecognitionResult> get results => $_getList(0);
@@ -1000,7 +1000,7 @@ class LongRunningRecognizeResponse extends $pb.GeneratedMessage {
   LongRunningRecognizeResponse copyWith(
           void Function(LongRunningRecognizeResponse) updates) =>
       super.copyWith(
-          (message) => updates(message as LongRunningRecognizeResponse));
+          (message) => updates(message as LongRunningRecognizeResponse)) as LongRunningRecognizeResponse;
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static LongRunningRecognizeResponse create() =>
@@ -1011,7 +1011,7 @@ class LongRunningRecognizeResponse extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static LongRunningRecognizeResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<LongRunningRecognizeResponse>(create);
-  static LongRunningRecognizeResponse _defaultInstance;
+  static LongRunningRecognizeResponse? _defaultInstance;
 
   @$pb.TagNumber(2)
   $core.List<SpeechRecognitionResult> get results => $_getList(0);
@@ -1041,7 +1041,7 @@ class LongRunningRecognizeMetadata extends $pb.GeneratedMessage {
   LongRunningRecognizeMetadata copyWith(
           void Function(LongRunningRecognizeMetadata) updates) =>
       super.copyWith(
-          (message) => updates(message as LongRunningRecognizeMetadata));
+          (message) => updates(message as LongRunningRecognizeMetadata)) as LongRunningRecognizeMetadata;
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static LongRunningRecognizeMetadata create() =>
@@ -1052,7 +1052,7 @@ class LongRunningRecognizeMetadata extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static LongRunningRecognizeMetadata getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<LongRunningRecognizeMetadata>(create);
-  static LongRunningRecognizeMetadata _defaultInstance;
+  static LongRunningRecognizeMetadata? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.int get progressPercent => $_getIZ(0);
@@ -1136,7 +1136,7 @@ class StreamingRecognizeResponse extends $pb.GeneratedMessage {
   StreamingRecognizeResponse copyWith(
           void Function(StreamingRecognizeResponse) updates) =>
       super.copyWith(
-          (message) => updates(message as StreamingRecognizeResponse));
+          (message) => updates(message as StreamingRecognizeResponse)) as StreamingRecognizeResponse;
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static StreamingRecognizeResponse create() => StreamingRecognizeResponse._();
@@ -1146,7 +1146,7 @@ class StreamingRecognizeResponse extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static StreamingRecognizeResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<StreamingRecognizeResponse>(create);
-  static StreamingRecognizeResponse _defaultInstance;
+  static StreamingRecognizeResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
   $5.Status get error => $_getN(0);
@@ -1205,7 +1205,7 @@ class StreamingRecognitionResult extends $pb.GeneratedMessage {
   StreamingRecognitionResult copyWith(
           void Function(StreamingRecognitionResult) updates) =>
       super.copyWith(
-          (message) => updates(message as StreamingRecognitionResult));
+          (message) => updates(message as StreamingRecognitionResult)) as StreamingRecognitionResult;
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static StreamingRecognitionResult create() => StreamingRecognitionResult._();
@@ -1215,7 +1215,7 @@ class StreamingRecognitionResult extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static StreamingRecognitionResult getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<StreamingRecognitionResult>(create);
-  static StreamingRecognitionResult _defaultInstance;
+  static StreamingRecognitionResult? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.List<SpeechRecognitionAlternative> get alternatives => $_getList(0);
@@ -1305,7 +1305,7 @@ class SpeechRecognitionResult extends $pb.GeneratedMessage {
       SpeechRecognitionResult()..mergeFromMessage(this);
   SpeechRecognitionResult copyWith(
           void Function(SpeechRecognitionResult) updates) =>
-      super.copyWith((message) => updates(message as SpeechRecognitionResult));
+      super.copyWith((message) => updates(message as SpeechRecognitionResult)) as SpeechRecognitionResult;
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static SpeechRecognitionResult create() => SpeechRecognitionResult._();
@@ -1315,7 +1315,7 @@ class SpeechRecognitionResult extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static SpeechRecognitionResult getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<SpeechRecognitionResult>(create);
-  static SpeechRecognitionResult _defaultInstance;
+  static SpeechRecognitionResult? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.List<SpeechRecognitionAlternative> get alternatives => $_getList(0);
@@ -1368,7 +1368,7 @@ class SpeechRecognitionAlternative extends $pb.GeneratedMessage {
   SpeechRecognitionAlternative copyWith(
           void Function(SpeechRecognitionAlternative) updates) =>
       super.copyWith(
-          (message) => updates(message as SpeechRecognitionAlternative));
+          (message) => updates(message as SpeechRecognitionAlternative)) as SpeechRecognitionAlternative;
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static SpeechRecognitionAlternative create() =>
@@ -1379,7 +1379,7 @@ class SpeechRecognitionAlternative extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static SpeechRecognitionAlternative getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<SpeechRecognitionAlternative>(create);
-  static SpeechRecognitionAlternative _defaultInstance;
+  static SpeechRecognitionAlternative? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.String get transcript => $_getSZ(0);
@@ -1430,7 +1430,7 @@ class WordInfo extends $pb.GeneratedMessage {
       create()..mergeFromJson(i, r);
   WordInfo clone() => WordInfo()..mergeFromMessage(this);
   WordInfo copyWith(void Function(WordInfo) updates) =>
-      super.copyWith((message) => updates(message as WordInfo));
+      super.copyWith((message) => updates(message as WordInfo)) as WordInfo;
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static WordInfo create() => WordInfo._();
@@ -1439,7 +1439,7 @@ class WordInfo extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static WordInfo getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<WordInfo>(create);
-  static WordInfo _defaultInstance;
+  static WordInfo? _defaultInstance;
 
   @$pb.TagNumber(1)
   $6.Duration get startTime => $_getN(0);

@@ -2,7 +2,7 @@
 //  Generated code. Do not modify.
 //  source: google/protobuf/any.proto
 //
-// @dart = 2.3
+
 // ignore_for_file: camel_case_types,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type
 
 import 'dart:core' as $core;
@@ -31,7 +31,7 @@ class Any extends $pb.GeneratedMessage with $mixin.AnyMixin {
       create()..mergeFromJson(i, r);
   Any clone() => Any()..mergeFromMessage(this);
   Any copyWith(void Function(Any) updates) =>
-      super.copyWith((message) => updates(message as Any));
+      super.copyWith((message) => updates(message as Any)) as Any;
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static Any create() => Any._();
@@ -40,7 +40,7 @@ class Any extends $pb.GeneratedMessage with $mixin.AnyMixin {
   @$core.pragma('dart2js:noInline')
   static Any getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Any>(create);
-  static Any _defaultInstance;
+  static Any? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.String get typeUrl => $_getSZ(0);

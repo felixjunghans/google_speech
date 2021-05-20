@@ -2,7 +2,7 @@
 //  Generated code. Do not modify.
 //  source: google/api/label.proto
 //
-// @dart = 2.3
+
 // ignore_for_file: camel_case_types,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type
 
 import 'dart:core' as $core;
@@ -34,7 +34,7 @@ class LabelDescriptor extends $pb.GeneratedMessage {
       create()..mergeFromJson(i, r);
   LabelDescriptor clone() => LabelDescriptor()..mergeFromMessage(this);
   LabelDescriptor copyWith(void Function(LabelDescriptor) updates) =>
-      super.copyWith((message) => updates(message as LabelDescriptor));
+      super.copyWith((message) => updates(message as LabelDescriptor)) as LabelDescriptor;
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static LabelDescriptor create() => LabelDescriptor._();
@@ -44,7 +44,7 @@ class LabelDescriptor extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static LabelDescriptor getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<LabelDescriptor>(create);
-  static LabelDescriptor _defaultInstance;
+  static LabelDescriptor? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.String get key => $_getSZ(0);

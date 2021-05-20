@@ -2,7 +2,7 @@
 //  Generated code. Do not modify.
 //  source: google/api/launch_stage.proto
 //
-// @dart = 2.3
+
 // ignore_for_file: camel_case_types,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type
 
 // ignore_for_file: UNDEFINED_SHOWN_NAME,UNUSED_SHOWN_NAME
@@ -29,7 +29,7 @@ class LaunchStage extends $pb.ProtobufEnum {
 
   static final $core.Map<$core.int, LaunchStage> _byValue =
       $pb.ProtobufEnum.initByValue(values);
-  static LaunchStage valueOf($core.int value) => _byValue[value];
+  static LaunchStage? valueOf($core.int value) => _byValue[value];
 
   const LaunchStage._($core.int v, $core.String n) : super(v, n);
 }
