@@ -144,7 +144,6 @@ class RecognitionConfig {
   /// List of SpeechContext. A means to provide context to assist the
   /// speech recognition. For more information,
   /// see [speech adaptation](https://cloud.google.com/speech-to-text/docs/context-strength).
-  /// Currently not supported.
   final List<SpeechContext> speechContexts;
 
   /// If true, the top result includes a list of words and the start and end

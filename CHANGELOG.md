@@ -1,3 +1,7 @@
+## [2.0.1] - Fix SpeechContext.
+* Add parameter boost to SpeechContextBeta
+* Remove "currently not supported" flag from SpeechContext
+
 ## [2.0.0] - Add support for Flutter 2 and null safety.
 * Now supporting null safety.
 

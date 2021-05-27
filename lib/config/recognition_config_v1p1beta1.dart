@@ -1,7 +1,6 @@
 import 'package:google_speech/config/recognition_config.dart';
 import 'package:google_speech/generated/google/cloud/speech/v1p1beta1/cloud_speech.pb.dart'
     as _cs;
-import 'package:meta/meta.dart';
 
 class RecognitionConfigBeta {
   /// Provides information to the recognizer
@@ -178,7 +177,6 @@ class RecognitionConfigBeta {
   /// List of SpeechContext. A means to provide context to assist the
   /// speech recognition. For more information,
   /// see [speech adaptation](https://cloud.google.com/speech-to-text/docs/context-strength).
-  /// Currently not supported.
   final List<SpeechContextBeta> speechContexts;
 
   /// If true, the top result includes a list of words and the start and end
@@ -210,10 +208,13 @@ class RecognitionConfigBeta {
 }
 
 class SpeechContextBeta {
-  SpeechContextBeta(this.phrases);
+  SpeechContextBeta(this.phrases, this.boost);
 
   final List<String> phrases;
 
-  _cs.SpeechContext toGoogleSpeechContext() =>
-      _cs.SpeechContext()..phrases.addAll(phrases);
+  final double boost;
+
+  _cs.SpeechContext toGoogleSpeechContext() => _cs.SpeechContext()
+    ..phrases.addAll(phrases)
+    ..boost = boost;
 }
