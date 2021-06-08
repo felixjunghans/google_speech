@@ -122,11 +122,11 @@ After you have successfully connected the ServiceAccount, you can already start 
 
 Since version 1.1.0 google_speech also supports the use of features available in the Google Speech Beta Api. For this you just have to use SpeechToTextBeta instead of SpeechToText.
 
-### TODO
+### ROADMAP (Q2/Q3 2021) 
 
-- [x] Seeking example in `Example` project
-- [x] Add streamingRecognize support
-- [x] Add Google Speech Beta support
+- [ ] Update streamingRecognize example
+- [ ] Add error messages for Google Speech limitations
+- [ ] Add Flutter Web Support
 - [ ] Add longRunningRecognize support
 - [ ] Add infinity stream support
 - [ ] Add more tests
