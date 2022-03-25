@@ -7,6 +7,7 @@ import 'package:google_speech/generated/google/cloud/speech/v1p1beta1/cloud_spee
     hide RecognitionConfig, StreamingRecognitionConfig;
 import 'package:google_speech/generated/google/cloud/speech/v1p1beta1/cloud_speech.pbgrpc.dart'
     hide RecognitionConfig, StreamingRecognitionConfig;
+import 'package:google_speech/generated/google/longrunning/operations.pb.dart';
 import 'package:google_speech/speech_client_authenticator.dart';
 import 'package:grpc/grpc.dart';
 
@@ -52,6 +53,26 @@ class SpeechToTextBeta {
       ..config = config.toConfig()
       ..audio = recognitionAudio);
     return client.recognize(request);
+  }
+
+  /// Sends a [LongRunningRecognizeRequest] request to the Google Speech Api.
+  /// Requires a [RecognitionConfigBeta] and an [RecognitionAudio].
+  ///
+  /// To use asynchronous speech recognition to transcribe audio longer than 60
+  /// seconds, you must have your data saved in a Google Cloud Storage bucket.
+  ResponseFuture<Operation> longRunningRecognize(
+      RecognitionConfigBeta config, String audioGcsUri) {
+    final client = SpeechClient(_channel, options: _options);
+
+    // transform audio to RecognitionAudio
+    final recognitionAudio = RecognitionAudio()..uri = audioGcsUri;
+
+    // Create the request, which transmits the necessary
+    // data to the Google Api.
+    final request = (LongRunningRecognizeRequest()
+      ..config = config.toConfig()
+      ..audio = recognitionAudio);
+    return client.longRunningRecognize(request);
   }
 
   /// Sends a [StreamingRecognizeRequest] to the Google Speech Api.
