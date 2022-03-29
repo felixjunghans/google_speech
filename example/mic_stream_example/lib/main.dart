@@ -7,10 +7,12 @@ import 'package:rxdart/rxdart.dart';
 import 'package:sound_stream/sound_stream.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -20,12 +22,14 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: AudioRecognize(),
+      home: const AudioRecognize(),
     );
   }
 }
 
 class AudioRecognize extends StatefulWidget {
+  const AudioRecognize({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() => _AudioRecognizeState();
 }
@@ -36,8 +40,8 @@ class _AudioRecognizeState extends State<AudioRecognize> {
   bool recognizing = false;
   bool recognizeFinished = false;
   String text = '';
-  StreamSubscription<List<int>> _audioStreamSubscription;
-  BehaviorSubject<List<int>> _audioStream;
+  StreamSubscription<List<int>>? _audioStreamSubscription;
+  BehaviorSubject<List<int>>? _audioStream;
 
   @override
   void initState() {
@@ -49,7 +53,7 @@ class _AudioRecognizeState extends State<AudioRecognize> {
   void streamingRecognize() async {
     _audioStream = BehaviorSubject<List<int>>();
     _audioStreamSubscription = _recorder.audioStream.listen((event) {
-      _audioStream.add(event);
+      _audioStream!.add(event);
     });
 
     await _recorder.start();
@@ -58,13 +62,13 @@ class _AudioRecognizeState extends State<AudioRecognize> {
       recognizing = true;
     });
     final serviceAccount = ServiceAccount.fromString(
-        '${(await rootBundle.loadString('assets/test_service_account.json'))}');
+        (await rootBundle.loadString('assets/test_service_account.json')));
     final speechToText = SpeechToText.viaServiceAccount(serviceAccount);
     final config = _getConfig();
 
     final responseStream = speechToText.streamingRecognize(
         StreamingRecognitionConfig(config: config, interimResults: true),
-        _audioStream);
+        _audioStream!);
 
     var responseText = '';
 
@@ -111,7 +115,7 @@ class _AudioRecognizeState extends State<AudioRecognize> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Audio File Example'),
+        title: const Text('Audio File Example'),
       ),
       body: Center(
         child: Column(
@@ -121,11 +125,11 @@ class _AudioRecognizeState extends State<AudioRecognize> {
               _RecognizeContent(
                 text: text,
               ),
-            RaisedButton(
+            ElevatedButton(
               onPressed: recognizing ? stopRecording : streamingRecognize,
               child: recognizing
-                  ? Text('Stop recording')
-                  : Text('Start Streaming from mic'),
+                  ? const Text('Stop recording')
+                  : const Text('Start Streaming from mic'),
             ),
           ],
         ),
@@ -135,9 +139,9 @@ class _AudioRecognizeState extends State<AudioRecognize> {
 }
 
 class _RecognizeContent extends StatelessWidget {
-  final String text;
+  final String? text;
 
-  const _RecognizeContent({Key key, this.text}) : super(key: key);
+  const _RecognizeContent({Key? key, this.text}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -145,14 +149,14 @@ class _RecognizeContent extends StatelessWidget {
       padding: const EdgeInsets.all(16.0),
       child: Column(
         children: <Widget>[
-          Text(
+          const Text(
             'The text recognized by the Google Speech Api:',
           ),
-          SizedBox(
+          const SizedBox(
             height: 16.0,
           ),
           Text(
-            text,
+            text ?? '---',
             style: Theme.of(context).textTheme.bodyText1,
           ),
         ],
