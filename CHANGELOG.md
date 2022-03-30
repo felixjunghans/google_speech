@@ -1,3 +1,6 @@
+## [2.1.0] - Add longRunningRecognize.
+* Add longRunningRecognize method
+
 ## [2.0.1] - Fix SpeechContext.
 * Add parameter boost to SpeechContextBeta
 * Remove "currently not supported" flag from SpeechContext

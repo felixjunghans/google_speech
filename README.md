@@ -127,6 +127,6 @@ Since version 1.1.0 google_speech also supports the use of features available in
 - [ ] Update streamingRecognize example
 - [ ] Add error messages for Google Speech limitations
 - [ ] Add Flutter Web Support
-- [ ] Add longRunningRecognize support
+- [x] Add longRunningRecognize support (Thanks to @spenceralbrecht)
 - [ ] Add infinity stream support
 - [ ] Add more tests

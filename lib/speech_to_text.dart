@@ -11,6 +11,7 @@ import 'package:grpc/grpc.dart';
 
 import 'config/recognition_config_v1.dart';
 import 'config/streaming_recognition_config.dart';
+import 'generated/google/longrunning/operations.pb.dart';
 
 /// An interface to Google's Speech-to-Text Api via grpc.
 ///
@@ -77,6 +78,26 @@ class SpeechToText {
       request.close();
     });
     return client.streamingRecognize(request.stream);
+  }
+
+  /// Sends a [LongRunningRecognizeRequest] request to the Google Speech Api.
+  /// Requires a [RecognitionConfigBeta] and an [RecognitionAudio].
+  ///
+  /// To use asynchronous speech recognition to transcribe audio longer than 60
+  /// seconds, you must have your data saved in a Google Cloud Storage bucket.
+  ResponseFuture<Operation> longRunningRecognize(
+      RecognitionConfig config, String audioGcsUri) {
+    final client = SpeechClient(_channel, options: _options);
+
+    // transform audio to RecognitionAudio
+    final recognitionAudio = RecognitionAudio()..uri = audioGcsUri;
+
+    // Create the request, which transmits the necessary
+    // data to the Google Api.
+    final request = (LongRunningRecognizeRequest()
+      ..config = config.toConfig()
+      ..audio = recognitionAudio);
+    return client.longRunningRecognize(request);
   }
 
   void dispose() {
