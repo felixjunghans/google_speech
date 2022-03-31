@@ -128,9 +128,9 @@ You can find more information here [https://cloud.google.com/speech-to-text/docs
 
 Since version 1.1.0 google_speech also supports the use of features available in the Google Speech Beta Api. For this you just have to use SpeechToTextBeta instead of SpeechToText.
 
-### ROADMAP (Q2/Q3 2021) 
+### ROADMAP 2022 
 
-- [ ] Update streamingRecognize example
+- [x] Update streamingRecognize example
 - [ ] Add error messages for Google Speech limitations
 - [ ] Add Flutter Web Support
 - [x] Add longRunningRecognize support (Thanks to @spenceralbrecht)
