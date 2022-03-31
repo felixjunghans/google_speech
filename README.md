@@ -118,6 +118,12 @@ After you have successfully connected the ServiceAccount, you can already start 
     
 [More information can be found in the official Google Cloud Speech documentation.](https://cloud.google.com/speech-to-text/docs)   
 
+## Getting empty response ([Issue #25](https://github.com/felixjunghans/google_speech/issues/25))
+
+If it happens that google_speech returns an empty response, then this error is probably due to the recorded audio file.
+
+You can find more information here [https://cloud.google.com/speech-to-text/docs/troubleshooting#returns_an_empty_response](https://cloud.google.com/speech-to-text/docs/troubleshooting#returns_an_empty_response)
+
 ## Use Google Speech Beta
 
 Since version 1.1.0 google_speech also supports the use of features available in the Google Speech Beta Api. For this you just have to use SpeechToTextBeta instead of SpeechToText.

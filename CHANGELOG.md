@@ -1,3 +1,6 @@
+## [2.1.1] - Provide a Readme file in the Example folder.
+* Added a readme file to the example folder, to follow the package layout conventions.
+
 ## [2.1.0] - Add longRunningRecognize.
 * Add longRunningRecognize method
 
