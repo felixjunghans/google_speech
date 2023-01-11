@@ -6,3 +6,4 @@ export 'exception.dart';
 export 'speech_client_authenticator.dart';
 export 'speech_to_text.dart';
 export 'speech_to_text_beta.dart';
+export 'speech_to_text_beta_web.dart';

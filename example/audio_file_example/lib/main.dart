@@ -44,9 +44,9 @@ class _AudioRecognizeState extends State<AudioRecognize> {
     });
     final serviceAccount = ServiceAccount.fromString(
         (await rootBundle.loadString('assets/test_service_account.json')));
-    final speechToText = SpeechToTextBeta.viaServiceAccount(serviceAccount);
+    final speechToText = SpeechToTextBetaWeb.viaServiceAccount(serviceAccount);
     final config = _getConfig();
-    final audio = await _getAudioContent('test.wav');
+    final audio = await _getAudioContentWeb('test.wav');
 
     await speechToText.recognize(config, audio).then((value) {
       setState(() {
@@ -66,7 +66,7 @@ class _AudioRecognizeState extends State<AudioRecognize> {
     });
     final serviceAccount = ServiceAccount.fromString(
         (await rootBundle.loadString('assets/test_service_account.json')));
-    final speechToText = SpeechToTextBeta.viaServiceAccount(serviceAccount);
+    final speechToText = SpeechToTextBetaWeb.viaServiceAccount(serviceAccount);
     final config = _getConfig();
 
     final responseStream = speechToText.streamingRecognize(
@@ -100,6 +100,11 @@ class _AudioRecognizeState extends State<AudioRecognize> {
     final path = directory.path + '/$name';
     await File(path).writeAsBytes(
         data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes));
+  }
+
+  Future<List<int>> _getAudioContentWeb(String name) async {
+    var data = await rootBundle.load('assets/$name');
+    return data.buffer.asUint8List();
   }
 
   Future<List<int>> _getAudioContent(String name) async {
