@@ -82,4 +82,12 @@ enum RecognitionModel {
   /// For example, long-form audio. Ideally the audio is high-fidelity,
   /// recorded at a 16khz or greater sampling rate.
   basic,
+  /// To transcribe notes dictated by a medical professional.
+  /// This is a premium model that costs more than the standard rate. 
+  /// For pricing visit this page https://cloud.google.com/speech-to-text/pricing
+  medical_dictation,
+  /// To transcribe a conversation between a medical professional and a patient.
+  /// This is a premium model that costs more than the standard rate. 
+  /// For pricing visit this page https://cloud.google.com/speech-to-text/pricing
+  medical_conversation,
 }
