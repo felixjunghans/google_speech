@@ -20,8 +20,7 @@ class RecognitionConfig {
     this.recognitionMetadata,
     this.model = RecognitionModel.basic,
     this.useEnhanced = false,
-  })  : assert(languageCode != null),
-        assert(encoding != AudioEncoding.AMR || sampleRateHertz == 8000,
+  })  : assert(encoding != AudioEncoding.AMR || sampleRateHertz == 8000,
             'sampleRateHertz must be 8000.'),
         assert(encoding != AudioEncoding.AMR_WB || sampleRateHertz == 16000,
             'sampleRateHertz must be 16000.'),
@@ -82,6 +81,8 @@ class RecognitionConfig {
       case AudioEncoding.SPEEX_WITH_HEADER_BYTE:
         return _cs.RecognitionConfig_AudioEncoding.SPEEX_WITH_HEADER_BYTE;
         break;
+      case AudioEncoding.MP3:
+        return _cs.RecognitionConfig_AudioEncoding.MP3;
       default:
         return _cs.RecognitionConfig_AudioEncoding.ENCODING_UNSPECIFIED;
     }

@@ -217,6 +217,7 @@ const RecognitionConfig_AudioEncoding$json = const {
     const {'1': 'AMR_WB', '2': 5},
     const {'1': 'OGG_OPUS', '2': 6},
     const {'1': 'SPEEX_WITH_HEADER_BYTE', '2': 7},
+    const {'1': 'MP3', '2': 8},
   ],
 };
 

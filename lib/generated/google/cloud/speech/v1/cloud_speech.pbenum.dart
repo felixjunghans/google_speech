@@ -26,6 +26,8 @@ class RecognitionConfig_AudioEncoding extends $pb.ProtobufEnum {
       RecognitionConfig_AudioEncoding._(6, 'OGG_OPUS');
   static const RecognitionConfig_AudioEncoding SPEEX_WITH_HEADER_BYTE =
       RecognitionConfig_AudioEncoding._(7, 'SPEEX_WITH_HEADER_BYTE');
+  static const RecognitionConfig_AudioEncoding MP3 =
+      RecognitionConfig_AudioEncoding._(8, 'MP3');
 
   static const $core.List<RecognitionConfig_AudioEncoding> values =
       <RecognitionConfig_AudioEncoding>[
@@ -37,6 +39,7 @@ class RecognitionConfig_AudioEncoding extends $pb.ProtobufEnum {
     AMR_WB,
     OGG_OPUS,
     SPEEX_WITH_HEADER_BYTE,
+    MP3,
   ];
 
   static final $core.Map<$core.int, RecognitionConfig_AudioEncoding> _byValue =
