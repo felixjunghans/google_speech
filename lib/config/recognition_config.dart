@@ -60,6 +60,11 @@ enum AudioEncoding {
   /// replaced with a single byte containing the block length.
   /// Only Speex wideband is supported. [sampleRateHertz] must be 16000.
   SPEEX_WITH_HEADER_BYTE,
+
+  /// MP3 audio. MP3 encoding is a Beta feature and only available in v1p1beta1.
+  /// Support all standard MP3 bitrates (which range from 32-320 kbps).
+  /// When using this encoding, sampleRateHertz has to match the sample rate of the file being used.
+  MP3
 }
 
 /// Which model to select for the given request. Select the model best suited

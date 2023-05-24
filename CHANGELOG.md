@@ -1,3 +1,9 @@
+## [2.2.0] - Enable MP3 Support for Speech Beta.
+* Enable MP3 Support for Speech Beta
+
+## [2.1.2] - Add new RecognitionModel medical_dictation.
+* Add new RecognitionModel medical_dictation and medical_conversation
+
 ## [2.1.1] - Provide a Readme file in the Example folder.
 * Added a readme file to the example folder, to follow the package layout conventions.
 
