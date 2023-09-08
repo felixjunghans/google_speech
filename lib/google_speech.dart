@@ -6,3 +6,5 @@ export 'exception.dart';
 export 'speech_client_authenticator.dart';
 export 'speech_to_text.dart';
 export 'speech_to_text_beta.dart';
+export 'auth/third_party_authenticator.dart';
+export 'package:googleapis_auth/src/access_credentials.dart' show AccessCredentials;
