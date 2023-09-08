@@ -2,6 +2,7 @@ library flutter_google_speech;
 
 import 'dart:async';
 
+import 'package:google_speech/auth/third_party_authenticator.dart';
 import 'package:google_speech/generated/google/cloud/speech/v1/cloud_speech.pb.dart'
     hide RecognitionConfig, StreamingRecognitionConfig;
 import 'package:google_speech/generated/google/cloud/speech/v1/cloud_speech.pbgrpc.dart'
@@ -29,6 +30,26 @@ class SpeechToText {
   /// Creates a SpeechToText interface using a service account.
   factory SpeechToText.viaServiceAccount(ServiceAccount account) =>
       SpeechToText._(account.callOptions);
+
+  /// Creates a SpeechToText interface using a third party authenticator.
+  /// Don't worry about updating the access token, the package does it automatically.
+  /// Example:
+  ///       final speechToText = SpeechToText.viaThirdPartyAuthenticator(
+  ///         ThirdPartyAuthenticator(
+  ///           obtainCredentialsFromThirdParty: () async {
+  ///             // request api to get token
+  ///             final json = await requestCredentialFromMyApi();
+  ///             return AccessCredentials.fromJson(json);
+  ///           },
+  ///         ),
+  ///       );
+  factory SpeechToText.viaThirdPartyAuthenticator(ThirdPartyAuthenticator thirdPartyAuthenticator) =>
+      SpeechToText._(thirdPartyAuthenticator.toCallOptions);
+
+  /// Creates a SpeechToText interface using a token.
+  /// You are responsible for updating the token when it expires.
+  factory SpeechToText.viaToken(String typeToken, String token) =>
+      SpeechToText._(CallOptions(metadata: {'authorization': '$typeToken $token'}));
 
   /// Listen to audio stream.
   /// Cancelled as soon as dispose is called.
