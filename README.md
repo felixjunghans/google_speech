@@ -22,6 +22,38 @@ At this time this package only supports authentication via service account. It i
 
 ## Getting Started
 
+
+### Authentication
+
+As of version 3.0.0 there are now 3 different ways to authenticate. In addition to the old way viaServiceAccount, there is now also the possibility to authenticate via token or ThirdPartyAuthenticator.
+
+#### Authentication via ThirdParty Authenticator [> Version 3.0.0]
+
+```dart
+   final speechToText = SpeechToText.viaThirdPartyAuthenticator(
+      ThirdPartyAuthenticator(
+        obtainCredentialsFromThirdParty: () async {
+          // request api to get token
+          final json = await requestCredentialFromMyApi();
+          return AccessCredentials.fromJson(json);
+          },
+      ),
+    );
+```
+
+
+#### Authentication via Token [> Version 3.0.0]
+
+Creates a SpeechToText interface using a token.
+You are responsible for updating the token when it expires.
+
+```dart
+    final speechToText = SpeechToText.viaToken(
+    'Bearer',
+    '<token-here>',
+    );
+```
+
 #### Authentication via a service account
 
 There are two ways to log in using a service account. Option number one is the direct transfer of the Json file. 
@@ -31,6 +63,8 @@ Make sure that the file really exists in the path you passed and that the file h
     import 'package:google_speech/speech_client_authenticator.dart';
     
     final serviceAccount = ServiceAccount.fromFile(File('PATH_TO_FILE'));
+
+    final speechToText = SpeechToText.viaServiceAccount(serviceAccount);
 ```
 
 Option number two is to pass the Json data directly as a string. 
@@ -44,19 +78,13 @@ have to keep it directly in the app.
     
     final serviceAccount = ServiceAccount.fromString(
         '${(await rootBundle.loadString('assets/test_service_account.json'))}');
+
+    final speechToText = SpeechToText.viaServiceAccount(serviceAccount);
 ```
         
 After you have successfully connected the ServiceAccount, you can already start using the Api.
 
-#### Initialize SpeechToText
-
-```dart
-    import 'package:google_speech/google_speech.dart';
-    
-    final speechToText = SpeechToText.viaServiceAccount(serviceAccount);
-```
-
-#### Transcribing a file using recognize
+### Transcribing a file using recognize
 
 ##### Define a RecognitionConfig
 
@@ -128,11 +156,11 @@ You can find more information here [https://cloud.google.com/speech-to-text/docs
 
 Since version 1.1.0 google_speech also supports the use of features available in the Google Speech Beta Api. For this you just have to use SpeechToTextBeta instead of SpeechToText.
 
-### ROADMAP 2022 
+### TODOs
 
 - [x] Update streamingRecognize example
 - [ ] Add error messages for Google Speech limitations
 - [ ] Add Flutter Web Support
 - [x] Add longRunningRecognize support (Thanks to @spenceralbrecht)
+- [x] Add alternative ways to authenticate (Thanks to @juarezfrancoA)
 - [ ] Add infinity stream support
-- [ ] Add more tests

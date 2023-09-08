@@ -9,11 +9,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  grpc: ^3.1.0
-  protobuf: ^2.1.0
-  path_provider: ^2.0.15
+  grpc: ^3.2.4
+  protobuf: ^3.1.0
+  path_provider: ^2.1.1
   fixnum: ^1.1.0
-  meta: ^1.8.0
+  meta: ^1.9.1
 
 dependency_overrides:
   pedantic: ^1.11.1
@@ -22,7 +22,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   pedantic: ^1.11.1
-  mockito: ^5.1.0
+  mockito: ^5.4.2
 
 false_secrets:
   - /test/*

@@ -1,3 +1,7 @@
+## [3.0.0] - Add new ways to Authenticate.
+* Enable support for Access Token Authentication
+* Enable support for ThirdPartyAuthenticator
+
 ## [2.2.0] - Enable MP3 Support for Speech Beta.
 * Enable MP3 Support for Speech Beta
 

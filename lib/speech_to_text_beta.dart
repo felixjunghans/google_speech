@@ -10,6 +10,7 @@ import 'package:google_speech/generated/google/cloud/speech/v1p1beta1/cloud_spee
 import 'package:google_speech/speech_client_authenticator.dart';
 import 'package:grpc/grpc.dart';
 
+import 'auth/third_party_authenticator.dart';
 import 'config/recognition_config_v1.dart';
 import 'config/streaming_recognition_config.dart';
 import 'generated/google/longrunning/operations.pb.dart';
@@ -30,6 +31,28 @@ class SpeechToTextBeta {
   /// Creates a SpeechToText interface using a service account.
   factory SpeechToTextBeta.viaServiceAccount(ServiceAccount account) =>
       SpeechToTextBeta._(account.callOptions);
+
+  /// Creates a SpeechToText interface using a third party authenticator.
+  /// Don't worry about updating the access token, the package does it automatically.
+  /// Example:
+  ///       final speechToText = SpeechToTextBeta.viaThirdPartyAuthenticator(
+  ///         ThirdPartyAuthenticator(
+  ///           obtainCredentialsFromThirdParty: () async {
+  ///             // request api to get token
+  ///             final json = await requestCredentialFromMyApi();
+  ///             return AccessCredentials.fromJson(json);
+  ///           },
+  ///         ),
+  ///       );
+  factory SpeechToTextBeta.viaThirdPartyAuthenticator(
+          ThirdPartyAuthenticator thirdPartyAuthenticator) =>
+      SpeechToTextBeta._(thirdPartyAuthenticator.toCallOptions);
+
+  /// Creates a SpeechToTextBeta interface using a token.
+  /// You are responsible for updating the token when it expires.
+  factory SpeechToTextBeta.viaToken(String typeToken, String token) =>
+      SpeechToTextBeta._(
+          CallOptions(metadata: {'authorization': '$typeToken $token'}));
 
   /// Listen to audio stream.
   /// Cancelled as soon as dispose is called.
