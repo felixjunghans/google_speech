@@ -4,7 +4,6 @@ import 'package:google_speech/generated/google/cloud/speech/v1/cloud_speech.pb.d
     as _cs;
 import 'package:google_speech/generated/google/cloud/speech/v1p1beta1/cloud_speech.pb.dart'
     as _cs_beta;
-import 'package:meta/meta.dart';
 
 class StreamingRecognitionConfig {
   /// Required. Provides information to the recognizer that specifies
@@ -36,8 +35,7 @@ class StreamingRecognitionConfig {
     required this.config,
     this.singleUtterance = false,
     this.interimResults = false,
-  })  : assert(singleUtterance != null),
-        assert(interimResults != null);
+  });
 
   _cs.StreamingRecognitionConfig toConfig() => (_cs.StreamingRecognitionConfig()
     ..config = config.toConfig()
@@ -75,8 +73,7 @@ class StreamingRecognitionConfigBeta {
     required this.config,
     this.singleUtterance = false,
     this.interimResults = false,
-  })  : assert(singleUtterance != null),
-        assert(interimResults != null);
+  });
 
   _cs_beta.StreamingRecognitionConfig toConfig() =>
       (_cs_beta.StreamingRecognitionConfig()

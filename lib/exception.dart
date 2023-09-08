@@ -42,7 +42,7 @@ class UnsupportedFileExtensionException extends UnsupportedFileException {
   /// Will be thrown, if a [File] is passed, which has no json extension.
   UnsupportedFileExtensionException(File? file)
       : super(
-            'The file extension ${file?.path?.split('.')?.last} is not '
+            'The file extension ${file?.path.split('.').last} is not '
             'supported. Make sure that the transferred file is a valid Json '
             'file. A Google Service account Json can be created via '
             'https://console.cloud.google.com/apis/credentials.',

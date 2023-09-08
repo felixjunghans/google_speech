@@ -4,7 +4,7 @@ version: 3.0.0
 homepage: https://github.com/felixjunghans/google_speech
 
 environment:
-  sdk: '>=2.12.0 <3.0.0'
+  sdk: '>=2.12.0 <4.0.0'
 
 dependencies:
   flutter:
@@ -28,6 +28,7 @@ dev_dependencies:
 
 false_secrets:
   - /test/*
+  - /example/*
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
