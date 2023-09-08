@@ -15,6 +15,7 @@ dependencies:
   fixnum: ^1.1.0
   meta: ^1.9.1
   googleapis_auth: ^1.4.1
+  http: ^1.1.0
 
 dependency_overrides:
   pedantic: ^1.11.1
