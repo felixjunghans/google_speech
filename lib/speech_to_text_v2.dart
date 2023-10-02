@@ -31,8 +31,8 @@ class SpeechToTextV2 {
   SpeechToTextV2._(this._options, {required this.projectId});
 
   /// Creates a SpeechToTextV2 interface using a service account.
-  factory SpeechToTextV2.viaServiceAccount(ServiceAccount account) =>
-      SpeechToTextV2._(account.callOptions, projectId: account.projectId!);
+  factory SpeechToTextV2.viaServiceAccount(ServiceAccount account, {required String projectId}) =>
+      SpeechToTextV2._(account.callOptions, projectId: projectId);
 
   /// Creates a SpeechToTextV2 interface using a third party authenticator.
   /// Don't worry about updating the access token, the package does it automatically.

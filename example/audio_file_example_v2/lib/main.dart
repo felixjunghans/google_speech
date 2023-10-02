@@ -45,7 +45,7 @@ class _AudioRecognizeState extends State<AudioRecognize> {
     });
     final serviceAccount = ServiceAccount.fromString(
         (await rootBundle.loadString('assets/test_service_account.json')));
-    final speechToText = SpeechToTextV2.viaServiceAccount(serviceAccount);
+    final speechToText = SpeechToTextV2.viaServiceAccount(serviceAccount, projectId: 'YOUR-PROJECT-ID');
     final config = _getConfig();
     final audio = await _getAudioContent('test.wav');
 
@@ -67,7 +67,7 @@ class _AudioRecognizeState extends State<AudioRecognize> {
     });
     final serviceAccount = ServiceAccount.fromString(
         (await rootBundle.loadString('assets/test_service_account.json')));
-    final speechToText = SpeechToTextV2.viaServiceAccount(serviceAccount);
+    final speechToText = SpeechToTextV2.viaServiceAccount(serviceAccount, projectId: 'YOUR-PROJECT-ID');
     final config = _getConfig();
 
     final responseStream = speechToText.streamingRecognize(

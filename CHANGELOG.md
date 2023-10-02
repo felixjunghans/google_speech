@@ -1,3 +1,6 @@
+## [4.1.0] - Add projectId parameter to SpeechToTextV2.viaServiceAccount to prevent NullPointerException
+* Add projectId parameter to SpeechToTextV2.viaServiceAccount to prevent NullPointerException
+
 ## [4.0.0+1] - Add missing Documentation for Google Speech V2
 * Add missing Documentation for Google Speech V2
 
