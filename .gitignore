@@ -67,6 +67,7 @@ build/
 **/ios/ServiceDefinitions.json
 **/ios/Runner/GeneratedPluginRegistrant.*
 
+/example/audio_file_example_v2/assets/test_service_account.json
 /example/audio_file_example/assets/test_service_account.json
 /example/flutter_sound_example/assets/test_service_account.json
 # Exceptions to above rules.

@@ -1,3 +1,7 @@
+## [4.0.0] - Add Google Speech V2 Support
+* Add all the features required to use Google Speech V2.
+* Add new Audio File Example for Version 2
+
 ## [3.0.0] - Add new ways to Authenticate.
 * Enable support for Access Token Authentication
 * Enable support for ThirdPartyAuthenticator

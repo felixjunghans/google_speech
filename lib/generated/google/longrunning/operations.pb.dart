@@ -1,49 +1,93 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: google/longrunning/operations.proto
 //
+// @dart = 2.12
 
-// ignore_for_file: camel_case_types,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
 import '../protobuf/any.pb.dart' as $2;
-import '../rpc/status.pb.dart' as $3;
 import '../protobuf/duration.pb.dart' as $4;
+import '../rpc/status.pb.dart' as $3;
 
 enum Operation_Result { error, response, notSet }
 
+/// This resource represents a long-running operation that is the result of a
+/// network API call.
 class Operation extends $pb.GeneratedMessage {
-  static const $core.Map<$core.int, Operation_Result> _Operation_ResultByTag = {
-    4: Operation_Result.error,
-    5: Operation_Result.response,
-    0: Operation_Result.notSet
-  };
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo('Operation',
-      package: const $pb.PackageName('google.longrunning'),
-      createEmptyInstance: create)
-    ..oo(0, [4, 5])
-    ..aOS(1, 'name')
-    ..aOM<$2.Any>(2, 'metadata', subBuilder: $2.Any.create)
-    ..aOB(3, 'done')
-    ..aOM<$3.Status>(4, 'error', subBuilder: $3.Status.create)
-    ..aOM<$2.Any>(5, 'response', subBuilder: $2.Any.create)
-    ..hasRequiredFields = false;
-
+  factory Operation({
+    $core.String? name,
+    $2.Any? metadata,
+    $core.bool? done,
+    $3.Status? error,
+    $2.Any? response,
+  }) {
+    final $result = create();
+    if (name != null) {
+      $result.name = name;
+    }
+    if (metadata != null) {
+      $result.metadata = metadata;
+    }
+    if (done != null) {
+      $result.done = done;
+    }
+    if (error != null) {
+      $result.error = error;
+    }
+    if (response != null) {
+      $result.response = response;
+    }
+    return $result;
+  }
   Operation._() : super();
-  factory Operation() => create();
   factory Operation.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Operation.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static const $core.Map<$core.int, Operation_Result> _Operation_ResultByTag = {
+    4: Operation_Result.error,
+    5: Operation_Result.response,
+    0: Operation_Result.notSet
+  };
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Operation',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'google.longrunning'),
+      createEmptyInstance: create)
+    ..oo(0, [4, 5])
+    ..aOS(1, _omitFieldNames ? '' : 'name')
+    ..aOM<$2.Any>(2, _omitFieldNames ? '' : 'metadata',
+        subBuilder: $2.Any.create)
+    ..aOB(3, _omitFieldNames ? '' : 'done')
+    ..aOM<$3.Status>(4, _omitFieldNames ? '' : 'error',
+        subBuilder: $3.Status.create)
+    ..aOM<$2.Any>(5, _omitFieldNames ? '' : 'response',
+        subBuilder: $2.Any.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
   Operation clone() => Operation()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
   Operation copyWith(void Function(Operation) updates) =>
       super.copyWith((message) => updates(message as Operation)) as Operation;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Operation create() => Operation._();
   Operation createEmptyInstance() => create();
@@ -53,9 +97,12 @@ class Operation extends $pb.GeneratedMessage {
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Operation>(create);
   static Operation? _defaultInstance;
 
-  Operation_Result? whichResult() => _Operation_ResultByTag[$_whichOneof(0)];
+  Operation_Result whichResult() => _Operation_ResultByTag[$_whichOneof(0)]!;
   void clearResult() => clearField($_whichOneof(0));
 
+  /// The server-assigned name, which is only unique within the same service that
+  /// originally returns it. If you use the default HTTP mapping, the
+  /// `name` should be a resource name ending with `operations/{unique_id}`.
   @$pb.TagNumber(1)
   $core.String get name => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -68,6 +115,10 @@ class Operation extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearName() => clearField(1);
 
+  /// Service-specific metadata associated with the operation.  It typically
+  /// contains progress information and common metadata such as create time.
+  /// Some services might not provide such metadata.  Any method that returns a
+  /// long-running operation should document the metadata type, if any.
   @$pb.TagNumber(2)
   $2.Any get metadata => $_getN(1);
   @$pb.TagNumber(2)
@@ -82,6 +133,9 @@ class Operation extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $2.Any ensureMetadata() => $_ensure(1);
 
+  /// If the value is `false`, it means the operation is still in progress.
+  /// If `true`, the operation is completed, and either `error` or `response` is
+  /// available.
   @$pb.TagNumber(3)
   $core.bool get done => $_getBF(2);
   @$pb.TagNumber(3)
@@ -94,6 +148,7 @@ class Operation extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearDone() => clearField(3);
 
+  /// The error result of the operation in case of failure or cancellation.
   @$pb.TagNumber(4)
   $3.Status get error => $_getN(3);
   @$pb.TagNumber(4)
@@ -108,6 +163,14 @@ class Operation extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   $3.Status ensureError() => $_ensure(3);
 
+  /// The normal response of the operation in case of success.  If the original
+  /// method returns no data on success, such as `Delete`, the response is
+  /// `google.protobuf.Empty`.  If the original method is standard
+  /// `Get`/`Create`/`Update`, the response should be the resource.  For other
+  /// methods, the response should have the type `XxxResponse`, where `Xxx`
+  /// is the original method name.  For example, if the original method name
+  /// is `TakeSnapshot()`, the inferred response type is
+  /// `TakeSnapshotResponse`.
   @$pb.TagNumber(5)
   $2.Any get response => $_getN(4);
   @$pb.TagNumber(5)
@@ -123,25 +186,46 @@ class Operation extends $pb.GeneratedMessage {
   $2.Any ensureResponse() => $_ensure(4);
 }
 
+/// The request message for [Operations.GetOperation][google.longrunning.Operations.GetOperation].
 class GetOperationRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo('GetOperationRequest',
-      package: const $pb.PackageName('google.longrunning'),
-      createEmptyInstance: create)
-    ..aOS(1, 'name')
-    ..hasRequiredFields = false;
-
+  factory GetOperationRequest({
+    $core.String? name,
+  }) {
+    final $result = create();
+    if (name != null) {
+      $result.name = name;
+    }
+    return $result;
+  }
   GetOperationRequest._() : super();
-  factory GetOperationRequest() => create();
   factory GetOperationRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory GetOperationRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'GetOperationRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'google.longrunning'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'name')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
   GetOperationRequest clone() => GetOperationRequest()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
   GetOperationRequest copyWith(void Function(GetOperationRequest) updates) =>
-      super.copyWith((message) => updates(message as GetOperationRequest)) as GetOperationRequest;
+      super.copyWith((message) => updates(message as GetOperationRequest))
+          as GetOperationRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GetOperationRequest create() => GetOperationRequest._();
   GetOperationRequest createEmptyInstance() => create();
@@ -152,6 +236,7 @@ class GetOperationRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<GetOperationRequest>(create);
   static GetOperationRequest? _defaultInstance;
 
+  /// The name of the operation resource.
   @$pb.TagNumber(1)
   $core.String get name => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -165,30 +250,63 @@ class GetOperationRequest extends $pb.GeneratedMessage {
   void clearName() => clearField(1);
 }
 
+/// The request message for [Operations.ListOperations][google.longrunning.Operations.ListOperations].
 class ListOperationsRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo('ListOperationsRequest',
-      package: const $pb.PackageName('google.longrunning'),
-      createEmptyInstance: create)
-    ..aOS(1, 'filter')
-    ..a<$core.int>(2, 'pageSize', $pb.PbFieldType.O3)
-    ..aOS(3, 'pageToken')
-    ..aOS(4, 'name')
-    ..hasRequiredFields = false;
-
+  factory ListOperationsRequest({
+    $core.String? filter,
+    $core.int? pageSize,
+    $core.String? pageToken,
+    $core.String? name,
+  }) {
+    final $result = create();
+    if (filter != null) {
+      $result.filter = filter;
+    }
+    if (pageSize != null) {
+      $result.pageSize = pageSize;
+    }
+    if (pageToken != null) {
+      $result.pageToken = pageToken;
+    }
+    if (name != null) {
+      $result.name = name;
+    }
+    return $result;
+  }
   ListOperationsRequest._() : super();
-  factory ListOperationsRequest() => create();
   factory ListOperationsRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ListOperationsRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ListOperationsRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'google.longrunning'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'filter')
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'pageSize', $pb.PbFieldType.O3)
+    ..aOS(3, _omitFieldNames ? '' : 'pageToken')
+    ..aOS(4, _omitFieldNames ? '' : 'name')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
   ListOperationsRequest clone() =>
       ListOperationsRequest()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
   ListOperationsRequest copyWith(
           void Function(ListOperationsRequest) updates) =>
-      super.copyWith((message) => updates(message as ListOperationsRequest)) as ListOperationsRequest;
+      super.copyWith((message) => updates(message as ListOperationsRequest))
+          as ListOperationsRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ListOperationsRequest create() => ListOperationsRequest._();
   ListOperationsRequest createEmptyInstance() => create();
@@ -199,6 +317,7 @@ class ListOperationsRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<ListOperationsRequest>(create);
   static ListOperationsRequest? _defaultInstance;
 
+  /// The standard list filter.
   @$pb.TagNumber(1)
   $core.String get filter => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -211,6 +330,7 @@ class ListOperationsRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearFilter() => clearField(1);
 
+  /// The standard list page size.
   @$pb.TagNumber(2)
   $core.int get pageSize => $_getIZ(1);
   @$pb.TagNumber(2)
@@ -223,6 +343,7 @@ class ListOperationsRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearPageSize() => clearField(2);
 
+  /// The standard list page token.
   @$pb.TagNumber(3)
   $core.String get pageToken => $_getSZ(2);
   @$pb.TagNumber(3)
@@ -235,6 +356,7 @@ class ListOperationsRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearPageToken() => clearField(3);
 
+  /// The name of the operation's parent resource.
   @$pb.TagNumber(4)
   $core.String get name => $_getSZ(3);
   @$pb.TagNumber(4)
@@ -248,29 +370,54 @@ class ListOperationsRequest extends $pb.GeneratedMessage {
   void clearName() => clearField(4);
 }
 
+/// The response message for [Operations.ListOperations][google.longrunning.Operations.ListOperations].
 class ListOperationsResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo('ListOperationsResponse',
-      package: const $pb.PackageName('google.longrunning'),
-      createEmptyInstance: create)
-    ..pc<Operation>(1, 'operations', $pb.PbFieldType.PM,
-        subBuilder: Operation.create)
-    ..aOS(2, 'nextPageToken')
-    ..hasRequiredFields = false;
-
+  factory ListOperationsResponse({
+    $core.Iterable<Operation>? operations,
+    $core.String? nextPageToken,
+  }) {
+    final $result = create();
+    if (operations != null) {
+      $result.operations.addAll(operations);
+    }
+    if (nextPageToken != null) {
+      $result.nextPageToken = nextPageToken;
+    }
+    return $result;
+  }
   ListOperationsResponse._() : super();
-  factory ListOperationsResponse() => create();
   factory ListOperationsResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ListOperationsResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ListOperationsResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'google.longrunning'),
+      createEmptyInstance: create)
+    ..pc<Operation>(1, _omitFieldNames ? '' : 'operations', $pb.PbFieldType.PM,
+        subBuilder: Operation.create)
+    ..aOS(2, _omitFieldNames ? '' : 'nextPageToken')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
   ListOperationsResponse clone() =>
       ListOperationsResponse()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
   ListOperationsResponse copyWith(
           void Function(ListOperationsResponse) updates) =>
-      super.copyWith((message) => updates(message as ListOperationsResponse)) as ListOperationsResponse;
+      super.copyWith((message) => updates(message as ListOperationsResponse))
+          as ListOperationsResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ListOperationsResponse create() => ListOperationsResponse._();
   ListOperationsResponse createEmptyInstance() => create();
@@ -281,9 +428,11 @@ class ListOperationsResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<ListOperationsResponse>(create);
   static ListOperationsResponse? _defaultInstance;
 
+  /// A list of operations that matches the specified filter in the request.
   @$pb.TagNumber(1)
   $core.List<Operation> get operations => $_getList(0);
 
+  /// The standard List next-page token.
   @$pb.TagNumber(2)
   $core.String get nextPageToken => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -297,27 +446,48 @@ class ListOperationsResponse extends $pb.GeneratedMessage {
   void clearNextPageToken() => clearField(2);
 }
 
+/// The request message for [Operations.CancelOperation][google.longrunning.Operations.CancelOperation].
 class CancelOperationRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo('CancelOperationRequest',
-      package: const $pb.PackageName('google.longrunning'),
-      createEmptyInstance: create)
-    ..aOS(1, 'name')
-    ..hasRequiredFields = false;
-
+  factory CancelOperationRequest({
+    $core.String? name,
+  }) {
+    final $result = create();
+    if (name != null) {
+      $result.name = name;
+    }
+    return $result;
+  }
   CancelOperationRequest._() : super();
-  factory CancelOperationRequest() => create();
   factory CancelOperationRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory CancelOperationRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'CancelOperationRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'google.longrunning'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'name')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
   CancelOperationRequest clone() =>
       CancelOperationRequest()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
   CancelOperationRequest copyWith(
           void Function(CancelOperationRequest) updates) =>
-      super.copyWith((message) => updates(message as CancelOperationRequest)) as CancelOperationRequest;
+      super.copyWith((message) => updates(message as CancelOperationRequest))
+          as CancelOperationRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static CancelOperationRequest create() => CancelOperationRequest._();
   CancelOperationRequest createEmptyInstance() => create();
@@ -328,6 +498,7 @@ class CancelOperationRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<CancelOperationRequest>(create);
   static CancelOperationRequest? _defaultInstance;
 
+  /// The name of the operation resource to be cancelled.
   @$pb.TagNumber(1)
   $core.String get name => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -341,27 +512,48 @@ class CancelOperationRequest extends $pb.GeneratedMessage {
   void clearName() => clearField(1);
 }
 
+/// The request message for [Operations.DeleteOperation][google.longrunning.Operations.DeleteOperation].
 class DeleteOperationRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo('DeleteOperationRequest',
-      package: const $pb.PackageName('google.longrunning'),
-      createEmptyInstance: create)
-    ..aOS(1, 'name')
-    ..hasRequiredFields = false;
-
+  factory DeleteOperationRequest({
+    $core.String? name,
+  }) {
+    final $result = create();
+    if (name != null) {
+      $result.name = name;
+    }
+    return $result;
+  }
   DeleteOperationRequest._() : super();
-  factory DeleteOperationRequest() => create();
   factory DeleteOperationRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory DeleteOperationRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'DeleteOperationRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'google.longrunning'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'name')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
   DeleteOperationRequest clone() =>
       DeleteOperationRequest()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
   DeleteOperationRequest copyWith(
           void Function(DeleteOperationRequest) updates) =>
-      super.copyWith((message) => updates(message as DeleteOperationRequest)) as DeleteOperationRequest;
+      super.copyWith((message) => updates(message as DeleteOperationRequest))
+          as DeleteOperationRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static DeleteOperationRequest create() => DeleteOperationRequest._();
   DeleteOperationRequest createEmptyInstance() => create();
@@ -372,6 +564,7 @@ class DeleteOperationRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<DeleteOperationRequest>(create);
   static DeleteOperationRequest? _defaultInstance;
 
+  /// The name of the operation resource to be deleted.
   @$pb.TagNumber(1)
   $core.String get name => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -385,27 +578,53 @@ class DeleteOperationRequest extends $pb.GeneratedMessage {
   void clearName() => clearField(1);
 }
 
+/// The request message for [Operations.WaitOperation][google.longrunning.Operations.WaitOperation].
 class WaitOperationRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo('WaitOperationRequest',
-      package: const $pb.PackageName('google.longrunning'),
-      createEmptyInstance: create)
-    ..aOS(1, 'name')
-    ..aOM<$4.Duration>(2, 'timeout', subBuilder: $4.Duration.create)
-    ..hasRequiredFields = false;
-
+  factory WaitOperationRequest({
+    $core.String? name,
+    $4.Duration? timeout,
+  }) {
+    final $result = create();
+    if (name != null) {
+      $result.name = name;
+    }
+    if (timeout != null) {
+      $result.timeout = timeout;
+    }
+    return $result;
+  }
   WaitOperationRequest._() : super();
-  factory WaitOperationRequest() => create();
   factory WaitOperationRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory WaitOperationRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'WaitOperationRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'google.longrunning'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'name')
+    ..aOM<$4.Duration>(2, _omitFieldNames ? '' : 'timeout',
+        subBuilder: $4.Duration.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
   WaitOperationRequest clone() =>
       WaitOperationRequest()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
   WaitOperationRequest copyWith(void Function(WaitOperationRequest) updates) =>
-      super.copyWith((message) => updates(message as WaitOperationRequest)) as WaitOperationRequest;
+      super.copyWith((message) => updates(message as WaitOperationRequest))
+          as WaitOperationRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static WaitOperationRequest create() => WaitOperationRequest._();
   WaitOperationRequest createEmptyInstance() => create();
@@ -416,6 +635,7 @@ class WaitOperationRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<WaitOperationRequest>(create);
   static WaitOperationRequest? _defaultInstance;
 
+  /// The name of the operation resource to wait on.
   @$pb.TagNumber(1)
   $core.String get name => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -428,6 +648,9 @@ class WaitOperationRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearName() => clearField(1);
 
+  /// The maximum duration to wait before timing out. If left blank, the wait
+  /// will be at most the time permitted by the underlying HTTP/RPC protocol.
+  /// If RPC context deadline is also specified, the shorter one will be used.
   @$pb.TagNumber(2)
   $4.Duration get timeout => $_getN(1);
   @$pb.TagNumber(2)
@@ -443,26 +666,61 @@ class WaitOperationRequest extends $pb.GeneratedMessage {
   $4.Duration ensureTimeout() => $_ensure(1);
 }
 
+///  A message representing the message types used by a long-running operation.
+///
+///  Example:
+///
+///    rpc LongRunningRecognize(LongRunningRecognizeRequest)
+///        returns (google.longrunning.Operation) {
+///      option (google.longrunning.operation_info) = {
+///        response_type: "LongRunningRecognizeResponse"
+///        metadata_type: "LongRunningRecognizeMetadata"
+///      };
+///    }
 class OperationInfo extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo('OperationInfo',
-      package: const $pb.PackageName('google.longrunning'),
-      createEmptyInstance: create)
-    ..aOS(1, 'responseType')
-    ..aOS(2, 'metadataType')
-    ..hasRequiredFields = false;
-
+  factory OperationInfo({
+    $core.String? responseType,
+    $core.String? metadataType,
+  }) {
+    final $result = create();
+    if (responseType != null) {
+      $result.responseType = responseType;
+    }
+    if (metadataType != null) {
+      $result.metadataType = metadataType;
+    }
+    return $result;
+  }
   OperationInfo._() : super();
-  factory OperationInfo() => create();
   factory OperationInfo.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory OperationInfo.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'OperationInfo',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'google.longrunning'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'responseType')
+    ..aOS(2, _omitFieldNames ? '' : 'metadataType')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
   OperationInfo clone() => OperationInfo()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
   OperationInfo copyWith(void Function(OperationInfo) updates) =>
-      super.copyWith((message) => updates(message as OperationInfo)) as OperationInfo;
+      super.copyWith((message) => updates(message as OperationInfo))
+          as OperationInfo;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static OperationInfo create() => OperationInfo._();
   OperationInfo createEmptyInstance() => create();
@@ -473,6 +731,14 @@ class OperationInfo extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<OperationInfo>(create);
   static OperationInfo? _defaultInstance;
 
+  ///  Required. The message name of the primary return type for this
+  ///  long-running operation.
+  ///  This type will be used to deserialize the LRO's response.
+  ///
+  ///  If the response is in a different package from the rpc, a fully-qualified
+  ///  message name must be used (e.g. `google.protobuf.Struct`).
+  ///
+  ///  Note: Altering this value constitutes a breaking change.
   @$pb.TagNumber(1)
   $core.String get responseType => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -485,6 +751,13 @@ class OperationInfo extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearResponseType() => clearField(1);
 
+  ///  Required. The message name of the metadata type for this long-running
+  ///  operation.
+  ///
+  ///  If the response is in a different package from the rpc, a fully-qualified
+  ///  message name must be used (e.g. `google.protobuf.Struct`).
+  ///
+  ///  Note: Altering this value constitutes a breaking change.
   @$pb.TagNumber(2)
   $core.String get metadataType => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -499,9 +772,9 @@ class OperationInfo extends $pb.GeneratedMessage {
 }
 
 class Operations {
-  static final $pb.Extension operationInfo = $pb.Extension<OperationInfo>(
-      'google.protobuf.MethodOptions',
-      'operationInfo',
+  static final operationInfo = $pb.Extension<OperationInfo>(
+      _omitMessageNames ? '' : 'google.protobuf.MethodOptions',
+      _omitFieldNames ? '' : 'operationInfo',
       1049,
       $pb.PbFieldType.OM,
       defaultOrMaker: OperationInfo.getDefault,
@@ -510,3 +783,7 @@ class Operations {
     registry.add(operationInfo);
   }
 }
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

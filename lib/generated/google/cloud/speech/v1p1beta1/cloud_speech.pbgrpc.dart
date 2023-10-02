@@ -1,19 +1,26 @@
-///
-//  Generated code. Do not modify.
-//  source: google/cloud/speech_new/v1p1beta1/cloud_speech.proto
 //
+//  Generated code. Do not modify.
+//  source: google/cloud/speech/v1p1beta1/cloud_speech.proto
+//
+// @dart = 2.12
 
-// ignore_for_file: camel_case_types,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:async' as $async;
-
 import 'dart:core' as $core;
 
 import 'package:grpc/service_api.dart' as $grpc;
-import 'cloud_speech.pb.dart' as $2;
+import 'package:protobuf/protobuf.dart' as $pb;
+
 import '../../../longrunning/operations.pb.dart' as $0;
+import 'cloud_speech.pb.dart' as $2;
+
 export 'cloud_speech.pb.dart';
 
+@$pb.GrpcServiceName('google.cloud.speech.v1p1beta1.Speech')
 class SpeechClient extends $grpc.Client {
   static final _$recognize =
       $grpc.ClientMethod<$2.RecognizeRequest, $2.RecognizeResponse>(
@@ -33,34 +40,32 @@ class SpeechClient extends $grpc.Client {
       ($core.List<$core.int> value) =>
           $2.StreamingRecognizeResponse.fromBuffer(value));
 
-  SpeechClient($grpc.ClientChannel channel, {$grpc.CallOptions? options})
-      : super(channel, options: options);
+  SpeechClient($grpc.ClientChannel channel,
+      {$grpc.CallOptions? options,
+      $core.Iterable<$grpc.ClientInterceptor>? interceptors})
+      : super(channel, options: options, interceptors: interceptors);
 
   $grpc.ResponseFuture<$2.RecognizeResponse> recognize(
       $2.RecognizeRequest request,
       {$grpc.CallOptions? options}) {
-    final call = $createCall(_$recognize, $async.Stream.fromIterable([request]),
-        options: options);
-    return $grpc.ResponseFuture(call);
+    return $createUnaryCall(_$recognize, request, options: options);
   }
 
   $grpc.ResponseFuture<$0.Operation> longRunningRecognize(
       $2.LongRunningRecognizeRequest request,
       {$grpc.CallOptions? options}) {
-    final call = $createCall(
-        _$longRunningRecognize, $async.Stream.fromIterable([request]),
-        options: options);
-    return $grpc.ResponseFuture(call);
+    return $createUnaryCall(_$longRunningRecognize, request, options: options);
   }
 
   $grpc.ResponseStream<$2.StreamingRecognizeResponse> streamingRecognize(
       $async.Stream<$2.StreamingRecognizeRequest> request,
       {$grpc.CallOptions? options}) {
-    final call = $createCall(_$streamingRecognize, request, options: options);
-    return $grpc.ResponseStream(call);
+    return $createStreamingCall(_$streamingRecognize, request,
+        options: options);
   }
 }
 
+@$pb.GrpcServiceName('google.cloud.speech.v1p1beta1.Speech')
 abstract class SpeechServiceBase extends $grpc.Service {
   $core.String get $name => 'google.cloud.speech.v1p1beta1.Speech';
 

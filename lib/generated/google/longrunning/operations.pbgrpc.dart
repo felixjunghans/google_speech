@@ -1,19 +1,26 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: google/longrunning/operations.proto
 //
+// @dart = 2.12
 
-// ignore_for_file: camel_case_types,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:async' as $async;
-
 import 'dart:core' as $core;
 
 import 'package:grpc/service_api.dart' as $grpc;
-import 'operations.pb.dart' as $0;
+import 'package:protobuf/protobuf.dart' as $pb;
+
 import '../protobuf/empty.pb.dart' as $1;
+import 'operations.pb.dart' as $0;
+
 export 'operations.pb.dart';
 
+@$pb.GrpcServiceName('google.longrunning.Operations')
 class OperationsClient extends $grpc.Client {
   static final _$listOperations =
       $grpc.ClientMethod<$0.ListOperationsRequest, $0.ListOperationsResponse>(
@@ -42,55 +49,43 @@ class OperationsClient extends $grpc.Client {
           ($0.WaitOperationRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.Operation.fromBuffer(value));
 
-  OperationsClient($grpc.ClientChannel channel, {$grpc.CallOptions? options})
-      : super(channel, options: options);
+  OperationsClient($grpc.ClientChannel channel,
+      {$grpc.CallOptions? options,
+      $core.Iterable<$grpc.ClientInterceptor>? interceptors})
+      : super(channel, options: options, interceptors: interceptors);
 
   $grpc.ResponseFuture<$0.ListOperationsResponse> listOperations(
       $0.ListOperationsRequest request,
       {$grpc.CallOptions? options}) {
-    final call = $createCall(
-        _$listOperations, $async.Stream.fromIterable([request]),
-        options: options);
-    return $grpc.ResponseFuture(call);
+    return $createUnaryCall(_$listOperations, request, options: options);
   }
 
   $grpc.ResponseFuture<$0.Operation> getOperation(
       $0.GetOperationRequest request,
       {$grpc.CallOptions? options}) {
-    final call = $createCall(
-        _$getOperation, $async.Stream.fromIterable([request]),
-        options: options);
-    return $grpc.ResponseFuture(call);
+    return $createUnaryCall(_$getOperation, request, options: options);
   }
 
   $grpc.ResponseFuture<$1.Empty> deleteOperation(
       $0.DeleteOperationRequest request,
       {$grpc.CallOptions? options}) {
-    final call = $createCall(
-        _$deleteOperation, $async.Stream.fromIterable([request]),
-        options: options);
-    return $grpc.ResponseFuture(call);
+    return $createUnaryCall(_$deleteOperation, request, options: options);
   }
 
   $grpc.ResponseFuture<$1.Empty> cancelOperation(
       $0.CancelOperationRequest request,
       {$grpc.CallOptions? options}) {
-    final call = $createCall(
-        _$cancelOperation, $async.Stream.fromIterable([request]),
-        options: options);
-    return $grpc.ResponseFuture(call);
+    return $createUnaryCall(_$cancelOperation, request, options: options);
   }
 
   $grpc.ResponseFuture<$0.Operation> waitOperation(
       $0.WaitOperationRequest request,
       {$grpc.CallOptions? options}) {
-    final call = $createCall(
-        _$waitOperation, $async.Stream.fromIterable([request]),
-        options: options);
-    return $grpc.ResponseFuture(call);
+    return $createUnaryCall(_$waitOperation, request, options: options);
   }
 }
 
+@$pb.GrpcServiceName('google.longrunning.Operations')
 abstract class OperationsServiceBase extends $grpc.Service {
   $core.String get $name => 'google.longrunning.Operations';
 

@@ -1,9 +1,13 @@
 import 'package:google_speech/config/recognition_config_v1.dart';
 import 'package:google_speech/config/recognition_config_v1p1beta1.dart';
+import 'package:google_speech/config/recognition_config_v2.dart';
 import 'package:google_speech/generated/google/cloud/speech/v1/cloud_speech.pb.dart'
     as _cs;
 import 'package:google_speech/generated/google/cloud/speech/v1p1beta1/cloud_speech.pb.dart'
     as _cs_beta;
+import 'package:google_speech/generated/google/cloud/speech/v2/cloud_speech.pb.dart'
+    as _cs_v2;
+import 'package:google_speech/generated/google/protobuf/field_mask.pb.dart';
 
 class StreamingRecognitionConfig {
   /// Required. Provides information to the recognizer that specifies
@@ -80,4 +84,25 @@ class StreamingRecognitionConfigBeta {
         ..config = config.toConfig()
         ..singleUtterance = singleUtterance
         ..interimResults = interimResults);
+}
+
+class StreamingRecognitionConfigV2 {
+  /// Required. Provides information to the recognizer that specifies
+  /// how to process the request.
+  final RecognitionConfigV2 config;
+
+  final _cs_v2.StreamingRecognitionFeatures? streamingFeatures;
+
+  final FieldMask? configMask;
+
+  /// A streaming speech recognition result corresponding to a portion of
+  /// the audio that is currently being processed.
+  StreamingRecognitionConfigV2(
+      {required this.config, this.streamingFeatures, this.configMask});
+
+  _cs_v2.StreamingRecognitionConfig toConfig() =>
+      _cs_v2.StreamingRecognitionConfig(
+          config: config.toConfig(),
+          streamingFeatures: streamingFeatures,
+          configMask: configMask);
 }

@@ -1,10 +1,12 @@
 export 'config/recognition_config.dart';
 export 'config/recognition_config_v1.dart';
 export 'config/recognition_config_v1p1beta1.dart';
+export 'config/recognition_config_v2.dart';
 export 'config/streaming_recognition_config.dart';
 export 'exception.dart';
 export 'speech_client_authenticator.dart';
 export 'speech_to_text.dart';
 export 'speech_to_text_beta.dart';
+export 'speech_to_text_v2.dart';
 export 'auth/third_party_authenticator.dart';
 export 'package:googleapis_auth/src/access_credentials.dart' show AccessCredentials;
