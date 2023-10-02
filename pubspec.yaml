@@ -1,6 +1,6 @@
 name: google_speech
 description: Flutter Plugin for the Google Cloud GRPC Speech-to-Text Api.
-version: 4.0.0
+version: 4.0.0+1
 homepage: https://github.com/felixjunghans/google_speech
 
 environment:

@@ -156,9 +156,15 @@ You can find more information here [https://cloud.google.com/speech-to-text/docs
 
 Since version 1.1.0 google_speech also supports the use of features available in the Google Speech Beta Api. For this you just have to use SpeechToTextBeta instead of SpeechToText.
 
+## Use Google Speech Version 2
+
+Since version 4.0.0 google_speech also supports the use of features available in the Google Speech V2. For this you just have to use SpeechToTextV2 instead of SpeechToText.
+An Example could be found in audio_file_example_v2
+
 ### TODOs
 
 - [x] Update streamingRecognize example
+- [x] Add Google Speech V2 Support
 - [ ] Add error messages for Google Speech limitations
 - [ ] Add Flutter Web Support
 - [x] Add longRunningRecognize support (Thanks to @spenceralbrecht)

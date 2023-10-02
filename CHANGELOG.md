@@ -1,3 +1,6 @@
+## [4.0.0+1] - Add missing Documentation for Google Speech V2
+* Add missing Documentation for Google Speech V2
+
 ## [4.0.0] - Add Google Speech V2 Support
 * Add all the features required to use Google Speech V2.
 * Add new Audio File Example for Version 2
