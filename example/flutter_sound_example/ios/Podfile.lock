@@ -4,15 +4,16 @@ PODS:
   - flutter_sound_lite (8.5.0):
     - Flutter
     - flutter_sound_core (= 8.5.0)
-  - path_provider_ios (0.0.1):
+  - path_provider_foundation (0.0.1):
     - Flutter
-  - permission_handler_apple (9.0.2):
+    - FlutterMacOS
+  - permission_handler_apple (9.1.1):
     - Flutter
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
   - flutter_sound_lite (from `.symlinks/plugins/flutter_sound_lite/ios`)
-  - path_provider_ios (from `.symlinks/plugins/path_provider_ios/ios`)
+  - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
   - permission_handler_apple (from `.symlinks/plugins/permission_handler_apple/ios`)
 
 SPEC REPOS:
@@ -24,18 +25,18 @@ EXTERNAL SOURCES:
     :path: Flutter
   flutter_sound_lite:
     :path: ".symlinks/plugins/flutter_sound_lite/ios"
-  path_provider_ios:
-    :path: ".symlinks/plugins/path_provider_ios/ios"
+  path_provider_foundation:
+    :path: ".symlinks/plugins/path_provider_foundation/darwin"
   permission_handler_apple:
     :path: ".symlinks/plugins/permission_handler_apple/ios"
 
 SPEC CHECKSUMS:
-  Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
+  Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
   flutter_sound_core: d9396f10752a0df9aa3197f4c431d62d934918cc
   flutter_sound_lite: 175808b357d0b3eeee1345843545bb2fbde06e6c
-  path_provider_ios: 14f3d2fd28c4fdb42f44e0f751d12861c43cee02
-  permission_handler_apple: d21b38e1a4b2e041c63af9568f9165e114e507a6
+  path_provider_foundation: 29f094ae23ebbca9d3d0cec13889cd9060c0e943
+  permission_handler_apple: e76247795d700c14ea09e3a2d8855d41ee80a2e6
 
 PODFILE CHECKSUM: 70a2f5918514dda94de7b3d37dd4c46f2bde65b2
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.11.3

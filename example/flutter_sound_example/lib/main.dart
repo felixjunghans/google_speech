@@ -145,7 +145,7 @@ class _AudioRecognizeState extends State<AudioRecognize> {
               _RecognizeContent(
                 text: text,
               ),
-            RaisedButton(
+            ElevatedButton(
               onPressed: recognizing ? stopRecording : streamingRecognize,
               child: recognizing
                   ? const Text('Stop recording')
