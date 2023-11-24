@@ -1,3 +1,7 @@
+## [4.3.0] - Add pollingLongRunningRecognize.
+* Add pollingLongRunningRecognize
+* Fix longRunningRecognize for V2
+
 ## [4.2.0] - Enable support for Api Key Authentication
 * Enable support for Api Key Authentication
 

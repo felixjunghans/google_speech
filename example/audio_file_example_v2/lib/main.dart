@@ -1,8 +1,12 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_speech/config/longrunning_result.dart';
 import 'package:google_speech/generated/google/cloud/speech/v2/cloud_speech.pb.dart';
+import 'package:google_speech/generated/google/longrunning/operations.pb.dart';
+import 'package:google_speech/generated/google/longrunning/operations.pbgrpc.dart';
 import 'package:google_speech/google_speech.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -45,7 +49,8 @@ class _AudioRecognizeState extends State<AudioRecognize> {
     });
     final serviceAccount = ServiceAccount.fromString(
         (await rootBundle.loadString('assets/test_service_account.json')));
-    final speechToText = SpeechToTextV2.viaServiceAccount(serviceAccount, projectId: 'YOUR-PROJECT-ID');
+    final speechToText = SpeechToTextV2.viaServiceAccount(serviceAccount,
+        projectId: 'YOUR-PROJECT-ID');
     final config = _getConfig();
     final audio = await _getAudioContent('test.wav');
 
@@ -67,7 +72,8 @@ class _AudioRecognizeState extends State<AudioRecognize> {
     });
     final serviceAccount = ServiceAccount.fromString(
         (await rootBundle.loadString('assets/test_service_account.json')));
-    final speechToText = SpeechToTextV2.viaServiceAccount(serviceAccount, projectId: 'YOUR-PROJECT-ID');
+    final speechToText = SpeechToTextV2.viaServiceAccount(serviceAccount,
+        projectId: 'YOUR-PROJECT-ID');
     final config = _getConfig();
 
     final responseStream = speechToText.streamingRecognize(
@@ -85,6 +91,29 @@ class _AudioRecognizeState extends State<AudioRecognize> {
       });
     }, onDone: () {
       setState(() {
+        recognizing = false;
+      });
+    });
+  }
+
+  void longRunningRecognize() async {
+    setState(() {
+      recognizing = true;
+    });
+    final serviceAccount = ServiceAccount.fromString(
+        (await rootBundle.loadString('assets/test_service_account.json')));
+    final speechToText = SpeechToTextV2.viaServiceAccount(serviceAccount,
+        projectId: 'YOUR-PROJECT-ID');
+    final config = _getConfig();
+
+    speechToText
+        .pollingLongRunningRecognize(config, 'YOUR-GS-URI')
+        .then((LongRunningRequestResult result) {
+      setState(() {
+        text =
+            result.results?.map((e) => e.alternatives.first.transcript).join('\n') ??
+                "";
+        recognizeFinished = true;
         recognizing = false;
       });
     });
@@ -120,7 +149,7 @@ class _AudioRecognizeState extends State<AudioRecognize> {
     if (!File(path).existsSync()) {
       await _copyFileFromAssets(name);
     }
-    
+
     final content = File(path).readAsBytesSync();
 
     // Set chunkLength to 25600 bytes
@@ -133,7 +162,7 @@ class _AudioRecognizeState extends State<AudioRecognize> {
           : content.length;
       stream.add(content.sublist(start, end));
     }
-    
+
     return Stream.fromIterable(stream);
   }
 
@@ -165,6 +194,15 @@ class _AudioRecognizeState extends State<AudioRecognize> {
               child: recognizing
                   ? const CircularProgressIndicator()
                   : const Text('Test with streaming recognize'),
+            ),
+            const SizedBox(
+              height: 10.0,
+            ),
+            ElevatedButton(
+              onPressed: recognizing ? () {} : longRunningRecognize,
+              child: recognizing
+                  ? const CircularProgressIndicator()
+                  : const Text('Test with longrunning recognize'),
             ),
           ],
         ),

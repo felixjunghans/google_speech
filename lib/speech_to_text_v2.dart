@@ -3,10 +3,12 @@ library flutter_google_speech;
 import 'dart:async';
 
 import 'package:google_speech/auth/third_party_authenticator.dart';
+import 'package:google_speech/config/longrunning_result.dart';
 import 'package:google_speech/generated/google/cloud/speech/v2/cloud_speech.pb.dart'
     hide RecognitionConfig, StreamingRecognitionConfig;
 import 'package:google_speech/generated/google/cloud/speech/v2/cloud_speech.pbgrpc.dart'
     hide RecognitionConfig, StreamingRecognitionConfig;
+import 'package:google_speech/generated/google/longrunning/operations.pbgrpc.dart';
 import 'package:google_speech/speech_client_authenticator.dart';
 import 'package:grpc/grpc.dart';
 
@@ -130,9 +132,91 @@ class SpeechToTextV2 {
     // Create the request, which transmits the necessary
     // data to the Google Api.
     final request = BatchRecognizeRequest(
-        files: [recognitionAudio], config: config.toConfig());
+      recognizer: 'projects/$projectId/locations/global/recognizers/_',
+      files: [recognitionAudio],
+      config: config.toConfig(),
+      recognitionOutputConfig:
+          RecognitionOutputConfig(inlineResponseConfig: InlineOutputConfig()),
+    );
 
     return client.batchRecognize(request);
+  }
+
+  /// Sends a [LongRunningRecognizeRequest] request to the Google Speech Api.
+  /// Requires a [RecognitionConfigV2] and an [RecognitionAudio].
+  ///
+  /// To use asynchronous speech recognition to transcribe audio longer than 60
+  /// seconds, you must have your data saved in a Google Cloud Storage bucket.
+  ///
+  /// Polls the [Operation] and returns a [LongRunningRequestResult] as soon as
+  /// the Operation is finished.
+  Future<LongRunningRequestResult> pollingLongRunningRecognize(
+      RecognitionConfigV2 config, String audioGcsUri,
+      {Duration pollInterval = const Duration(seconds: 1)}) async {
+    final client = SpeechClient(_channel, options: _options);
+
+    // transform audio to RecognitionAudio
+    final recognitionAudio = BatchRecognizeFileMetadata()..uri = audioGcsUri;
+
+    // Create the request, which transmits the necessary
+    // data to the Google Api.
+    final request = BatchRecognizeRequest(
+      recognizer: 'projects/$projectId/locations/global/recognizers/_',
+      files: [recognitionAudio],
+      config: config.toConfig(),
+      recognitionOutputConfig:
+          RecognitionOutputConfig(inlineResponseConfig: InlineOutputConfig()),
+    );
+
+    final operation = await client.batchRecognize(request);
+    return _pollOperation(operation, pollInterval);
+  }
+
+  Future<LongRunningRequestResult> _pollOperation(
+      Operation operation, Duration pollInterval) async {
+    final operationsClient = OperationsClient(_channel);
+    late Operation operationResult;
+    var isDone = false;
+    while (isDone != true) {
+      final currentOperation = await operationsClient.getOperation(
+          GetOperationRequest(name: operation.name),
+          options: _options);
+
+      if (currentOperation.done) {
+        isDone = true;
+        operationResult = currentOperation;
+      }
+
+      await Future.delayed(pollInterval);
+    }
+    final response =
+        BatchRecognizeResponse.fromBuffer(operationResult.response.value);
+
+    final result = LongRunningRequestResult(
+      operation: operationResult,
+      results: response.results[response.results.keys.first]?.transcript.results
+          .map(
+            (result) => TranscriptionResult(
+              alternatives: result.alternatives
+                  .map(
+                    (alternative) => Transcript(
+                      transcript: alternative.transcript,
+                      confidence: alternative.confidence,
+                    ),
+                  )
+                  .toList(),
+              resultEndOffset: ResultEndOffset(
+                seconds: result.resultEndOffset.seconds.toInt(),
+                nanos: result.resultEndOffset.nanos.toInt(),
+              ),
+              languageCode: result.languageCode,
+            ),
+          )
+          .toList(),
+      error: operationResult.error,
+    );
+
+    return result;
   }
 
   void dispose() {

@@ -2,6 +2,7 @@ library flutter_google_speech_beta;
 
 import 'dart:async';
 
+import 'package:google_speech/config/longrunning_result.dart';
 import 'package:google_speech/config/recognition_config_v1p1beta1.dart';
 import 'package:google_speech/generated/google/cloud/speech/v1p1beta1/cloud_speech.pb.dart'
     hide RecognitionConfig, StreamingRecognitionConfig;
@@ -14,6 +15,7 @@ import 'auth/third_party_authenticator.dart';
 import 'config/recognition_config_v1.dart';
 import 'config/streaming_recognition_config.dart';
 import 'generated/google/longrunning/operations.pb.dart';
+import 'generated/google/longrunning/operations.pbgrpc.dart';
 
 /// An interface to Google's Speech-to-Text Api via grpc.
 ///
@@ -126,6 +128,70 @@ class SpeechToTextBeta {
       ..config = config.toConfig()
       ..audio = recognitionAudio);
     return client.longRunningRecognize(request);
+  }
+
+  Future<LongRunningRequestResult> pollingLongRunningRecognize(
+      RecognitionConfigBeta config, String audioGcsUri,
+      {Duration pollInterval = const Duration(seconds: 1)}) async {
+    final client = SpeechClient(_channel, options: _options);
+
+    // transform audio to RecognitionAudio
+    final recognitionAudio = RecognitionAudio()..uri = audioGcsUri;
+
+    // Create the request, which transmits the necessary
+    // data to the Google Api.
+    final request = (LongRunningRecognizeRequest()
+      ..config = config.toConfig()
+      ..audio = recognitionAudio);
+    final operation = await client.longRunningRecognize(request);
+    return _pollOperation(operation, pollInterval);
+  }
+
+  Future<LongRunningRequestResult> _pollOperation(
+      Operation operation, Duration pollInterval) async {
+    final operationsClient = OperationsClient(_channel);
+    late Operation operationResult;
+    var isDone = false;
+    while (isDone != true) {
+      final currentOperation = await operationsClient.getOperation(
+          GetOperationRequest(name: operation.name),
+          options: _options);
+
+      if (currentOperation.done) {
+        isDone = true;
+        operationResult = currentOperation;
+      }
+
+      await Future.delayed(pollInterval);
+    }
+    final response =
+        LongRunningRecognizeResponse.fromBuffer(operationResult.response.value);
+
+    final result = LongRunningRequestResult(
+      operation: operationResult,
+      results: response.results
+          .map(
+            (result) => TranscriptionResult(
+              alternatives: result.alternatives
+                  .map(
+                    (alternative) => Transcript(
+                      transcript: alternative.transcript,
+                      confidence: alternative.confidence,
+                    ),
+                  )
+                  .toList(),
+              resultEndOffset: ResultEndOffset(
+                seconds: result.resultEndTime.seconds.toInt(),
+                nanos: result.resultEndTime.nanos.toInt(),
+              ),
+              languageCode: result.languageCode,
+            ),
+          )
+          .toList(),
+      error: operationResult.error,
+    );
+
+    return result;
   }
 
   void dispose() {
