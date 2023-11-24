@@ -32,6 +32,10 @@ class SpeechToTextBeta {
   factory SpeechToTextBeta.viaServiceAccount(ServiceAccount account) =>
       SpeechToTextBeta._(account.callOptions);
 
+  /// Creates a SpeechToText interface using a API keys.
+  factory SpeechToTextBeta.viaApiKey(String apiKey) =>
+      SpeechToTextBeta._(CallOptions(metadata: {'X-goog-api-key': '$apiKey'}));
+
   /// Creates a SpeechToText interface using a third party authenticator.
   /// Don't worry about updating the access token, the package does it automatically.
   /// Example:

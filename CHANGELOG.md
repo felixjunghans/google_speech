@@ -1,3 +1,6 @@
+## [4.2.0] - Enable support for Api Key Authentication
+* Enable support for Api Key Authentication
+
 ## [4.1.0] - Add projectId parameter to SpeechToTextV2.viaServiceAccount to prevent NullPointerException
 * Add projectId parameter to SpeechToTextV2.viaServiceAccount to prevent NullPointerException
 
