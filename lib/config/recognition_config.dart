@@ -70,29 +70,29 @@ enum AudioEncoding {
 /// Which model to select for the given request. Select the model best suited
 /// to your domain to get best results. If a model is not explicitly specified,
 /// then we auto-select a model based on the parameters in the RecognitionConfig.
+/// For pricing visit this page https://cloud.google.com/speech-to-text/pricing
 enum RecognitionModel {
+  /// Best for long form content like media or conversation.
+  latest_long,
+
+  /// Best for short form content like commands or single shot directed speech.
+  latest_short,
+
   /// Best for short queries such as voice commands or voice search.
   command_and_search,
 
-  /// Best for audio that originated from a phone call (
-  /// typically recorded at an 8khz sampling rate).
+  /// Best for audio that originated from a phone call (typically recorded at an 8khz sampling rate).
   phone_call,
 
-  /// Best for audio that originated from from video or includes multiple
-  /// speakers. Ideally the audio is recorded at a 16khz or greater sampling
-  /// rate. This is a premium model that costs more than the standard rate.
+  /// Best for audio that originated from video or includes multiple speakers. Ideally the audio is recorded at a 16khz or greater sampling rate. This is a premium model that costs more than the standard rate.
   video,
 
-  /// Best for audio that is not one of the specific audio models.
-  /// For example, long-form audio. Ideally the audio is high-fidelity,
-  /// recorded at a 16khz or greater sampling rate.
+  /// Best for audio that is not one of the specific audio models. For example, long-form audio. Ideally the audio is high-fidelity, recorded at a 16khz or greater sampling rate.
   basic,
-  /// To transcribe notes dictated by a medical professional.
-  /// This is a premium model that costs more than the standard rate. 
-  /// For pricing visit this page https://cloud.google.com/speech-to-text/pricing
-  medical_dictation,
-  /// To transcribe a conversation between a medical professional and a patient.
-  /// This is a premium model that costs more than the standard rate. 
-  /// For pricing visit this page https://cloud.google.com/speech-to-text/pricing
+
+  /// Best for audio that originated from a conversation between a medical provider and patient.
   medical_conversation,
+
+  ///Best for audio that originated from dictation notes by a medical provider.
+  medical_dictation
 }
