@@ -1,3 +1,7 @@
+## [4.4.0] - Update RecognitionConfig to match the latest version of the API.
+* Add latestLong and latestShort to RecognitionConfig
+* Add short to RecognitionConfigV2
+
 ## [4.3.0] - Add pollingLongRunningRecognize.
 * Add pollingLongRunningRecognize
 * Fix longRunningRecognize for V2

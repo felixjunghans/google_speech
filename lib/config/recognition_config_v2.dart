@@ -37,6 +37,11 @@ enum RecognitionModelV2 {
   long,
 
   /// Use this model for short utterances that are a few seconds in length.
+  /// It is useful for trying to capture commands or other single-short directed
+  /// speech use cases. Consider using this model instead of the command and search model.
+  short,
+
+  /// Use this model for short utterances that are a few seconds in length.
   /// It is useful for trying to capture commands or other single shot directed speech use cases.
   /// When you use this model, the service will stop transcribing audio after the first utterance
   /// is detected and completed. With this model, separate recognition per channel is not supported.
@@ -51,6 +56,10 @@ enum RecognitionModelV2 {
   /// Unified large speech model. Use this model for any
   /// use case that doesn't need streaming.
   chirp,
+
+  /// Universal large Speech Model(USM) fine-tuned for audio
+  /// that originated from a phone call (typically recorded at an 8 kHz sampling rate).
+  chirp_telephony,
 
   /// To transcribe notes dictated by a medical professional.
   /// This is a premium model that costs more than the standard rate.

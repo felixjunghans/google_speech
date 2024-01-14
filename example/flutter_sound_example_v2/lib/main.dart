@@ -80,7 +80,7 @@ class _AudioRecognizeState extends State<AudioRecognize> {
     final serviceAccount = ServiceAccount.fromString(
         (await rootBundle.loadString('assets/test_service_account.json')));
     final speechToText = SpeechToTextV2.viaServiceAccount(serviceAccount,
-        projectId: 'YOUR-PROJECT-ID');
+        projectId: 'jovial-circuit-314221');
 
     final responseStream = speechToText.streamingRecognize(
         StreamingRecognitionConfigV2(
@@ -94,6 +94,8 @@ class _AudioRecognizeState extends State<AudioRecognize> {
     responseStream.listen((data) {
       final currentText =
           data.results.map((e) => e.alternatives.first.transcript).join('\n');
+
+      print(currentText);
 
       if (data.results.first.isFinal) {
         responseText += '\n$currentText';
@@ -125,12 +127,13 @@ class _AudioRecognizeState extends State<AudioRecognize> {
   }
 
   RecognitionConfigV2 _getConfig() => RecognitionConfigV2(
-        model: RecognitionModelV2.long,
+        model: RecognitionModelV2.short,
         languageCodes: ['de-DE', 'en-US'],
+        features: RecognitionFeatures(),
         explicitDecodingConfig: ExplicitDecodingConfig(
           encoding: ExplicitDecodingConfig_AudioEncoding.LINEAR16,
           sampleRateHertz: kAudioSampleRate,
-          audioChannelCount: kAudioNumChannels
+          audioChannelCount: kAudioNumChannels,
         )
       );
 
