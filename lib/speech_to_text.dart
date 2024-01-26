@@ -1,6 +1,7 @@
 library flutter_google_speech;
 
 import 'dart:async';
+import 'dart:collection';
 
 import 'package:google_speech/auth/third_party_authenticator.dart';
 import 'package:google_speech/config/longrunning_result.dart';

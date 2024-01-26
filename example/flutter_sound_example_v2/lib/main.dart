@@ -97,7 +97,7 @@ class _AudioRecognizeState extends State<AudioRecognize> {
 
       print(currentText);
 
-      if (data.results.first.isFinal) {
+      if (data.results.isNotEmpty && data.results.first.isFinal) {
         responseText += '\n$currentText';
         setState(() {
           text = responseText;
@@ -127,7 +127,7 @@ class _AudioRecognizeState extends State<AudioRecognize> {
   }
 
   RecognitionConfigV2 _getConfig() => RecognitionConfigV2(
-        model: RecognitionModelV2.short,
+        model: RecognitionModelV2.long,
         languageCodes: ['de-DE', 'en-US'],
         features: RecognitionFeatures(),
         explicitDecodingConfig: ExplicitDecodingConfig(

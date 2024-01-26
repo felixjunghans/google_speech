@@ -161,6 +161,29 @@ Since version 1.1.0 google_speech also supports the use of features available in
 Since version 4.0.0 google_speech also supports the use of features available in the Google Speech V2. For this you just have to use SpeechToTextV2 instead of SpeechToText.
 An Example could be found in audio_file_example_v2
 
+## Endless stream support
+Since version 5.0.0 google_speech also supports endless stream. 
+For this you just have to use EndlessStreamingService instead of SpeechToText.
+
+```dart
+    final serviceAccount = ServiceAccount.fromString(r'''{YOUR_JSON_STRING}''');
+    
+    /// OR load the data from assets
+    
+    final serviceAccount = ServiceAccount.fromString(
+        '${(await rootBundle.loadString('assets/test_service_account.json'))}');
+
+    final speechToText = EndlessStreamingService.viaServiceAccount(serviceAccount);
+
+    final responseStream = speechToText.endlessStream;
+    
+    speechToText.endlessStreamingRecognize(
+        StreamingRecognitionConfig(config: config, interimResults: true),
+        _audioStream!);
+    
+    responseStream.listen((data) {...});
+```
+
 ### TODOs
 
 - [x] Update streamingRecognize example
@@ -169,4 +192,4 @@ An Example could be found in audio_file_example_v2
 - [ ] Add Flutter Web Support
 - [x] Add longRunningRecognize support (Thanks to @spenceralbrecht)
 - [x] Add alternative ways to authenticate (Thanks to @juarezfrancoA)
-- [ ] Add infinity stream support
+- [x] Add infinity stream support

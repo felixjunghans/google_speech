@@ -1,3 +1,9 @@
+## [5.0.0] - Add endless streaming support *experimental.
+* Add EndlessStreamingService, EndlessStreamingServiceBeta, EndlessStreamingServiceV2
+* Add new example for endless streaming
+* You can now use the endless streaming service to stream audio to the Google Speech API without a time limit.
+* ** This is an experimental feature for now and may not work as expected. **
+
 ## [4.4.0] - Update RecognitionConfig to match the latest version of the API.
 * Add latestLong and latestShort to RecognitionConfig
 * Add short to RecognitionConfigV2
