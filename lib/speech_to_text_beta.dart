@@ -25,18 +25,24 @@ class SpeechToTextBeta {
   final CallOptions _options;
 
   /// [ClientChannel] which is used for the Google Speech-to-Text Api.
-  final ClientChannel _channel = ClientChannel('speech.googleapis.com');
+  final ClientChannel _channel;
 
   // Private constructor to prevent direct initialization of the class.
-  SpeechToTextBeta._(this._options);
+  SpeechToTextBeta._(this._options, {String? cloudSpeechEndpoint})
+      : _channel =
+            ClientChannel(cloudSpeechEndpoint ?? 'speech.googleapis.com');
 
   /// Creates a SpeechToText interface using a service account.
-  factory SpeechToTextBeta.viaServiceAccount(ServiceAccount account) =>
-      SpeechToTextBeta._(account.callOptions);
+  factory SpeechToTextBeta.viaServiceAccount(ServiceAccount account,
+          {String? cloudSpeechEndpoint}) =>
+      SpeechToTextBeta._(account.callOptions,
+          cloudSpeechEndpoint: cloudSpeechEndpoint);
 
   /// Creates a SpeechToText interface using a API keys.
-  factory SpeechToTextBeta.viaApiKey(String apiKey) =>
-      SpeechToTextBeta._(CallOptions(metadata: {'X-goog-api-key': '$apiKey'}));
+  factory SpeechToTextBeta.viaApiKey(String apiKey,
+          {String? cloudSpeechEndpoint}) =>
+      SpeechToTextBeta._(CallOptions(metadata: {'X-goog-api-key': '$apiKey'}),
+          cloudSpeechEndpoint: cloudSpeechEndpoint);
 
   /// Creates a SpeechToText interface using a third party authenticator.
   /// Don't worry about updating the access token, the package does it automatically.
@@ -51,14 +57,18 @@ class SpeechToTextBeta {
   ///         ),
   ///       );
   factory SpeechToTextBeta.viaThirdPartyAuthenticator(
-          ThirdPartyAuthenticator thirdPartyAuthenticator) =>
-      SpeechToTextBeta._(thirdPartyAuthenticator.toCallOptions);
+          ThirdPartyAuthenticator thirdPartyAuthenticator,
+          {String? cloudSpeechEndpoint}) =>
+      SpeechToTextBeta._(thirdPartyAuthenticator.toCallOptions,
+          cloudSpeechEndpoint: cloudSpeechEndpoint);
 
   /// Creates a SpeechToTextBeta interface using a token.
   /// You are responsible for updating the token when it expires.
-  factory SpeechToTextBeta.viaToken(String typeToken, String token) =>
+  factory SpeechToTextBeta.viaToken(String typeToken, String token,
+          {String? cloudSpeechEndpoint}) =>
       SpeechToTextBeta._(
-          CallOptions(metadata: {'authorization': '$typeToken $token'}));
+          CallOptions(metadata: {'authorization': '$typeToken $token'}),
+          cloudSpeechEndpoint: cloudSpeechEndpoint);
 
   /// Listen to audio stream.
   /// Cancelled as soon as dispose is called.

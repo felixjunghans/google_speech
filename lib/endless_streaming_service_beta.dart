@@ -21,19 +21,25 @@ class EndlessStreamingServiceBeta {
   final CallOptions _options;
 
   /// [ClientChannel] which is used for the Google Speech-to-Text Api.
-  final ClientChannel _channel = ClientChannel('speech.googleapis.com');
+  final ClientChannel _channel;
 
   // Private constructor to prevent direct initialization of the class.
-  EndlessStreamingServiceBeta._(this._options);
+  EndlessStreamingServiceBeta._(this._options, {String? cloudSpeechEndpoint})
+      : _channel =
+            ClientChannel(cloudSpeechEndpoint ?? 'speech.googleapis.com');
 
   /// Creates a EndlessStreamingService interface using a service account.
-  factory EndlessStreamingServiceBeta.viaServiceAccount(ServiceAccount account) =>
-      EndlessStreamingServiceBeta._(account.callOptions);
+  factory EndlessStreamingServiceBeta.viaServiceAccount(ServiceAccount account,
+          {String? cloudSpeechEndpoint}) =>
+      EndlessStreamingServiceBeta._(account.callOptions,
+          cloudSpeechEndpoint: cloudSpeechEndpoint);
 
   /// Creates a EndlessStreamingService interface using a API keys.
-  factory EndlessStreamingServiceBeta.viaApiKey(String apiKey) =>
+  factory EndlessStreamingServiceBeta.viaApiKey(String apiKey,
+          {String? cloudSpeechEndpoint}) =>
       EndlessStreamingServiceBeta._(
-          CallOptions(metadata: {'X-goog-api-key': '$apiKey'}));
+          CallOptions(metadata: {'X-goog-api-key': '$apiKey'}),
+          cloudSpeechEndpoint: cloudSpeechEndpoint);
 
   /// Creates a EndlessStreamingService interface using a third party authenticator.
   /// Don't worry about updating the access token, the package does it automatically.
@@ -48,14 +54,18 @@ class EndlessStreamingServiceBeta {
   ///         ),
   ///       );
   factory EndlessStreamingServiceBeta.viaThirdPartyAuthenticator(
-          ThirdPartyAuthenticator thirdPartyAuthenticator) =>
-      EndlessStreamingServiceBeta._(thirdPartyAuthenticator.toCallOptions);
+          ThirdPartyAuthenticator thirdPartyAuthenticator,
+          {String? cloudSpeechEndpoint}) =>
+      EndlessStreamingServiceBeta._(thirdPartyAuthenticator.toCallOptions,
+          cloudSpeechEndpoint: cloudSpeechEndpoint);
 
   /// Creates a EndlessStreamingService interface using a token.
   /// You are responsible for updating the token when it expires.
-  factory EndlessStreamingServiceBeta.viaToken(String typeToken, String token) =>
+  factory EndlessStreamingServiceBeta.viaToken(String typeToken, String token,
+          {String? cloudSpeechEndpoint}) =>
       EndlessStreamingServiceBeta._(
-          CallOptions(metadata: {'authorization': '$typeToken $token'}));
+          CallOptions(metadata: {'authorization': '$typeToken $token'}),
+          cloudSpeechEndpoint: cloudSpeechEndpoint);
 
   /// Listen to audio stream.
   /// Cancelled as soon as dispose is called.
@@ -104,7 +114,6 @@ class EndlessStreamingServiceBeta {
   }
 
   void _startStream() {
-    print('Starte neuen Stream');
     _request = StreamController<StreamingRecognizeRequest>();
 
     // Send the initial streaming config
@@ -120,7 +129,6 @@ class EndlessStreamingServiceBeta {
     _audioStreamSubscription = _audioStream.listen((audio) {
       // Buffer audio while transitioning
       if (_transitioning) {
-        print('Schreibe Daten in Buffer');
         _audioBuffer.add(audio);
 
         // Send empty audio content to keep stream alive and trigger final state.
@@ -149,7 +157,6 @@ class EndlessStreamingServiceBeta {
       _endlessStream.addError(error);
     });
 
-    print('Warte auf Timer Ende');
     _resetTimer = Timer(_restartTime, _restart);
   }
 

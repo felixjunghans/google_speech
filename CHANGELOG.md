@@ -1,3 +1,6 @@
+## [5.1.0] - Add support for regional endpoint.
+* Add support for regional endpoint like https://eu-speech.googleapis.com
+
 ## [5.0.0] - Add endless streaming support *experimental.
 * Add EndlessStreamingService, EndlessStreamingServiceBeta, EndlessStreamingServiceV2
 * Add new example for endless streaming

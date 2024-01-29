@@ -95,8 +95,6 @@ class _AudioRecognizeState extends State<AudioRecognize> {
       final currentText =
           data.results.map((e) => e.alternatives.first.transcript).join('\n');
 
-      print(currentText);
-
       if (data.results.isNotEmpty && data.results.first.isFinal) {
         responseText += '\n$currentText';
         setState(() {

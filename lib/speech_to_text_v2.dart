@@ -27,20 +27,25 @@ class SpeechToTextV2 {
   final String projectId;
 
   /// [ClientChannel] which is used for the Google Speech-to-Text Api.
-  final ClientChannel _channel = ClientChannel('speech.googleapis.com');
+  final ClientChannel _channel;
 
   // Private constructor to prevent direct initialization of the class.
-  SpeechToTextV2._(this._options, {required this.projectId});
+  SpeechToTextV2._(this._options,
+      {required this.projectId, String? cloudSpeechEndpoint})
+      : _channel =
+            ClientChannel(cloudSpeechEndpoint ?? 'speech.googleapis.com');
 
   /// Creates a SpeechToTextV2 interface using a service account.
   factory SpeechToTextV2.viaServiceAccount(ServiceAccount account,
-          {required String projectId}) =>
-      SpeechToTextV2._(account.callOptions, projectId: projectId);
+          {required String projectId, String? cloudSpeechEndpoint}) =>
+      SpeechToTextV2._(account.callOptions,
+          projectId: projectId, cloudSpeechEndpoint: cloudSpeechEndpoint);
 
   /// Creates a SpeechToText interface using a API keys.
-  factory SpeechToTextV2.viaApiKey(String apiKey, String projectId) =>
+  factory SpeechToTextV2.viaApiKey(String apiKey, String projectId,
+          {String? cloudSpeechEndpoint}) =>
       SpeechToTextV2._(CallOptions(metadata: {'X-goog-api-key': '$apiKey'}),
-          projectId: projectId);
+          projectId: projectId, cloudSpeechEndpoint: cloudSpeechEndpoint);
 
   /// Creates a SpeechToTextV2 interface using a third party authenticator.
   /// Don't worry about updating the access token, the package does it automatically.
@@ -56,17 +61,19 @@ class SpeechToTextV2 {
   ///       );
   factory SpeechToTextV2.viaThirdPartyAuthenticator(
           ThirdPartyAuthenticator thirdPartyAuthenticator,
-          {required String projectId}) =>
+          {required String projectId,
+          String? cloudSpeechEndpoint}) =>
       SpeechToTextV2._(thirdPartyAuthenticator.toCallOptions,
-          projectId: projectId);
+          projectId: projectId, cloudSpeechEndpoint: cloudSpeechEndpoint);
 
   /// Creates a SpeechToTextV2 interface using a token.
   /// You are responsible for updating the token when it expires.
   factory SpeechToTextV2.viaToken(String typeToken, String token,
-          {required String projectId}) =>
+          {required String projectId, String? cloudSpeechEndpoint}) =>
       SpeechToTextV2._(
           CallOptions(metadata: {'authorization': '$typeToken $token'}),
-          projectId: projectId);
+          projectId: projectId,
+          cloudSpeechEndpoint: cloudSpeechEndpoint);
 
   /// Listen to audio stream.
   /// Cancelled as soon as dispose is called.

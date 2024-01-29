@@ -25,18 +25,25 @@ class SpeechToText {
   final CallOptions _options;
 
   /// [ClientChannel] which is used for the Google Speech-to-Text Api.
-  final ClientChannel _channel = ClientChannel('speech.googleapis.com');
+  final ClientChannel _channel;
 
   // Private constructor to prevent direct initialization of the class.
-  SpeechToText._(this._options);
+  SpeechToText._(
+    this._options, {
+    String? cloudSpeechEndpoint,
+  }) : _channel = ClientChannel(cloudSpeechEndpoint ?? 'speech.googleapis.com');
 
   /// Creates a SpeechToText interface using a service account.
-  factory SpeechToText.viaServiceAccount(ServiceAccount account) =>
-      SpeechToText._(account.callOptions);
+  factory SpeechToText.viaServiceAccount(ServiceAccount account,
+          {String? cloudSpeechEndpoint}) =>
+      SpeechToText._(account.callOptions,
+          cloudSpeechEndpoint: cloudSpeechEndpoint);
 
   /// Creates a SpeechToText interface using a API keys.
-  factory SpeechToText.viaApiKey(String apiKey) =>
-      SpeechToText._(CallOptions(metadata: {'X-goog-api-key': '$apiKey'}));
+  factory SpeechToText.viaApiKey(String apiKey,
+          {String? cloudSpeechEndpoint}) =>
+      SpeechToText._(CallOptions(metadata: {'X-goog-api-key': '$apiKey'}),
+          cloudSpeechEndpoint: cloudSpeechEndpoint);
 
   /// Creates a SpeechToText interface using a third party authenticator.
   /// Don't worry about updating the access token, the package does it automatically.
@@ -51,14 +58,18 @@ class SpeechToText {
   ///         ),
   ///       );
   factory SpeechToText.viaThirdPartyAuthenticator(
-          ThirdPartyAuthenticator thirdPartyAuthenticator) =>
-      SpeechToText._(thirdPartyAuthenticator.toCallOptions);
+          ThirdPartyAuthenticator thirdPartyAuthenticator,
+          {String? cloudSpeechEndpoint}) =>
+      SpeechToText._(thirdPartyAuthenticator.toCallOptions,
+          cloudSpeechEndpoint: cloudSpeechEndpoint);
 
   /// Creates a SpeechToText interface using a token.
   /// You are responsible for updating the token when it expires.
-  factory SpeechToText.viaToken(String typeToken, String token) =>
+  factory SpeechToText.viaToken(String typeToken, String token,
+          {String? cloudSpeechEndpoint}) =>
       SpeechToText._(
-          CallOptions(metadata: {'authorization': '$typeToken $token'}));
+          CallOptions(metadata: {'authorization': '$typeToken $token'}),
+          cloudSpeechEndpoint: cloudSpeechEndpoint);
 
   /// Listen to audio stream.
   /// Cancelled as soon as dispose is called.
