@@ -1,3 +1,6 @@
+## [5.2.0] - Add support for setting resource location in V2 endpoints.
+* Add support for setting resource location in V2 endpoints
+
 ## [5.1.0] - Add support for regional endpoint.
 * Add support for regional endpoint like https://eu-speech.googleapis.com
 

@@ -85,13 +85,14 @@ class SpeechToTextV2 {
   /// Audio files transcribed with recognize must not be longer than 60 seconds.
   /// For longer audio files [longRunningRecognize] must be used.
   Future<RecognizeResponse> recognize(
-      RecognitionConfigV2 config, List<int> audio) {
+      RecognitionConfigV2 config, List<int> audio,
+      {String location = 'global'}) {
     final client = SpeechClient(_channel, options: _options);
 
     // Create the request, which transmits the necessary
     // data to the Google Api.
     final request = (RecognizeRequest()
-      ..recognizer = 'projects/$projectId/locations/global/recognizers/_'
+      ..recognizer = 'projects/$projectId/locations/$location/recognizers/_'
       ..config = config.toConfig()
       ..content = audio);
     return client.recognize(request);
@@ -100,7 +101,8 @@ class SpeechToTextV2 {
   /// Sends a [StreamingRecognizeRequest] to the Google Speech Api.
   /// Requires a [StreamingRecognitionConfig] and an audioStream.
   Stream<StreamingRecognizeResponse> streamingRecognize(
-      StreamingRecognitionConfigV2 config, Stream<List<int>> audioStream) {
+      StreamingRecognitionConfigV2 config, Stream<List<int>> audioStream,
+      {String location = 'global'}) {
     final client = SpeechClient(_channel, options: _options);
 
     // Create the stream, which later transmits the necessary
@@ -110,7 +112,7 @@ class SpeechToTextV2 {
     // Send the streaming config at first.
     request.add(StreamingRecognizeRequest()
       ..streamingConfig = config.toConfig()
-      ..recognizer = 'projects/$projectId/locations/global/recognizers/_');
+      ..recognizer = 'projects/$projectId/locations/$location/recognizers/_');
 
     _audioStreamSubscription = audioStream.listen((audio) {
       // Add audio content when stream changes.
@@ -130,7 +132,7 @@ class SpeechToTextV2 {
   /// To use asynchronous speech recognition to transcribe audio longer than 60
   /// seconds, you must have your data saved in a Google Cloud Storage bucket.
   ResponseFuture<Operation> longRunningRecognize(
-      RecognitionConfigV2 config, String audioGcsUri) {
+      RecognitionConfigV2 config, String audioGcsUri, { String location = 'global'}) {
     final client = SpeechClient(_channel, options: _options);
 
     // transform audio to RecognitionAudio
@@ -139,7 +141,7 @@ class SpeechToTextV2 {
     // Create the request, which transmits the necessary
     // data to the Google Api.
     final request = BatchRecognizeRequest(
-      recognizer: 'projects/$projectId/locations/global/recognizers/_',
+      recognizer: 'projects/$projectId/locations/$location/recognizers/_',
       files: [recognitionAudio],
       config: config.toConfig(),
       recognitionOutputConfig:
@@ -159,7 +161,7 @@ class SpeechToTextV2 {
   /// the Operation is finished.
   Future<LongRunningRequestResult> pollingLongRunningRecognize(
       RecognitionConfigV2 config, String audioGcsUri,
-      {Duration pollInterval = const Duration(seconds: 1)}) async {
+      {Duration pollInterval = const Duration(seconds: 1), String location = 'global'}) async {
     final client = SpeechClient(_channel, options: _options);
 
     // transform audio to RecognitionAudio
@@ -168,7 +170,7 @@ class SpeechToTextV2 {
     // Create the request, which transmits the necessary
     // data to the Google Api.
     final request = BatchRecognizeRequest(
-      recognizer: 'projects/$projectId/locations/global/recognizers/_',
+      recognizer: 'projects/$projectId/locations/$location/recognizers/_',
       files: [recognitionAudio],
       config: config.toConfig(),
       recognitionOutputConfig:

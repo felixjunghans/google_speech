@@ -84,7 +84,7 @@ class _AudioRecognizeState extends State<AudioRecognize> {
     final serviceAccount = ServiceAccount.fromString(
         (await rootBundle.loadString('assets/test_service_account.json')));
     final speechToText =
-        EndlessStreamingService.viaServiceAccount(serviceAccount);
+        EndlessStreamingService.viaServiceAccount(serviceAccount, cloudSpeechEndpoint: 'https://eu-speech.googleapis.com');
     final config = _getConfig();
 
     final responseStream = speechToText.endlessStream;

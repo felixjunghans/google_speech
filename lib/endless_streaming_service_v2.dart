@@ -26,25 +26,34 @@ class EndlessStreamingServiceV2 {
   /// [ClientChannel] which is used for the Google Speech-to-Text Api.
   final ClientChannel _channel;
 
+  /// [String] which is used for the Google Speech-to-Text Api. Default: global
+  final String _location;
+
   // Private constructor to prevent direct initialization of the class.
   EndlessStreamingServiceV2._(this._options,
-      {required this.projectId, String? cloudSpeechEndpoint})
+      {required this.projectId, String? cloudSpeechEndpoint, String? location})
       : _channel =
-            ClientChannel(cloudSpeechEndpoint ?? 'speech.googleapis.com');
+            ClientChannel(cloudSpeechEndpoint ?? 'speech.googleapis.com'),
+        _location = location ?? 'global';
 
   /// Creates a EndlessStreamingServiceV2 interface using a service account.
   factory EndlessStreamingServiceV2.viaServiceAccount(ServiceAccount account,
-          {required String projectId, String? cloudSpeechEndpoint}) =>
+          {required String projectId,
+          String? cloudSpeechEndpoint,
+          String? location}) =>
       EndlessStreamingServiceV2._(account.callOptions,
-          projectId: projectId, cloudSpeechEndpoint: cloudSpeechEndpoint);
+          projectId: projectId,
+          cloudSpeechEndpoint: cloudSpeechEndpoint,
+          location: location);
 
   /// Creates a EndlessStreamingServiceV2 interface using a API keys.
   factory EndlessStreamingServiceV2.viaApiKey(String apiKey, String projectId,
-          {String? cloudSpeechEndpoint}) =>
+          {String? cloudSpeechEndpoint, String? location}) =>
       EndlessStreamingServiceV2._(
           CallOptions(metadata: {'X-goog-api-key': '$apiKey'}),
           projectId: projectId,
-          cloudSpeechEndpoint: cloudSpeechEndpoint);
+          cloudSpeechEndpoint: cloudSpeechEndpoint,
+          location: location);
 
   /// Creates a EndlessStreamingServiceV2 interface using a third party authenticator.
   /// Don't worry about updating the access token, the package does it automatically.
@@ -61,18 +70,24 @@ class EndlessStreamingServiceV2 {
   factory EndlessStreamingServiceV2.viaThirdPartyAuthenticator(
           ThirdPartyAuthenticator thirdPartyAuthenticator,
           {required String projectId,
-          String? cloudSpeechEndpoint}) =>
+          String? cloudSpeechEndpoint,
+          String? location}) =>
       EndlessStreamingServiceV2._(thirdPartyAuthenticator.toCallOptions,
-          projectId: projectId, cloudSpeechEndpoint: cloudSpeechEndpoint);
+          projectId: projectId,
+          cloudSpeechEndpoint: cloudSpeechEndpoint,
+          location: location);
 
   /// Creates a EndlessStreamingServiceV2 interface using a token.
   /// You are responsible for updating the token when it expires.
   factory EndlessStreamingServiceV2.viaToken(String typeToken, String token,
-          {required String projectId, String? cloudSpeechEndpoint}) =>
+          {required String projectId,
+          String? cloudSpeechEndpoint,
+          String? location}) =>
       EndlessStreamingServiceV2._(
           CallOptions(metadata: {'authorization': '$typeToken $token'}),
           projectId: projectId,
-          cloudSpeechEndpoint: cloudSpeechEndpoint);
+          cloudSpeechEndpoint: cloudSpeechEndpoint,
+          location: location);
 
   /// Listen to audio stream.
   /// Cancelled as soon as dispose is called.
@@ -127,7 +142,7 @@ class EndlessStreamingServiceV2 {
     // Send the streaming config at first.
     _request.add(StreamingRecognizeRequest()
       ..streamingConfig = _config.toConfig()
-      ..recognizer = 'projects/$projectId/locations/global/recognizers/_');
+      ..recognizer = 'projects/$projectId/locations/$_location/recognizers/_');
 
     // Send buffered audio to the new stream first
     while (_audioBuffer.isNotEmpty) {
