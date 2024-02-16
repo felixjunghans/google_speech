@@ -1,17 +1,3 @@
-# Google Speech Examples
-
-## [Audio File Example](https://github.com/felixjunghans/google_speech/tree/master/example/audio_file_example)
-
-To run this example project it is necessary to create a service account Json in the Assets folder of the project. 
-This should have the name: 'test_service_account.json'.
-
-## [Mic Stream Example](https://github.com/felixjunghans/google_speech/tree/master/example/mic_stream_example)
-
-To run this example project it is necessary to create a service account Json in the Assets folder of the project. 
-This should have the name: 'test_service_account.json'.
-
-``
-```dart
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -143,7 +129,7 @@ class _AudioRecognizeState extends State<AudioRecognize> {
               _RecognizeContent(
                 text: text,
               ),
-            RaisedButton(
+            ElevatedButton(
               onPressed: recognizing ? () {} : recognize,
               child: recognizing
                   ? CircularProgressIndicator()
@@ -152,7 +138,7 @@ class _AudioRecognizeState extends State<AudioRecognize> {
             SizedBox(
               height: 10.0,
             ),
-            RaisedButton(
+            ElevatedButton(
               onPressed: recognizing ? () {} : streamingRecognize,
               child: recognizing
                   ? CircularProgressIndicator()
@@ -168,7 +154,7 @@ class _AudioRecognizeState extends State<AudioRecognize> {
 class _RecognizeContent extends StatelessWidget {
   final String text;
 
-  const _RecognizeContent({Key key, this.text}) : super(key: key);
+  const _RecognizeContent({Key? key, required this.text}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -191,4 +177,3 @@ class _RecognizeContent extends StatelessWidget {
     );
   }
 }
-``
