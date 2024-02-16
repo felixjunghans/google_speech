@@ -1,3 +1,6 @@
+## [5.2.0+1] - Remove Todo from Readme.
+* Remove Todos from Readme as they are displayed wrong in pub.dev and all the main features are now implemented.
+
 ## [5.2.0] - Add support for setting resource location in V2 endpoints.
 * Add support for setting resource location in V2 endpoints
 

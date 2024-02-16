@@ -183,13 +183,3 @@ For this you just have to use EndlessStreamingService instead of SpeechToText.
     
     responseStream.listen((data) {...});
 ```
-
-### TODOs
-
-- [x] Update streamingRecognize example
-- [x] Add Google Speech V2 Support
-- [ ] Add error messages for Google Speech limitations
-- [ ] Add Flutter Web Support
-- [x] Add longRunningRecognize support (Thanks to @spenceralbrecht)
-- [x] Add alternative ways to authenticate (Thanks to @juarezfrancoA)
-- [x] Add infinity stream support
