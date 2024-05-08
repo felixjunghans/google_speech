@@ -3,7 +3,10 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_sound_lite/flutter_sound.dart';
+import 'package:google_speech/config/streaming_recognition_config.dart';
 import 'package:google_speech/endless_streaming_service.dart';
+import 'package:google_speech/endless_streaming_service_v2.dart';
+import 'package:google_speech/generated/google/cloud/speech/v2/cloud_speech.pb.dart';
 import 'package:google_speech/google_speech.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:rxdart/rxdart.dart';
@@ -83,14 +86,18 @@ class _AudioRecognizeState extends State<AudioRecognize> {
 
     final serviceAccount = ServiceAccount.fromString(
         (await rootBundle.loadString('assets/test_service_account.json')));
-    final speechToText =
-        EndlessStreamingService.viaServiceAccount(serviceAccount, cloudSpeechEndpoint: 'https://eu-speech.googleapis.com');
+    final speechToText = EndlessStreamingServiceV2.viaServiceAccount(
+        serviceAccount,
+        projectId: 'YOUR-PROJECT-ID');
     final config = _getConfig();
 
     final responseStream = speechToText.endlessStream;
 
     speechToText.endlessStreamingRecognize(
-        StreamingRecognitionConfig(config: config, interimResults: true),
+        StreamingRecognitionConfigV2(
+            config: config,
+            streamingFeatures:
+                StreamingRecognitionFeatures(interimResults: true)),
         _audioStream!,
         restartTime: const Duration(seconds: 60),
         transitionBufferTime: const Duration(seconds: 2));
@@ -130,12 +137,15 @@ class _AudioRecognizeState extends State<AudioRecognize> {
     });
   }
 
-  RecognitionConfig _getConfig() => RecognitionConfig(
-      encoding: AudioEncoding.LINEAR16,
-      model: RecognitionModel.basic,
-      enableAutomaticPunctuation: true,
-      sampleRateHertz: 16000,
-      languageCode: 'en-US');
+  RecognitionConfigV2 _getConfig() => RecognitionConfigV2(
+      model: RecognitionModelV2.long,
+      languageCodes: ['de-DE', 'en-US'],
+      features: RecognitionFeatures(),
+      explicitDecodingConfig: ExplicitDecodingConfig(
+        encoding: ExplicitDecodingConfig_AudioEncoding.LINEAR16,
+        sampleRateHertz: kAudioSampleRate,
+        audioChannelCount: kAudioNumChannels,
+      ));
 
   @override
   Widget build(BuildContext context) {
