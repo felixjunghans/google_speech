@@ -1,6 +1,7 @@
 import 'package:google_speech/config/recognition_config.dart';
 import 'package:google_speech/generated/google/cloud/speech/v1/cloud_speech.pb.dart'
     as _cs;
+import 'package:google_speech/generated/google/protobuf/wrappers.pb.dart';
 
 class RecognitionConfig {
   /// Provides information to the recognizer
@@ -20,6 +21,7 @@ class RecognitionConfig {
     this.recognitionMetadata,
     this.model = RecognitionModel.basic,
     this.useEnhanced = false,
+    this.enableSpokenPunctuation,
   })  : assert(encoding != AudioEncoding.AMR || sampleRateHertz == 8000,
             'sampleRateHertz must be 8000.'),
         assert(encoding != AudioEncoding.AMR_WB || sampleRateHertz == 16000,
@@ -33,7 +35,7 @@ class RecognitionConfig {
                 sampleRateHertz == 16000,
             'sampleRateHertz must be 16000.');
 
-  _cs.RecognitionConfig toConfig() => (_cs.RecognitionConfig()
+  _cs.RecognitionConfig toConfig() => _cs.RecognitionConfig()
     ..encoding = _encoding(encoding)
     ..languageCode = languageCode
     ..sampleRateHertz = sampleRateHertz!
@@ -48,7 +50,8 @@ class RecognitionConfig {
     ..model = _model(model)
     ..speechContexts
         .addAll(speechContexts.map((sc) => sc.toGoogleSpeechContext()))
-    ..useEnhanced = useEnhanced);
+    ..useEnhanced = useEnhanced
+    ..enableSpokenPunctuation = BoolValue(value: enableSpokenPunctuation);
 
   String _model(RecognitionModel model) => model
       .toString()
@@ -147,6 +150,15 @@ class RecognitionConfig {
   /// Setting this for requests in other languages has no effect at all.
   /// The default 'false' value does not add punctuation to result hypotheses.
   bool enableAutomaticPunctuation;
+
+  /// The spoken punctuation behavior for the call
+  /// If not set, uses default behavior based on model of choice
+  /// e.g. command_and_search will enable spoken punctuation by default
+  /// If 'true', replaces spoken punctuation with the corresponding symbols in
+  /// the request. For example, "how are you question mark" becomes "how are
+  /// you?". See https://cloud.google.com/speech-to-text/docs/spoken-punctuation
+  /// for support. If 'false', spoken punctuation is not replaced.
+  final bool? enableSpokenPunctuation;
 
   /// Which model to select for the given request.
   /// Select the model best suited to your domain to get best results.
