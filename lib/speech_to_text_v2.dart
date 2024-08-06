@@ -4,8 +4,6 @@ import 'dart:async';
 
 import 'package:google_speech/auth/third_party_authenticator.dart';
 import 'package:google_speech/config/longrunning_result.dart';
-import 'package:google_speech/generated/google/cloud/speech/v2/cloud_speech.pb.dart'
-    hide RecognitionConfig, StreamingRecognitionConfig;
 import 'package:google_speech/generated/google/cloud/speech/v2/cloud_speech.pbgrpc.dart'
     hide RecognitionConfig, StreamingRecognitionConfig;
 import 'package:google_speech/generated/google/longrunning/operations.pbgrpc.dart';
@@ -14,7 +12,6 @@ import 'package:grpc/grpc.dart';
 
 import 'config/recognition_config_v2.dart';
 import 'config/streaming_recognition_config.dart';
-import 'generated/google/longrunning/operations.pb.dart';
 
 /// An interface to Google's Speech-to-Text Api via grpc.
 ///
@@ -36,16 +33,31 @@ class SpeechToTextV2 {
             ClientChannel(cloudSpeechEndpoint ?? 'speech.googleapis.com');
 
   /// Creates a SpeechToTextV2 interface using a service account.
-  factory SpeechToTextV2.viaServiceAccount(ServiceAccount account,
-          {required String projectId, String? cloudSpeechEndpoint}) =>
-      SpeechToTextV2._(account.callOptions,
-          projectId: projectId, cloudSpeechEndpoint: cloudSpeechEndpoint);
+  factory SpeechToTextV2.viaServiceAccount(
+    ServiceAccount account, {
+    required String projectId,
+    String? cloudSpeechEndpoint,
+    Map<String, String>? metadata,
+  }) =>
+      SpeechToTextV2._(
+          account.callOptions.mergedWith(CallOptions(metadata: metadata ?? {})),
+          projectId: projectId,
+          cloudSpeechEndpoint: cloudSpeechEndpoint);
 
   /// Creates a SpeechToText interface using a API keys.
-  factory SpeechToTextV2.viaApiKey(String apiKey, String projectId,
-          {String? cloudSpeechEndpoint}) =>
-      SpeechToTextV2._(CallOptions(metadata: {'X-goog-api-key': '$apiKey'}),
-          projectId: projectId, cloudSpeechEndpoint: cloudSpeechEndpoint);
+  factory SpeechToTextV2.viaApiKey(
+    String apiKey,
+    String projectId, {
+    String? cloudSpeechEndpoint,
+    Map<String, String>? metadata,
+  }) =>
+      SpeechToTextV2._(
+          CallOptions(metadata: {
+            'X-goog-api-key': '$apiKey',
+            ...?metadata,
+          }),
+          projectId: projectId,
+          cloudSpeechEndpoint: cloudSpeechEndpoint);
 
   /// Creates a SpeechToTextV2 interface using a third party authenticator.
   /// Don't worry about updating the access token, the package does it automatically.
@@ -60,18 +72,31 @@ class SpeechToTextV2 {
   ///         ),
   ///       );
   factory SpeechToTextV2.viaThirdPartyAuthenticator(
-          ThirdPartyAuthenticator thirdPartyAuthenticator,
-          {required String projectId,
-          String? cloudSpeechEndpoint}) =>
-      SpeechToTextV2._(thirdPartyAuthenticator.toCallOptions,
-          projectId: projectId, cloudSpeechEndpoint: cloudSpeechEndpoint);
+    ThirdPartyAuthenticator thirdPartyAuthenticator, {
+    required String projectId,
+    String? cloudSpeechEndpoint,
+    Map<String, String>? metadata,
+  }) =>
+      SpeechToTextV2._(
+          thirdPartyAuthenticator.toCallOptions
+              .mergedWith(CallOptions(metadata: metadata ?? {})),
+          projectId: projectId,
+          cloudSpeechEndpoint: cloudSpeechEndpoint);
 
   /// Creates a SpeechToTextV2 interface using a token.
   /// You are responsible for updating the token when it expires.
-  factory SpeechToTextV2.viaToken(String typeToken, String token,
-          {required String projectId, String? cloudSpeechEndpoint}) =>
+  factory SpeechToTextV2.viaToken(
+    String typeToken,
+    String token, {
+    required String projectId,
+    String? cloudSpeechEndpoint,
+    Map<String, String>? metadata,
+  }) =>
       SpeechToTextV2._(
-          CallOptions(metadata: {'authorization': '$typeToken $token'}),
+          CallOptions(metadata: {
+            'authorization': '$typeToken $token',
+            ...?metadata,
+          }),
           projectId: projectId,
           cloudSpeechEndpoint: cloudSpeechEndpoint);
 
@@ -132,7 +157,8 @@ class SpeechToTextV2 {
   /// To use asynchronous speech recognition to transcribe audio longer than 60
   /// seconds, you must have your data saved in a Google Cloud Storage bucket.
   ResponseFuture<Operation> longRunningRecognize(
-      RecognitionConfigV2 config, String audioGcsUri, { String location = 'global'}) {
+      RecognitionConfigV2 config, String audioGcsUri,
+      {String location = 'global'}) {
     final client = SpeechClient(_channel, options: _options);
 
     // transform audio to RecognitionAudio
@@ -161,7 +187,8 @@ class SpeechToTextV2 {
   /// the Operation is finished.
   Future<LongRunningRequestResult> pollingLongRunningRecognize(
       RecognitionConfigV2 config, String audioGcsUri,
-      {Duration pollInterval = const Duration(seconds: 1), String location = 'global'}) async {
+      {Duration pollInterval = const Duration(seconds: 1),
+      String location = 'global'}) async {
     final client = SpeechClient(_channel, options: _options);
 
     // transform audio to RecognitionAudio

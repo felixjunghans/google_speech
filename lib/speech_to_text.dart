@@ -1,12 +1,9 @@
 library flutter_google_speech;
 
 import 'dart:async';
-import 'dart:collection';
 
 import 'package:google_speech/auth/third_party_authenticator.dart';
 import 'package:google_speech/config/longrunning_result.dart';
-import 'package:google_speech/generated/google/cloud/speech/v1/cloud_speech.pb.dart'
-    hide RecognitionConfig, StreamingRecognitionConfig;
 import 'package:google_speech/generated/google/cloud/speech/v1/cloud_speech.pbgrpc.dart'
     hide RecognitionConfig, StreamingRecognitionConfig;
 import 'package:google_speech/generated/google/longrunning/operations.pbgrpc.dart';
@@ -15,7 +12,6 @@ import 'package:grpc/grpc.dart';
 
 import 'config/recognition_config_v1.dart';
 import 'config/streaming_recognition_config.dart';
-import 'generated/google/longrunning/operations.pb.dart';
 
 /// An interface to Google's Speech-to-Text Api via grpc.
 ///
@@ -34,15 +30,26 @@ class SpeechToText {
   }) : _channel = ClientChannel(cloudSpeechEndpoint ?? 'speech.googleapis.com');
 
   /// Creates a SpeechToText interface using a service account.
-  factory SpeechToText.viaServiceAccount(ServiceAccount account,
-          {String? cloudSpeechEndpoint}) =>
-      SpeechToText._(account.callOptions,
+  factory SpeechToText.viaServiceAccount(
+    ServiceAccount account, {
+    String? cloudSpeechEndpoint,
+    Map<String, String>? metadata,
+  }) =>
+      SpeechToText._(
+          account.callOptions.mergedWith(CallOptions(metadata: metadata ?? {})),
           cloudSpeechEndpoint: cloudSpeechEndpoint);
 
   /// Creates a SpeechToText interface using a API keys.
-  factory SpeechToText.viaApiKey(String apiKey,
-          {String? cloudSpeechEndpoint}) =>
-      SpeechToText._(CallOptions(metadata: {'X-goog-api-key': '$apiKey'}),
+  factory SpeechToText.viaApiKey(
+    String apiKey, {
+    String? cloudSpeechEndpoint,
+    Map<String, String>? metadata,
+  }) =>
+      SpeechToText._(
+          CallOptions(metadata: {
+            'X-goog-api-key': '$apiKey',
+            ...?metadata,
+          }),
           cloudSpeechEndpoint: cloudSpeechEndpoint);
 
   /// Creates a SpeechToText interface using a third party authenticator.
@@ -58,17 +65,28 @@ class SpeechToText {
   ///         ),
   ///       );
   factory SpeechToText.viaThirdPartyAuthenticator(
-          ThirdPartyAuthenticator thirdPartyAuthenticator,
-          {String? cloudSpeechEndpoint}) =>
-      SpeechToText._(thirdPartyAuthenticator.toCallOptions,
+    ThirdPartyAuthenticator thirdPartyAuthenticator, {
+    String? cloudSpeechEndpoint,
+    Map<String, String>? metadata,
+  }) =>
+      SpeechToText._(
+          thirdPartyAuthenticator.toCallOptions
+              .mergedWith(CallOptions(metadata: metadata ?? {})),
           cloudSpeechEndpoint: cloudSpeechEndpoint);
 
   /// Creates a SpeechToText interface using a token.
   /// You are responsible for updating the token when it expires.
-  factory SpeechToText.viaToken(String typeToken, String token,
-          {String? cloudSpeechEndpoint}) =>
+  factory SpeechToText.viaToken(
+    String typeToken,
+    String token, {
+    String? cloudSpeechEndpoint,
+    Map<String, String>? metadata,
+  }) =>
       SpeechToText._(
-          CallOptions(metadata: {'authorization': '$typeToken $token'}),
+          CallOptions(metadata: {
+            'authorization': '$typeToken $token',
+            ...?metadata,
+          }),
           cloudSpeechEndpoint: cloudSpeechEndpoint);
 
   /// Listen to audio stream.
