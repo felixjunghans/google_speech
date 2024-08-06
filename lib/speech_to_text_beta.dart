@@ -4,8 +4,6 @@ import 'dart:async';
 
 import 'package:google_speech/config/longrunning_result.dart';
 import 'package:google_speech/config/recognition_config_v1p1beta1.dart';
-import 'package:google_speech/generated/google/cloud/speech/v1p1beta1/cloud_speech.pb.dart'
-    hide RecognitionConfig, StreamingRecognitionConfig;
 import 'package:google_speech/generated/google/cloud/speech/v1p1beta1/cloud_speech.pbgrpc.dart'
     hide RecognitionConfig, StreamingRecognitionConfig;
 import 'package:google_speech/speech_client_authenticator.dart';
@@ -14,7 +12,6 @@ import 'package:grpc/grpc.dart';
 import 'auth/third_party_authenticator.dart';
 import 'config/recognition_config_v1.dart';
 import 'config/streaming_recognition_config.dart';
-import 'generated/google/longrunning/operations.pb.dart';
 import 'generated/google/longrunning/operations.pbgrpc.dart';
 
 /// An interface to Google's Speech-to-Text Api via grpc.
@@ -33,15 +30,26 @@ class SpeechToTextBeta {
             ClientChannel(cloudSpeechEndpoint ?? 'speech.googleapis.com');
 
   /// Creates a SpeechToText interface using a service account.
-  factory SpeechToTextBeta.viaServiceAccount(ServiceAccount account,
-          {String? cloudSpeechEndpoint}) =>
-      SpeechToTextBeta._(account.callOptions,
+  factory SpeechToTextBeta.viaServiceAccount(
+    ServiceAccount account, {
+    String? cloudSpeechEndpoint,
+    Map<String, String>? metadata,
+  }) =>
+      SpeechToTextBeta._(
+          account.callOptions.mergedWith(CallOptions(metadata: metadata ?? {})),
           cloudSpeechEndpoint: cloudSpeechEndpoint);
 
   /// Creates a SpeechToText interface using a API keys.
-  factory SpeechToTextBeta.viaApiKey(String apiKey,
-          {String? cloudSpeechEndpoint}) =>
-      SpeechToTextBeta._(CallOptions(metadata: {'X-goog-api-key': '$apiKey'}),
+  factory SpeechToTextBeta.viaApiKey(
+    String apiKey, {
+    String? cloudSpeechEndpoint,
+    Map<String, String>? metadata,
+  }) =>
+      SpeechToTextBeta._(
+          CallOptions(metadata: {
+            'X-goog-api-key': '$apiKey',
+            ...?metadata,
+          }),
           cloudSpeechEndpoint: cloudSpeechEndpoint);
 
   /// Creates a SpeechToText interface using a third party authenticator.
@@ -57,17 +65,28 @@ class SpeechToTextBeta {
   ///         ),
   ///       );
   factory SpeechToTextBeta.viaThirdPartyAuthenticator(
-          ThirdPartyAuthenticator thirdPartyAuthenticator,
-          {String? cloudSpeechEndpoint}) =>
-      SpeechToTextBeta._(thirdPartyAuthenticator.toCallOptions,
+    ThirdPartyAuthenticator thirdPartyAuthenticator, {
+    String? cloudSpeechEndpoint,
+    Map<String, String>? metadata,
+  }) =>
+      SpeechToTextBeta._(
+          thirdPartyAuthenticator.toCallOptions
+              .mergedWith(CallOptions(metadata: metadata ?? {})),
           cloudSpeechEndpoint: cloudSpeechEndpoint);
 
   /// Creates a SpeechToTextBeta interface using a token.
   /// You are responsible for updating the token when it expires.
-  factory SpeechToTextBeta.viaToken(String typeToken, String token,
-          {String? cloudSpeechEndpoint}) =>
+  factory SpeechToTextBeta.viaToken(
+    String typeToken,
+    String token, {
+    String? cloudSpeechEndpoint,
+    Map<String, String>? metadata,
+  }) =>
       SpeechToTextBeta._(
-          CallOptions(metadata: {'authorization': '$typeToken $token'}),
+          CallOptions(metadata: {
+            'authorization': '$typeToken $token',
+            ...?metadata,
+          }),
           cloudSpeechEndpoint: cloudSpeechEndpoint);
 
   /// Listen to audio stream.
