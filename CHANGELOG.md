@@ -1,3 +1,9 @@
+## [5.3.0] - Setup to take in optional metadata keys/values to support api key restricting
+* Thanks to @dannnnthemannnn for PR
+
+## [5.2.1] - Add ability to set enableSpokenPunctuation (V1)
+* Thanks to @sidlatau for PR
+
 ## [5.2.0+1] - Remove Todo from Readme.
 * Remove Todos from Readme as they are displayed wrong in pub.dev and all the main features are now implemented.
 
