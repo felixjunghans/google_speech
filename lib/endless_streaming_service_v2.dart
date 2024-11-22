@@ -181,16 +181,17 @@ class EndlessStreamingServiceV2 {
       _endlessStream.addError(error);
     });
 
-    _resetTimer = Timer(_restartTime, _restart);
+    _resetTimer = Timer(_restartTime, restart);
   }
 
-  Future<void> _restart() async {
+  Future<void> restart() async {
     _transitioning = true;
     await Future.delayed(_transitionBufferTime);
     await _audioStreamSubscription?.cancel();
     _audioStreamSubscription = null;
     await _streamingRecognizeSubscription.cancel();
     await _request.close();
+    _resetTimer?.cancel();
     if (!_audioStreamIsFinished) {
       _startStream();
     }
