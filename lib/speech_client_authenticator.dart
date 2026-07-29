@@ -45,8 +45,8 @@ class ServiceAccount extends SpeechClientAuthenticator {
   /// This is done to eliminate a possible source of error and to make sure
   /// that the passed file is really a Json file.
   factory ServiceAccount.fromFile(File file) {
-    // Make sure that the passed file is not null and the file exists.
-    if (file == null || !file.existsSync()) throw FileNotFoundException(file);
+    // Make sure that the passed file exists.
+    if (!file.existsSync()) throw FileNotFoundException(file);
     // Make sure that the transferred file is really a Json file.
     if (!file.path.contains('.json')) {
       throw UnsupportedFileExtensionException(file);

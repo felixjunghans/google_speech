@@ -103,8 +103,6 @@ class MonitoredResourceDescriptor extends $pb.GeneratedMessage {
   static MonitoredResourceDescriptor create() =>
       MonitoredResourceDescriptor._();
   MonitoredResourceDescriptor createEmptyInstance() => create();
-  static $pb.PbList<MonitoredResourceDescriptor> createRepeated() =>
-      $pb.PbList<MonitoredResourceDescriptor>();
   @$core.pragma('dart2js:noInline')
   static MonitoredResourceDescriptor getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<MonitoredResourceDescriptor>(create);
@@ -262,8 +260,6 @@ class MonitoredResource extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static MonitoredResource create() => MonitoredResource._();
   MonitoredResource createEmptyInstance() => create();
-  static $pb.PbList<MonitoredResource> createRepeated() =>
-      $pb.PbList<MonitoredResource>();
   @$core.pragma('dart2js:noInline')
   static MonitoredResource getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<MonitoredResource>(create);
@@ -354,8 +350,6 @@ class MonitoredResourceMetadata extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static MonitoredResourceMetadata create() => MonitoredResourceMetadata._();
   MonitoredResourceMetadata createEmptyInstance() => create();
-  static $pb.PbList<MonitoredResourceMetadata> createRepeated() =>
-      $pb.PbList<MonitoredResourceMetadata>();
   @$core.pragma('dart2js:noInline')
   static MonitoredResourceMetadata getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<MonitoredResourceMetadata>(create);

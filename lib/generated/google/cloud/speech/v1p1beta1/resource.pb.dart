@@ -58,8 +58,6 @@ class CustomClass_ClassItem extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static CustomClass_ClassItem create() => CustomClass_ClassItem._();
   CustomClass_ClassItem createEmptyInstance() => create();
-  static $pb.PbList<CustomClass_ClassItem> createRepeated() =>
-      $pb.PbList<CustomClass_ClassItem>();
   @$core.pragma('dart2js:noInline')
   static CustomClass_ClassItem getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<CustomClass_ClassItem>(create);
@@ -136,7 +134,6 @@ class CustomClass extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static CustomClass create() => CustomClass._();
   CustomClass createEmptyInstance() => create();
-  static $pb.PbList<CustomClass> createRepeated() => $pb.PbList<CustomClass>();
   @$core.pragma('dart2js:noInline')
   static CustomClass getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<CustomClass>(create);
@@ -246,8 +243,6 @@ class PhraseSet_Phrase extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static PhraseSet_Phrase create() => PhraseSet_Phrase._();
   PhraseSet_Phrase createEmptyInstance() => create();
-  static $pb.PbList<PhraseSet_Phrase> createRepeated() =>
-      $pb.PbList<PhraseSet_Phrase>();
   @$core.pragma('dart2js:noInline')
   static PhraseSet_Phrase getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<PhraseSet_Phrase>(create);
@@ -343,7 +338,6 @@ class PhraseSet extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static PhraseSet create() => PhraseSet._();
   PhraseSet createEmptyInstance() => create();
-  static $pb.PbList<PhraseSet> createRepeated() => $pb.PbList<PhraseSet>();
   @$core.pragma('dart2js:noInline')
   static PhraseSet getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<PhraseSet>(create);
@@ -434,8 +428,6 @@ class SpeechAdaptation_ABNFGrammar extends $pb.GeneratedMessage {
   static SpeechAdaptation_ABNFGrammar create() =>
       SpeechAdaptation_ABNFGrammar._();
   SpeechAdaptation_ABNFGrammar createEmptyInstance() => create();
-  static $pb.PbList<SpeechAdaptation_ABNFGrammar> createRepeated() =>
-      $pb.PbList<SpeechAdaptation_ABNFGrammar>();
   @$core.pragma('dart2js:noInline')
   static SpeechAdaptation_ABNFGrammar getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<SpeechAdaptation_ABNFGrammar>(create);
@@ -509,8 +501,6 @@ class SpeechAdaptation extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static SpeechAdaptation create() => SpeechAdaptation._();
   SpeechAdaptation createEmptyInstance() => create();
-  static $pb.PbList<SpeechAdaptation> createRepeated() =>
-      $pb.PbList<SpeechAdaptation>();
   @$core.pragma('dart2js:noInline')
   static SpeechAdaptation getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<SpeechAdaptation>(create);
@@ -608,8 +598,6 @@ class TranscriptNormalization_Entry extends $pb.GeneratedMessage {
   static TranscriptNormalization_Entry create() =>
       TranscriptNormalization_Entry._();
   TranscriptNormalization_Entry createEmptyInstance() => create();
-  static $pb.PbList<TranscriptNormalization_Entry> createRepeated() =>
-      $pb.PbList<TranscriptNormalization_Entry>();
   @$core.pragma('dart2js:noInline')
   static TranscriptNormalization_Entry getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<TranscriptNormalization_Entry>(create);
@@ -705,8 +693,6 @@ class TranscriptNormalization extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static TranscriptNormalization create() => TranscriptNormalization._();
   TranscriptNormalization createEmptyInstance() => create();
-  static $pb.PbList<TranscriptNormalization> createRepeated() =>
-      $pb.PbList<TranscriptNormalization>();
   @$core.pragma('dart2js:noInline')
   static TranscriptNormalization getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<TranscriptNormalization>(create);
