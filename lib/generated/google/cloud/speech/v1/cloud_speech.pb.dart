@@ -73,8 +73,6 @@ class RecognizeRequest extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static RecognizeRequest create() => RecognizeRequest._();
   RecognizeRequest createEmptyInstance() => create();
-  static $pb.PbList<RecognizeRequest> createRepeated() =>
-      $pb.PbList<RecognizeRequest>();
   @$core.pragma('dart2js:noInline')
   static RecognizeRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<RecognizeRequest>(create);
@@ -173,8 +171,6 @@ class LongRunningRecognizeRequest extends $pb.GeneratedMessage {
   static LongRunningRecognizeRequest create() =>
       LongRunningRecognizeRequest._();
   LongRunningRecognizeRequest createEmptyInstance() => create();
-  static $pb.PbList<LongRunningRecognizeRequest> createRepeated() =>
-      $pb.PbList<LongRunningRecognizeRequest>();
   @$core.pragma('dart2js:noInline')
   static LongRunningRecognizeRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<LongRunningRecognizeRequest>(create);
@@ -280,8 +276,6 @@ class TranscriptOutputConfig extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static TranscriptOutputConfig create() => TranscriptOutputConfig._();
   TranscriptOutputConfig createEmptyInstance() => create();
-  static $pb.PbList<TranscriptOutputConfig> createRepeated() =>
-      $pb.PbList<TranscriptOutputConfig>();
   @$core.pragma('dart2js:noInline')
   static TranscriptOutputConfig getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<TranscriptOutputConfig>(create);
@@ -377,8 +371,6 @@ class StreamingRecognizeRequest extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static StreamingRecognizeRequest create() => StreamingRecognizeRequest._();
   StreamingRecognizeRequest createEmptyInstance() => create();
-  static $pb.PbList<StreamingRecognizeRequest> createRepeated() =>
-      $pb.PbList<StreamingRecognizeRequest>();
   @$core.pragma('dart2js:noInline')
   static StreamingRecognizeRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<StreamingRecognizeRequest>(create);
@@ -487,9 +479,6 @@ class StreamingRecognitionConfig_VoiceActivityTimeout
       StreamingRecognitionConfig_VoiceActivityTimeout._();
   StreamingRecognitionConfig_VoiceActivityTimeout createEmptyInstance() =>
       create();
-  static $pb.PbList<StreamingRecognitionConfig_VoiceActivityTimeout>
-      createRepeated() =>
-          $pb.PbList<StreamingRecognitionConfig_VoiceActivityTimeout>();
   @$core.pragma('dart2js:noInline')
   static StreamingRecognitionConfig_VoiceActivityTimeout getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<
@@ -597,8 +586,6 @@ class StreamingRecognitionConfig extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static StreamingRecognitionConfig create() => StreamingRecognitionConfig._();
   StreamingRecognitionConfig createEmptyInstance() => create();
-  static $pb.PbList<StreamingRecognitionConfig> createRepeated() =>
-      $pb.PbList<StreamingRecognitionConfig>();
   @$core.pragma('dart2js:noInline')
   static StreamingRecognitionConfig getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<StreamingRecognitionConfig>(create);
@@ -853,8 +840,6 @@ class RecognitionConfig extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static RecognitionConfig create() => RecognitionConfig._();
   RecognitionConfig createEmptyInstance() => create();
-  static $pb.PbList<RecognitionConfig> createRepeated() =>
-      $pb.PbList<RecognitionConfig>();
   @$core.pragma('dart2js:noInline')
   static RecognitionConfig getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<RecognitionConfig>(create);
@@ -1299,8 +1284,6 @@ class SpeakerDiarizationConfig extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static SpeakerDiarizationConfig create() => SpeakerDiarizationConfig._();
   SpeakerDiarizationConfig createEmptyInstance() => create();
-  static $pb.PbList<SpeakerDiarizationConfig> createRepeated() =>
-      $pb.PbList<SpeakerDiarizationConfig>();
   @$core.pragma('dart2js:noInline')
   static SpeakerDiarizationConfig getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<SpeakerDiarizationConfig>(create);
@@ -1468,8 +1451,6 @@ class RecognitionMetadata extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static RecognitionMetadata create() => RecognitionMetadata._();
   RecognitionMetadata createEmptyInstance() => create();
-  static $pb.PbList<RecognitionMetadata> createRepeated() =>
-      $pb.PbList<RecognitionMetadata>();
   @$core.pragma('dart2js:noInline')
   static RecognitionMetadata getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<RecognitionMetadata>(create);
@@ -1638,8 +1619,6 @@ class SpeechContext extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static SpeechContext create() => SpeechContext._();
   SpeechContext createEmptyInstance() => create();
-  static $pb.PbList<SpeechContext> createRepeated() =>
-      $pb.PbList<SpeechContext>();
   @$core.pragma('dart2js:noInline')
   static SpeechContext getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<SpeechContext>(create);
@@ -1742,8 +1721,6 @@ class RecognitionAudio extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static RecognitionAudio create() => RecognitionAudio._();
   RecognitionAudio createEmptyInstance() => create();
-  static $pb.PbList<RecognitionAudio> createRepeated() =>
-      $pb.PbList<RecognitionAudio>();
   @$core.pragma('dart2js:noInline')
   static RecognitionAudio getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<RecognitionAudio>(create);
@@ -1854,8 +1831,6 @@ class RecognizeResponse extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static RecognizeResponse create() => RecognizeResponse._();
   RecognizeResponse createEmptyInstance() => create();
-  static $pb.PbList<RecognizeResponse> createRepeated() =>
-      $pb.PbList<RecognizeResponse>();
   @$core.pragma('dart2js:noInline')
   static RecognizeResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<RecognizeResponse>(create);
@@ -1994,8 +1969,6 @@ class LongRunningRecognizeResponse extends $pb.GeneratedMessage {
   static LongRunningRecognizeResponse create() =>
       LongRunningRecognizeResponse._();
   LongRunningRecognizeResponse createEmptyInstance() => create();
-  static $pb.PbList<LongRunningRecognizeResponse> createRepeated() =>
-      $pb.PbList<LongRunningRecognizeResponse>();
   @$core.pragma('dart2js:noInline')
   static LongRunningRecognizeResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<LongRunningRecognizeResponse>(create);
@@ -2148,8 +2121,6 @@ class LongRunningRecognizeMetadata extends $pb.GeneratedMessage {
   static LongRunningRecognizeMetadata create() =>
       LongRunningRecognizeMetadata._();
   LongRunningRecognizeMetadata createEmptyInstance() => create();
-  static $pb.PbList<LongRunningRecognizeMetadata> createRepeated() =>
-      $pb.PbList<LongRunningRecognizeMetadata>();
   @$core.pragma('dart2js:noInline')
   static LongRunningRecognizeMetadata getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<LongRunningRecognizeMetadata>(create);
@@ -2350,8 +2321,6 @@ class StreamingRecognizeResponse extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static StreamingRecognizeResponse create() => StreamingRecognizeResponse._();
   StreamingRecognizeResponse createEmptyInstance() => create();
-  static $pb.PbList<StreamingRecognizeResponse> createRepeated() =>
-      $pb.PbList<StreamingRecognizeResponse>();
   @$core.pragma('dart2js:noInline')
   static StreamingRecognizeResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<StreamingRecognizeResponse>(create);
@@ -2529,8 +2498,6 @@ class StreamingRecognitionResult extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static StreamingRecognitionResult create() => StreamingRecognitionResult._();
   StreamingRecognitionResult createEmptyInstance() => create();
-  static $pb.PbList<StreamingRecognitionResult> createRepeated() =>
-      $pb.PbList<StreamingRecognitionResult>();
   @$core.pragma('dart2js:noInline')
   static StreamingRecognitionResult getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<StreamingRecognitionResult>(create);
@@ -2687,8 +2654,6 @@ class SpeechRecognitionResult extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static SpeechRecognitionResult create() => SpeechRecognitionResult._();
   SpeechRecognitionResult createEmptyInstance() => create();
-  static $pb.PbList<SpeechRecognitionResult> createRepeated() =>
-      $pb.PbList<SpeechRecognitionResult>();
   @$core.pragma('dart2js:noInline')
   static SpeechRecognitionResult getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<SpeechRecognitionResult>(create);
@@ -2807,8 +2772,6 @@ class SpeechRecognitionAlternative extends $pb.GeneratedMessage {
   static SpeechRecognitionAlternative create() =>
       SpeechRecognitionAlternative._();
   SpeechRecognitionAlternative createEmptyInstance() => create();
-  static $pb.PbList<SpeechRecognitionAlternative> createRepeated() =>
-      $pb.PbList<SpeechRecognitionAlternative>();
   @$core.pragma('dart2js:noInline')
   static SpeechRecognitionAlternative getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<SpeechRecognitionAlternative>(create);
@@ -2921,7 +2884,6 @@ class WordInfo extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static WordInfo create() => WordInfo._();
   WordInfo createEmptyInstance() => create();
-  static $pb.PbList<WordInfo> createRepeated() => $pb.PbList<WordInfo>();
   @$core.pragma('dart2js:noInline')
   static WordInfo getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<WordInfo>(create);
@@ -3066,8 +3028,6 @@ class SpeechAdaptationInfo extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static SpeechAdaptationInfo create() => SpeechAdaptationInfo._();
   SpeechAdaptationInfo createEmptyInstance() => create();
-  static $pb.PbList<SpeechAdaptationInfo> createRepeated() =>
-      $pb.PbList<SpeechAdaptationInfo>();
   @$core.pragma('dart2js:noInline')
   static SpeechAdaptationInfo getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<SpeechAdaptationInfo>(create);

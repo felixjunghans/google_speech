@@ -49,8 +49,7 @@ class Struct extends $pb.GeneratedMessage with $mixin.StructMixin {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'google.protobuf'),
       createEmptyInstance: create,
-      toProto3Json: $mixin.StructMixin.toProto3JsonHelper,
-      fromProto3Json: $mixin.StructMixin.fromProto3JsonHelper)
+      wellKnownType: $mixin.WellKnownType.struct)
     ..m<$core.String, Value>(1, _omitFieldNames ? '' : 'fields',
         entryClassName: 'Struct.FieldsEntry',
         keyFieldType: $pb.PbFieldType.OS,
@@ -75,7 +74,6 @@ class Struct extends $pb.GeneratedMessage with $mixin.StructMixin {
   @$core.pragma('dart2js:noInline')
   static Struct create() => Struct._();
   Struct createEmptyInstance() => create();
-  static $pb.PbList<Struct> createRepeated() => $pb.PbList<Struct>();
   @$core.pragma('dart2js:noInline')
   static Struct getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Struct>(create);
@@ -154,8 +152,7 @@ class Value extends $pb.GeneratedMessage with $mixin.ValueMixin {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'google.protobuf'),
       createEmptyInstance: create,
-      toProto3Json: $mixin.ValueMixin.toProto3JsonHelper,
-      fromProto3Json: $mixin.ValueMixin.fromProto3JsonHelper)
+      wellKnownType: $mixin.WellKnownType.value)
     ..oo(0, [1, 2, 3, 4, 5, 6])
     ..e<NullValue>(1, _omitFieldNames ? '' : 'nullValue', $pb.PbFieldType.OE,
         defaultOrMaker: NullValue.NULL_VALUE,
@@ -186,7 +183,6 @@ class Value extends $pb.GeneratedMessage with $mixin.ValueMixin {
   @$core.pragma('dart2js:noInline')
   static Value create() => Value._();
   Value createEmptyInstance() => create();
-  static $pb.PbList<Value> createRepeated() => $pb.PbList<Value>();
   @$core.pragma('dart2js:noInline')
   static Value getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Value>(create);
@@ -304,8 +300,7 @@ class ListValue extends $pb.GeneratedMessage with $mixin.ListValueMixin {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'google.protobuf'),
       createEmptyInstance: create,
-      toProto3Json: $mixin.ListValueMixin.toProto3JsonHelper,
-      fromProto3Json: $mixin.ListValueMixin.fromProto3JsonHelper)
+      wellKnownType: $mixin.WellKnownType.listValue)
     ..pc<Value>(1, _omitFieldNames ? '' : 'values', $pb.PbFieldType.PM,
         subBuilder: Value.create)
     ..hasRequiredFields = false;
@@ -325,7 +320,6 @@ class ListValue extends $pb.GeneratedMessage with $mixin.ListValueMixin {
   @$core.pragma('dart2js:noInline')
   static ListValue create() => ListValue._();
   ListValue createEmptyInstance() => create();
-  static $pb.PbList<ListValue> createRepeated() => $pb.PbList<ListValue>();
   @$core.pragma('dart2js:noInline')
   static ListValue getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ListValue>(create);

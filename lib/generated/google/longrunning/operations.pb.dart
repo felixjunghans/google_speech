@@ -91,7 +91,6 @@ class Operation extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static Operation create() => Operation._();
   Operation createEmptyInstance() => create();
-  static $pb.PbList<Operation> createRepeated() => $pb.PbList<Operation>();
   @$core.pragma('dart2js:noInline')
   static Operation getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Operation>(create);
@@ -229,8 +228,6 @@ class GetOperationRequest extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static GetOperationRequest create() => GetOperationRequest._();
   GetOperationRequest createEmptyInstance() => create();
-  static $pb.PbList<GetOperationRequest> createRepeated() =>
-      $pb.PbList<GetOperationRequest>();
   @$core.pragma('dart2js:noInline')
   static GetOperationRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<GetOperationRequest>(create);
@@ -310,8 +307,6 @@ class ListOperationsRequest extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static ListOperationsRequest create() => ListOperationsRequest._();
   ListOperationsRequest createEmptyInstance() => create();
-  static $pb.PbList<ListOperationsRequest> createRepeated() =>
-      $pb.PbList<ListOperationsRequest>();
   @$core.pragma('dart2js:noInline')
   static ListOperationsRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<ListOperationsRequest>(create);
@@ -421,8 +416,6 @@ class ListOperationsResponse extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static ListOperationsResponse create() => ListOperationsResponse._();
   ListOperationsResponse createEmptyInstance() => create();
-  static $pb.PbList<ListOperationsResponse> createRepeated() =>
-      $pb.PbList<ListOperationsResponse>();
   @$core.pragma('dart2js:noInline')
   static ListOperationsResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<ListOperationsResponse>(create);
@@ -491,8 +484,6 @@ class CancelOperationRequest extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static CancelOperationRequest create() => CancelOperationRequest._();
   CancelOperationRequest createEmptyInstance() => create();
-  static $pb.PbList<CancelOperationRequest> createRepeated() =>
-      $pb.PbList<CancelOperationRequest>();
   @$core.pragma('dart2js:noInline')
   static CancelOperationRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<CancelOperationRequest>(create);
@@ -557,8 +548,6 @@ class DeleteOperationRequest extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static DeleteOperationRequest create() => DeleteOperationRequest._();
   DeleteOperationRequest createEmptyInstance() => create();
-  static $pb.PbList<DeleteOperationRequest> createRepeated() =>
-      $pb.PbList<DeleteOperationRequest>();
   @$core.pragma('dart2js:noInline')
   static DeleteOperationRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DeleteOperationRequest>(create);
@@ -628,8 +617,6 @@ class WaitOperationRequest extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static WaitOperationRequest create() => WaitOperationRequest._();
   WaitOperationRequest createEmptyInstance() => create();
-  static $pb.PbList<WaitOperationRequest> createRepeated() =>
-      $pb.PbList<WaitOperationRequest>();
   @$core.pragma('dart2js:noInline')
   static WaitOperationRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WaitOperationRequest>(create);
@@ -724,8 +711,6 @@ class OperationInfo extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static OperationInfo create() => OperationInfo._();
   OperationInfo createEmptyInstance() => create();
-  static $pb.PbList<OperationInfo> createRepeated() =>
-      $pb.PbList<OperationInfo>();
   @$core.pragma('dart2js:noInline')
   static OperationInfo getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<OperationInfo>(create);

@@ -236,8 +236,7 @@ class FieldMask extends $pb.GeneratedMessage with $mixin.FieldMaskMixin {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'google.protobuf'),
       createEmptyInstance: create,
-      toProto3Json: $mixin.FieldMaskMixin.toProto3JsonHelper,
-      fromProto3Json: $mixin.FieldMaskMixin.fromProto3JsonHelper)
+      wellKnownType: $mixin.WellKnownType.fieldMask)
     ..pPS(1, _omitFieldNames ? '' : 'paths')
     ..hasRequiredFields = false;
 
@@ -256,7 +255,6 @@ class FieldMask extends $pb.GeneratedMessage with $mixin.FieldMaskMixin {
   @$core.pragma('dart2js:noInline')
   static FieldMask create() => FieldMask._();
   FieldMask createEmptyInstance() => create();
-  static $pb.PbList<FieldMask> createRepeated() => $pb.PbList<FieldMask>();
   @$core.pragma('dart2js:noInline')
   static FieldMask getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<FieldMask>(create);

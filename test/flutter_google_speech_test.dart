@@ -1,14 +1,14 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:google_speech/exception.dart';
 import 'package:google_speech/speech_client_authenticator.dart';
-import 'package:mockito/mockito.dart';
 
 void main() {
   // Test the creation of a service account.
   group('Test Service Account creation', () {
-    var jsonFile = _FileMock();
+    final jsonFile = _FileMock();
     final json = r'''{
         "type": "service_account",
         "project_id": "speech-example-123456789",
@@ -23,8 +23,8 @@ void main() {
       }''';
 
     setUpAll(() {
-      when(jsonFile.existsSync()).thenReturn(true);
-      when(jsonFile.path).thenReturn('test.json');
+      jsonFile.fileExists = true;
+      jsonFile.filePath = 'test.json';
     });
 
     test(
@@ -36,25 +36,41 @@ void main() {
 
     test('Tests if a service account is created when read Json from a file',
         () {
-      when(jsonFile.readAsStringSync()).thenReturn(json);
+      jsonFile.contents = json;
       final serviceAccount = ServiceAccount.fromFile(jsonFile);
       expect(serviceAccount.projectId, 'speech-example-123456789');
     });
 
     test('Test if creating a service account fails if no Json file is passed.',
         () {
-      when(jsonFile.path).thenReturn('test.txt');
+      jsonFile.filePath = 'test.txt';
       expect(() => ServiceAccount.fromFile(jsonFile),
           throwsA(isInstanceOf<UnsupportedFileExtensionException>()));
     });
 
     test('Test if creating a service account fails if no Json does not exists.',
         () {
-      when(jsonFile.existsSync()).thenReturn(false);
+      jsonFile.fileExists = false;
       expect(() => ServiceAccount.fromFile(jsonFile),
           throwsA(isInstanceOf<FileNotFoundException>()));
     });
   });
 }
 
-class _FileMock extends Mock implements File {}
+class _FileMock implements File {
+  bool fileExists = false;
+  String filePath = '';
+  String contents = '';
+
+  @override
+  bool existsSync() => fileExists;
+
+  @override
+  String get path => filePath;
+
+  @override
+  String readAsStringSync({Encoding encoding = utf8}) => contents;
+
+  @override
+  dynamic noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
+}

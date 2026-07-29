@@ -83,8 +83,6 @@ class CreateRecognizerRequest extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static CreateRecognizerRequest create() => CreateRecognizerRequest._();
   CreateRecognizerRequest createEmptyInstance() => create();
-  static $pb.PbList<CreateRecognizerRequest> createRepeated() =>
-      $pb.PbList<CreateRecognizerRequest>();
   @$core.pragma('dart2js:noInline')
   static CreateRecognizerRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<CreateRecognizerRequest>(create);
@@ -378,8 +376,6 @@ class OperationMetadata extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static OperationMetadata create() => OperationMetadata._();
   OperationMetadata createEmptyInstance() => create();
-  static $pb.PbList<OperationMetadata> createRepeated() =>
-      $pb.PbList<OperationMetadata>();
   @$core.pragma('dart2js:noInline')
   static OperationMetadata getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<OperationMetadata>(create);
@@ -787,8 +783,6 @@ class ListRecognizersRequest extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static ListRecognizersRequest create() => ListRecognizersRequest._();
   ListRecognizersRequest createEmptyInstance() => create();
-  static $pb.PbList<ListRecognizersRequest> createRepeated() =>
-      $pb.PbList<ListRecognizersRequest>();
   @$core.pragma('dart2js:noInline')
   static ListRecognizersRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<ListRecognizersRequest>(create);
@@ -909,8 +903,6 @@ class ListRecognizersResponse extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static ListRecognizersResponse create() => ListRecognizersResponse._();
   ListRecognizersResponse createEmptyInstance() => create();
-  static $pb.PbList<ListRecognizersResponse> createRepeated() =>
-      $pb.PbList<ListRecognizersResponse>();
   @$core.pragma('dart2js:noInline')
   static ListRecognizersResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<ListRecognizersResponse>(create);
@@ -982,8 +974,6 @@ class GetRecognizerRequest extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static GetRecognizerRequest create() => GetRecognizerRequest._();
   GetRecognizerRequest createEmptyInstance() => create();
-  static $pb.PbList<GetRecognizerRequest> createRepeated() =>
-      $pb.PbList<GetRecognizerRequest>();
   @$core.pragma('dart2js:noInline')
   static GetRecognizerRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<GetRecognizerRequest>(create);
@@ -1062,8 +1052,6 @@ class UpdateRecognizerRequest extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static UpdateRecognizerRequest create() => UpdateRecognizerRequest._();
   UpdateRecognizerRequest createEmptyInstance() => create();
-  static $pb.PbList<UpdateRecognizerRequest> createRepeated() =>
-      $pb.PbList<UpdateRecognizerRequest>();
   @$core.pragma('dart2js:noInline')
   static UpdateRecognizerRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<UpdateRecognizerRequest>(create);
@@ -1179,8 +1167,6 @@ class DeleteRecognizerRequest extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static DeleteRecognizerRequest create() => DeleteRecognizerRequest._();
   DeleteRecognizerRequest createEmptyInstance() => create();
-  static $pb.PbList<DeleteRecognizerRequest> createRepeated() =>
-      $pb.PbList<DeleteRecognizerRequest>();
   @$core.pragma('dart2js:noInline')
   static DeleteRecognizerRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DeleteRecognizerRequest>(create);
@@ -1301,8 +1287,6 @@ class UndeleteRecognizerRequest extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static UndeleteRecognizerRequest create() => UndeleteRecognizerRequest._();
   UndeleteRecognizerRequest createEmptyInstance() => create();
-  static $pb.PbList<UndeleteRecognizerRequest> createRepeated() =>
-      $pb.PbList<UndeleteRecognizerRequest>();
   @$core.pragma('dart2js:noInline')
   static UndeleteRecognizerRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<UndeleteRecognizerRequest>(create);
@@ -1485,7 +1469,6 @@ class Recognizer extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static Recognizer create() => Recognizer._();
   Recognizer createEmptyInstance() => create();
-  static $pb.PbList<Recognizer> createRepeated() => $pb.PbList<Recognizer>();
   @$core.pragma('dart2js:noInline')
   static Recognizer getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<Recognizer>(create);
@@ -1787,8 +1770,6 @@ class AutoDetectDecodingConfig extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static AutoDetectDecodingConfig create() => AutoDetectDecodingConfig._();
   AutoDetectDecodingConfig createEmptyInstance() => create();
-  static $pb.PbList<AutoDetectDecodingConfig> createRepeated() =>
-      $pb.PbList<AutoDetectDecodingConfig>();
   @$core.pragma('dart2js:noInline')
   static AutoDetectDecodingConfig getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<AutoDetectDecodingConfig>(create);
@@ -1857,8 +1838,6 @@ class ExplicitDecodingConfig extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static ExplicitDecodingConfig create() => ExplicitDecodingConfig._();
   ExplicitDecodingConfig createEmptyInstance() => create();
-  static $pb.PbList<ExplicitDecodingConfig> createRepeated() =>
-      $pb.PbList<ExplicitDecodingConfig>();
   @$core.pragma('dart2js:noInline')
   static ExplicitDecodingConfig getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<ExplicitDecodingConfig>(create);
@@ -1975,8 +1954,6 @@ class SpeakerDiarizationConfig extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static SpeakerDiarizationConfig create() => SpeakerDiarizationConfig._();
   SpeakerDiarizationConfig createEmptyInstance() => create();
-  static $pb.PbList<SpeakerDiarizationConfig> createRepeated() =>
-      $pb.PbList<SpeakerDiarizationConfig>();
   @$core.pragma('dart2js:noInline')
   static SpeakerDiarizationConfig getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<SpeakerDiarizationConfig>(create);
@@ -2108,8 +2085,6 @@ class RecognitionFeatures extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static RecognitionFeatures create() => RecognitionFeatures._();
   RecognitionFeatures createEmptyInstance() => create();
-  static $pb.PbList<RecognitionFeatures> createRepeated() =>
-      $pb.PbList<RecognitionFeatures>();
   @$core.pragma('dart2js:noInline')
   static RecognitionFeatures getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<RecognitionFeatures>(create);
@@ -2329,8 +2304,6 @@ class SpeechAdaptation_AdaptationPhraseSet extends $pb.GeneratedMessage {
   static SpeechAdaptation_AdaptationPhraseSet create() =>
       SpeechAdaptation_AdaptationPhraseSet._();
   SpeechAdaptation_AdaptationPhraseSet createEmptyInstance() => create();
-  static $pb.PbList<SpeechAdaptation_AdaptationPhraseSet> createRepeated() =>
-      $pb.PbList<SpeechAdaptation_AdaptationPhraseSet>();
   @$core.pragma('dart2js:noInline')
   static SpeechAdaptation_AdaptationPhraseSet getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<
@@ -2425,8 +2398,6 @@ class SpeechAdaptation extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static SpeechAdaptation create() => SpeechAdaptation._();
   SpeechAdaptation createEmptyInstance() => create();
-  static $pb.PbList<SpeechAdaptation> createRepeated() =>
-      $pb.PbList<SpeechAdaptation>();
   @$core.pragma('dart2js:noInline')
   static SpeechAdaptation getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<SpeechAdaptation>(create);
@@ -2531,8 +2502,6 @@ class RecognitionConfig extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static RecognitionConfig create() => RecognitionConfig._();
   RecognitionConfig createEmptyInstance() => create();
-  static $pb.PbList<RecognitionConfig> createRepeated() =>
-      $pb.PbList<RecognitionConfig>();
   @$core.pragma('dart2js:noInline')
   static RecognitionConfig getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<RecognitionConfig>(create);
@@ -2720,8 +2689,6 @@ class RecognizeRequest extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static RecognizeRequest create() => RecognizeRequest._();
   RecognizeRequest createEmptyInstance() => create();
-  static $pb.PbList<RecognizeRequest> createRepeated() =>
-      $pb.PbList<RecognizeRequest>();
   @$core.pragma('dart2js:noInline')
   static RecognizeRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<RecognizeRequest>(create);
@@ -2879,8 +2846,6 @@ class RecognitionResponseMetadata extends $pb.GeneratedMessage {
   static RecognitionResponseMetadata create() =>
       RecognitionResponseMetadata._();
   RecognitionResponseMetadata createEmptyInstance() => create();
-  static $pb.PbList<RecognitionResponseMetadata> createRepeated() =>
-      $pb.PbList<RecognitionResponseMetadata>();
   @$core.pragma('dart2js:noInline')
   static RecognitionResponseMetadata getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<RecognitionResponseMetadata>(create);
@@ -2961,8 +2926,6 @@ class SpeechRecognitionAlternative extends $pb.GeneratedMessage {
   static SpeechRecognitionAlternative create() =>
       SpeechRecognitionAlternative._();
   SpeechRecognitionAlternative createEmptyInstance() => create();
-  static $pb.PbList<SpeechRecognitionAlternative> createRepeated() =>
-      $pb.PbList<SpeechRecognitionAlternative>();
   @$core.pragma('dart2js:noInline')
   static SpeechRecognitionAlternative getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<SpeechRecognitionAlternative>(create);
@@ -3074,7 +3037,6 @@ class WordInfo extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static WordInfo create() => WordInfo._();
   WordInfo createEmptyInstance() => create();
-  static $pb.PbList<WordInfo> createRepeated() => $pb.PbList<WordInfo>();
   @$core.pragma('dart2js:noInline')
   static WordInfo getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<WordInfo>(create);
@@ -3234,8 +3196,6 @@ class SpeechRecognitionResult extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static SpeechRecognitionResult create() => SpeechRecognitionResult._();
   SpeechRecognitionResult createEmptyInstance() => create();
-  static $pb.PbList<SpeechRecognitionResult> createRepeated() =>
-      $pb.PbList<SpeechRecognitionResult>();
   @$core.pragma('dart2js:noInline')
   static SpeechRecognitionResult getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<SpeechRecognitionResult>(create);
@@ -3347,8 +3307,6 @@ class RecognizeResponse extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static RecognizeResponse create() => RecognizeResponse._();
   RecognizeResponse createEmptyInstance() => create();
-  static $pb.PbList<RecognizeResponse> createRepeated() =>
-      $pb.PbList<RecognizeResponse>();
   @$core.pragma('dart2js:noInline')
   static RecognizeResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<RecognizeResponse>(create);
@@ -3437,9 +3395,6 @@ class StreamingRecognitionFeatures_VoiceActivityTimeout
       StreamingRecognitionFeatures_VoiceActivityTimeout._();
   StreamingRecognitionFeatures_VoiceActivityTimeout createEmptyInstance() =>
       create();
-  static $pb.PbList<StreamingRecognitionFeatures_VoiceActivityTimeout>
-      createRepeated() =>
-          $pb.PbList<StreamingRecognitionFeatures_VoiceActivityTimeout>();
   @$core.pragma('dart2js:noInline')
   static StreamingRecognitionFeatures_VoiceActivityTimeout getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<
@@ -3540,8 +3495,6 @@ class StreamingRecognitionFeatures extends $pb.GeneratedMessage {
   static StreamingRecognitionFeatures create() =>
       StreamingRecognitionFeatures._();
   StreamingRecognitionFeatures createEmptyInstance() => create();
-  static $pb.PbList<StreamingRecognitionFeatures> createRepeated() =>
-      $pb.PbList<StreamingRecognitionFeatures>();
   @$core.pragma('dart2js:noInline')
   static StreamingRecognitionFeatures getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<StreamingRecognitionFeatures>(create);
@@ -3657,8 +3610,6 @@ class StreamingRecognitionConfig extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static StreamingRecognitionConfig create() => StreamingRecognitionConfig._();
   StreamingRecognitionConfig createEmptyInstance() => create();
-  static $pb.PbList<StreamingRecognitionConfig> createRepeated() =>
-      $pb.PbList<StreamingRecognitionConfig>();
   @$core.pragma('dart2js:noInline')
   static StreamingRecognitionConfig getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<StreamingRecognitionConfig>(create);
@@ -3818,8 +3769,6 @@ class StreamingRecognizeRequest extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static StreamingRecognizeRequest create() => StreamingRecognizeRequest._();
   StreamingRecognizeRequest createEmptyInstance() => create();
-  static $pb.PbList<StreamingRecognizeRequest> createRepeated() =>
-      $pb.PbList<StreamingRecognizeRequest>();
   @$core.pragma('dart2js:noInline')
   static StreamingRecognizeRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<StreamingRecognizeRequest>(create);
@@ -3960,8 +3909,6 @@ class BatchRecognizeRequest extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static BatchRecognizeRequest create() => BatchRecognizeRequest._();
   BatchRecognizeRequest createEmptyInstance() => create();
-  static $pb.PbList<BatchRecognizeRequest> createRepeated() =>
-      $pb.PbList<BatchRecognizeRequest>();
   @$core.pragma('dart2js:noInline')
   static BatchRecognizeRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<BatchRecognizeRequest>(create);
@@ -4107,8 +4054,6 @@ class GcsOutputConfig extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static GcsOutputConfig create() => GcsOutputConfig._();
   GcsOutputConfig createEmptyInstance() => create();
-  static $pb.PbList<GcsOutputConfig> createRepeated() =>
-      $pb.PbList<GcsOutputConfig>();
   @$core.pragma('dart2js:noInline')
   static GcsOutputConfig getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<GcsOutputConfig>(create);
@@ -4163,8 +4108,6 @@ class InlineOutputConfig extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static InlineOutputConfig create() => InlineOutputConfig._();
   InlineOutputConfig createEmptyInstance() => create();
-  static $pb.PbList<InlineOutputConfig> createRepeated() =>
-      $pb.PbList<InlineOutputConfig>();
   @$core.pragma('dart2js:noInline')
   static InlineOutputConfig getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<InlineOutputConfig>(create);
@@ -4236,8 +4179,6 @@ class RecognitionOutputConfig extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static RecognitionOutputConfig create() => RecognitionOutputConfig._();
   RecognitionOutputConfig createEmptyInstance() => create();
-  static $pb.PbList<RecognitionOutputConfig> createRepeated() =>
-      $pb.PbList<RecognitionOutputConfig>();
   @$core.pragma('dart2js:noInline')
   static RecognitionOutputConfig getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<RecognitionOutputConfig>(create);
@@ -4343,8 +4284,6 @@ class BatchRecognizeResponse extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static BatchRecognizeResponse create() => BatchRecognizeResponse._();
   BatchRecognizeResponse createEmptyInstance() => create();
-  static $pb.PbList<BatchRecognizeResponse> createRepeated() =>
-      $pb.PbList<BatchRecognizeResponse>();
   @$core.pragma('dart2js:noInline')
   static BatchRecognizeResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<BatchRecognizeResponse>(create);
@@ -4425,8 +4364,6 @@ class BatchRecognizeResults extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static BatchRecognizeResults create() => BatchRecognizeResults._();
   BatchRecognizeResults createEmptyInstance() => create();
-  static $pb.PbList<BatchRecognizeResults> createRepeated() =>
-      $pb.PbList<BatchRecognizeResults>();
   @$core.pragma('dart2js:noInline')
   static BatchRecognizeResults getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<BatchRecognizeResults>(create);
@@ -4516,8 +4453,6 @@ class BatchRecognizeFileResult extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static BatchRecognizeFileResult create() => BatchRecognizeFileResult._();
   BatchRecognizeFileResult createEmptyInstance() => create();
-  static $pb.PbList<BatchRecognizeFileResult> createRepeated() =>
-      $pb.PbList<BatchRecognizeFileResult>();
   @$core.pragma('dart2js:noInline')
   static BatchRecognizeFileResult getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<BatchRecognizeFileResult>(create);
@@ -4645,8 +4580,6 @@ class BatchRecognizeTranscriptionMetadata extends $pb.GeneratedMessage {
   static BatchRecognizeTranscriptionMetadata create() =>
       BatchRecognizeTranscriptionMetadata._();
   BatchRecognizeTranscriptionMetadata createEmptyInstance() => create();
-  static $pb.PbList<BatchRecognizeTranscriptionMetadata> createRepeated() =>
-      $pb.PbList<BatchRecognizeTranscriptionMetadata>();
   @$core.pragma('dart2js:noInline')
   static BatchRecognizeTranscriptionMetadata getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<
@@ -4749,8 +4682,6 @@ class BatchRecognizeMetadata extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static BatchRecognizeMetadata create() => BatchRecognizeMetadata._();
   BatchRecognizeMetadata createEmptyInstance() => create();
-  static $pb.PbList<BatchRecognizeMetadata> createRepeated() =>
-      $pb.PbList<BatchRecognizeMetadata>();
   @$core.pragma('dart2js:noInline')
   static BatchRecognizeMetadata getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<BatchRecognizeMetadata>(create);
@@ -4828,8 +4759,6 @@ class BatchRecognizeFileMetadata extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static BatchRecognizeFileMetadata create() => BatchRecognizeFileMetadata._();
   BatchRecognizeFileMetadata createEmptyInstance() => create();
-  static $pb.PbList<BatchRecognizeFileMetadata> createRepeated() =>
-      $pb.PbList<BatchRecognizeFileMetadata>();
   @$core.pragma('dart2js:noInline')
   static BatchRecognizeFileMetadata getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<BatchRecognizeFileMetadata>(create);
@@ -4977,8 +4906,6 @@ class StreamingRecognitionResult extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static StreamingRecognitionResult create() => StreamingRecognitionResult._();
   StreamingRecognitionResult createEmptyInstance() => create();
-  static $pb.PbList<StreamingRecognitionResult> createRepeated() =>
-      $pb.PbList<StreamingRecognitionResult>();
   @$core.pragma('dart2js:noInline')
   static StreamingRecognitionResult getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<StreamingRecognitionResult>(create);
@@ -5191,8 +5118,6 @@ class StreamingRecognizeResponse extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static StreamingRecognizeResponse create() => StreamingRecognizeResponse._();
   StreamingRecognizeResponse createEmptyInstance() => create();
-  static $pb.PbList<StreamingRecognizeResponse> createRepeated() =>
-      $pb.PbList<StreamingRecognizeResponse>();
   @$core.pragma('dart2js:noInline')
   static StreamingRecognizeResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<StreamingRecognizeResponse>(create);
@@ -5307,7 +5232,6 @@ class Config extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static Config create() => Config._();
   Config createEmptyInstance() => create();
-  static $pb.PbList<Config> createRepeated() => $pb.PbList<Config>();
   @$core.pragma('dart2js:noInline')
   static Config getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Config>(create);
@@ -5406,8 +5330,6 @@ class GetConfigRequest extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static GetConfigRequest create() => GetConfigRequest._();
   GetConfigRequest createEmptyInstance() => create();
-  static $pb.PbList<GetConfigRequest> createRepeated() =>
-      $pb.PbList<GetConfigRequest>();
   @$core.pragma('dart2js:noInline')
   static GetConfigRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<GetConfigRequest>(create);
@@ -5479,8 +5401,6 @@ class UpdateConfigRequest extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static UpdateConfigRequest create() => UpdateConfigRequest._();
   UpdateConfigRequest createEmptyInstance() => create();
-  static $pb.PbList<UpdateConfigRequest> createRepeated() =>
-      $pb.PbList<UpdateConfigRequest>();
   @$core.pragma('dart2js:noInline')
   static UpdateConfigRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<UpdateConfigRequest>(create);
@@ -5565,8 +5485,6 @@ class CustomClass_ClassItem extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static CustomClass_ClassItem create() => CustomClass_ClassItem._();
   CustomClass_ClassItem createEmptyInstance() => create();
-  static $pb.PbList<CustomClass_ClassItem> createRepeated() =>
-      $pb.PbList<CustomClass_ClassItem>();
   @$core.pragma('dart2js:noInline')
   static CustomClass_ClassItem getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<CustomClass_ClassItem>(create);
@@ -5710,7 +5628,6 @@ class CustomClass extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static CustomClass create() => CustomClass._();
   CustomClass createEmptyInstance() => create();
-  static $pb.PbList<CustomClass> createRepeated() => $pb.PbList<CustomClass>();
   @$core.pragma('dart2js:noInline')
   static CustomClass getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<CustomClass>(create);
@@ -5958,8 +5875,6 @@ class PhraseSet_Phrase extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static PhraseSet_Phrase create() => PhraseSet_Phrase._();
   PhraseSet_Phrase createEmptyInstance() => create();
-  static $pb.PbList<PhraseSet_Phrase> createRepeated() =>
-      $pb.PbList<PhraseSet_Phrase>();
   @$core.pragma('dart2js:noInline')
   static PhraseSet_Phrase getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<PhraseSet_Phrase>(create);
@@ -6128,7 +6043,6 @@ class PhraseSet extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static PhraseSet create() => PhraseSet._();
   PhraseSet createEmptyInstance() => create();
-  static $pb.PbList<PhraseSet> createRepeated() => $pb.PbList<PhraseSet>();
   @$core.pragma('dart2js:noInline')
   static PhraseSet getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<PhraseSet>(create);
@@ -6400,8 +6314,6 @@ class CreateCustomClassRequest extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static CreateCustomClassRequest create() => CreateCustomClassRequest._();
   CreateCustomClassRequest createEmptyInstance() => create();
-  static $pb.PbList<CreateCustomClassRequest> createRepeated() =>
-      $pb.PbList<CreateCustomClassRequest>();
   @$core.pragma('dart2js:noInline')
   static CreateCustomClassRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<CreateCustomClassRequest>(create);
@@ -6529,8 +6441,6 @@ class ListCustomClassesRequest extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static ListCustomClassesRequest create() => ListCustomClassesRequest._();
   ListCustomClassesRequest createEmptyInstance() => create();
-  static $pb.PbList<ListCustomClassesRequest> createRepeated() =>
-      $pb.PbList<ListCustomClassesRequest>();
   @$core.pragma('dart2js:noInline')
   static ListCustomClassesRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<ListCustomClassesRequest>(create);
@@ -6652,8 +6562,6 @@ class ListCustomClassesResponse extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static ListCustomClassesResponse create() => ListCustomClassesResponse._();
   ListCustomClassesResponse createEmptyInstance() => create();
-  static $pb.PbList<ListCustomClassesResponse> createRepeated() =>
-      $pb.PbList<ListCustomClassesResponse>();
   @$core.pragma('dart2js:noInline')
   static ListCustomClassesResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<ListCustomClassesResponse>(create);
@@ -6726,8 +6634,6 @@ class GetCustomClassRequest extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static GetCustomClassRequest create() => GetCustomClassRequest._();
   GetCustomClassRequest createEmptyInstance() => create();
-  static $pb.PbList<GetCustomClassRequest> createRepeated() =>
-      $pb.PbList<GetCustomClassRequest>();
   @$core.pragma('dart2js:noInline')
   static GetCustomClassRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<GetCustomClassRequest>(create);
@@ -6806,8 +6712,6 @@ class UpdateCustomClassRequest extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static UpdateCustomClassRequest create() => UpdateCustomClassRequest._();
   UpdateCustomClassRequest createEmptyInstance() => create();
-  static $pb.PbList<UpdateCustomClassRequest> createRepeated() =>
-      $pb.PbList<UpdateCustomClassRequest>();
   @$core.pragma('dart2js:noInline')
   static UpdateCustomClassRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<UpdateCustomClassRequest>(create);
@@ -6924,8 +6828,6 @@ class DeleteCustomClassRequest extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static DeleteCustomClassRequest create() => DeleteCustomClassRequest._();
   DeleteCustomClassRequest createEmptyInstance() => create();
-  static $pb.PbList<DeleteCustomClassRequest> createRepeated() =>
-      $pb.PbList<DeleteCustomClassRequest>();
   @$core.pragma('dart2js:noInline')
   static DeleteCustomClassRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DeleteCustomClassRequest>(create);
@@ -7048,8 +6950,6 @@ class UndeleteCustomClassRequest extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static UndeleteCustomClassRequest create() => UndeleteCustomClassRequest._();
   UndeleteCustomClassRequest createEmptyInstance() => create();
-  static $pb.PbList<UndeleteCustomClassRequest> createRepeated() =>
-      $pb.PbList<UndeleteCustomClassRequest>();
   @$core.pragma('dart2js:noInline')
   static UndeleteCustomClassRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<UndeleteCustomClassRequest>(create);
@@ -7162,8 +7062,6 @@ class CreatePhraseSetRequest extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static CreatePhraseSetRequest create() => CreatePhraseSetRequest._();
   CreatePhraseSetRequest createEmptyInstance() => create();
-  static $pb.PbList<CreatePhraseSetRequest> createRepeated() =>
-      $pb.PbList<CreatePhraseSetRequest>();
   @$core.pragma('dart2js:noInline')
   static CreatePhraseSetRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<CreatePhraseSetRequest>(create);
@@ -7291,8 +7189,6 @@ class ListPhraseSetsRequest extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static ListPhraseSetsRequest create() => ListPhraseSetsRequest._();
   ListPhraseSetsRequest createEmptyInstance() => create();
-  static $pb.PbList<ListPhraseSetsRequest> createRepeated() =>
-      $pb.PbList<ListPhraseSetsRequest>();
   @$core.pragma('dart2js:noInline')
   static ListPhraseSetsRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<ListPhraseSetsRequest>(create);
@@ -7412,8 +7308,6 @@ class ListPhraseSetsResponse extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static ListPhraseSetsResponse create() => ListPhraseSetsResponse._();
   ListPhraseSetsResponse createEmptyInstance() => create();
-  static $pb.PbList<ListPhraseSetsResponse> createRepeated() =>
-      $pb.PbList<ListPhraseSetsResponse>();
   @$core.pragma('dart2js:noInline')
   static ListPhraseSetsResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<ListPhraseSetsResponse>(create);
@@ -7484,8 +7378,6 @@ class GetPhraseSetRequest extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static GetPhraseSetRequest create() => GetPhraseSetRequest._();
   GetPhraseSetRequest createEmptyInstance() => create();
-  static $pb.PbList<GetPhraseSetRequest> createRepeated() =>
-      $pb.PbList<GetPhraseSetRequest>();
   @$core.pragma('dart2js:noInline')
   static GetPhraseSetRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<GetPhraseSetRequest>(create);
@@ -7564,8 +7456,6 @@ class UpdatePhraseSetRequest extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static UpdatePhraseSetRequest create() => UpdatePhraseSetRequest._();
   UpdatePhraseSetRequest createEmptyInstance() => create();
-  static $pb.PbList<UpdatePhraseSetRequest> createRepeated() =>
-      $pb.PbList<UpdatePhraseSetRequest>();
   @$core.pragma('dart2js:noInline')
   static UpdatePhraseSetRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<UpdatePhraseSetRequest>(create);
@@ -7681,8 +7571,6 @@ class DeletePhraseSetRequest extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static DeletePhraseSetRequest create() => DeletePhraseSetRequest._();
   DeletePhraseSetRequest createEmptyInstance() => create();
-  static $pb.PbList<DeletePhraseSetRequest> createRepeated() =>
-      $pb.PbList<DeletePhraseSetRequest>();
   @$core.pragma('dart2js:noInline')
   static DeletePhraseSetRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DeletePhraseSetRequest>(create);
@@ -7803,8 +7691,6 @@ class UndeletePhraseSetRequest extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static UndeletePhraseSetRequest create() => UndeletePhraseSetRequest._();
   UndeletePhraseSetRequest createEmptyInstance() => create();
-  static $pb.PbList<UndeletePhraseSetRequest> createRepeated() =>
-      $pb.PbList<UndeletePhraseSetRequest>();
   @$core.pragma('dart2js:noInline')
   static UndeletePhraseSetRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<UndeletePhraseSetRequest>(create);

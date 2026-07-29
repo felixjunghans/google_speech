@@ -73,8 +73,6 @@ class LabelDescriptor extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static LabelDescriptor create() => LabelDescriptor._();
   LabelDescriptor createEmptyInstance() => create();
-  static $pb.PbList<LabelDescriptor> createRepeated() =>
-      $pb.PbList<LabelDescriptor>();
   @$core.pragma('dart2js:noInline')
   static LabelDescriptor getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<LabelDescriptor>(create);

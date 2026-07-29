@@ -4,8 +4,6 @@ import 'dart:async';
 import 'dart:collection';
 
 import 'package:google_speech/auth/third_party_authenticator.dart';
-import 'package:google_speech/generated/google/cloud/speech/v1p1beta1/cloud_speech.pb.dart'
-    hide RecognitionConfig, StreamingRecognitionConfig;
 import 'package:google_speech/generated/google/cloud/speech/v1p1beta1/cloud_speech.pbgrpc.dart'
     hide RecognitionConfig, StreamingRecognitionConfig;
 import 'package:google_speech/speech_client_authenticator.dart';
