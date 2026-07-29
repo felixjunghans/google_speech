@@ -9,8 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  grpc: ^4.0.4
-  protobuf: ^4.0.0
+  grpc: ^5.1.0
+  protobuf: ^6.0.0
   path_provider: ^2.1.2
   fixnum: ^1.1.0
   meta: ^1.9.1
